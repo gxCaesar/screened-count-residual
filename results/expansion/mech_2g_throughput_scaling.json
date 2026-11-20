@@ -1,0 +1,65 @@
+{
+  "schema": "mech-2g-v2-fitted-cg",
+  "profiles": [
+    {
+      "resolution": "256x256",
+      "hw": 256,
+      "gpu_name": "NVIDIA H100 80GB HBM3",
+      "scope": "2-seed per-channel fitted checkpoint inference (22 FP64 CG steps, excluding upstream generator)",
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm": 7.930189,
+      "max_cg_rel_residual": 2.7686580189386784e-16,
+      "max_dc_drift": 0.0,
+      "gpu_ms_2seed": 16.263,
+      "gpu_tiles_per_sec_2seed": 61.49,
+      "gpu_wsi_10k_sec_2seed": 162.6,
+      "gpu_peak_vram_mb": 121.34,
+      "cpu_ms_2seed": 136.58
+    },
+    {
+      "resolution": "512x512",
+      "hw": 512,
+      "gpu_name": "NVIDIA H100 80GB HBM3",
+      "scope": "2-seed per-channel fitted checkpoint inference (22 FP64 CG steps, excluding upstream generator)",
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm": 16.700752,
+      "max_cg_rel_residual": 2.828914242226332e-16,
+      "max_dc_drift": 1.0842021724855044e-19,
+      "gpu_ms_2seed": 18.409,
+      "gpu_tiles_per_sec_2seed": 54.32,
+      "gpu_wsi_10k_sec_2seed": 184.1,
+      "gpu_peak_vram_mb": 301.34,
+      "cpu_ms_2seed": 919.93
+    },
+    {
+      "resolution": "1024x1024",
+      "hw": 1024,
+      "gpu_name": "NVIDIA H100 80GB HBM3",
+      "scope": "2-seed per-channel fitted checkpoint inference (22 FP64 CG steps, excluding upstream generator)",
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm": 35.2988,
+      "max_cg_rel_residual": 2.8231442145864576e-16,
+      "max_dc_drift": 6.776263578034403e-20,
+      "gpu_ms_2seed": 31.509,
+      "gpu_tiles_per_sec_2seed": 31.74,
+      "gpu_wsi_10k_sec_2seed": 315.1,
+      "gpu_peak_vram_mb": 1113.34,
+      "cpu_ms_2seed": 3549.98
+    },
+    {
+      "resolution": "2048x2048",
+      "hw": 2048,
+      "gpu_name": "NVIDIA H100 80GB HBM3",
+      "scope": "2-seed per-channel fitted checkpoint inference (22 FP64 CG steps, excluding upstream generator)",
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm": 72.418135,
+      "max_cg_rel_residual": 2.8244800861301484e-16,
+      "max_dc_drift": 5.421010862427522e-20,
+      "gpu_ms_2seed": 92.073,
+      "gpu_tiles_per_sec_2seed": 10.86,
+      "gpu_wsi_10k_sec_2seed": 920.7,
+      "gpu_peak_vram_mb": 4313.34,
+      "cpu_ms_2seed": null
+    }
+  ]
+}

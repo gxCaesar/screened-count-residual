@@ -1,0 +1,87 @@
+{
+  "schema": "exp7a-v1",
+  "HEMIT_to_Orion_zeroshot": {
+    "miphei_convnext": {
+      "Pan-CK": {
+        "frozen_f1": 0.84814,
+        "zeroshot_f1": 0.77627,
+        "delta_f1": -0.07186,
+        "frozen_ssim": 0.72956,
+        "zeroshot_ssim": 0.62514
+      },
+      "CD3e": {
+        "frozen_f1": 0.40709,
+        "zeroshot_f1": 0.34969,
+        "delta_f1": -0.0574,
+        "frozen_ssim": 0.84773,
+        "zeroshot_ssim": 0.7023
+      }
+    },
+    "rosie_orion": {
+      "Pan-CK": {
+        "frozen_f1": 0.77755,
+        "zeroshot_f1": 0.73915,
+        "delta_f1": -0.0384,
+        "frozen_ssim": 0.63959,
+        "zeroshot_ssim": 0.57293
+      },
+      "CD3e": {
+        "frozen_f1": 0.22765,
+        "zeroshot_f1": 0.20593,
+        "delta_f1": -0.02172,
+        "frozen_ssim": 0.81165,
+        "zeroshot_ssim": 0.66688
+      }
+    }
+  },
+  "Orion_to_HEMIT_zeroshot": {
+    "sanofi_miphei_convnext": {
+      "panCK": {
+        "frozen_f1": 0.59871,
+        "zeroshot_f1": 0.60215,
+        "delta_f1": 0.00344,
+        "frozen_ssim": 0.39973,
+        "zeroshot_ssim": 0.41608
+      },
+      "CD3": {
+        "frozen_f1": 2e-05,
+        "zeroshot_f1": 0.0145,
+        "delta_f1": 0.01448,
+        "frozen_ssim": 0.78564,
+        "zeroshot_ssim": 0.7225
+      }
+    },
+    "sanofi_pix2pix": {
+      "panCK": {
+        "frozen_f1": 0.04057,
+        "zeroshot_f1": 0.04364,
+        "delta_f1": 0.00307,
+        "frozen_ssim": 0.50423,
+        "zeroshot_ssim": 0.50983
+      },
+      "CD3": {
+        "frozen_f1": 0.05197,
+        "zeroshot_f1": 0.06087,
+        "delta_f1": 0.00889,
+        "frozen_ssim": 0.84812,
+        "zeroshot_ssim": 0.78011
+      }
+    },
+    "native_dgr": {
+      "panCK": {
+        "frozen_f1": 0.82251,
+        "zeroshot_f1": 0.82005,
+        "delta_f1": -0.00246,
+        "frozen_ssim": 0.75898,
+        "zeroshot_ssim": 0.73401
+      },
+      "CD3": {
+        "frozen_f1": 0.54788,
+        "zeroshot_f1": 0.54172,
+        "delta_f1": -0.00615,
+        "frozen_ssim": 0.87491,
+        "zeroshot_ssim": 0.87026
+      }
+    }
+  }
+}

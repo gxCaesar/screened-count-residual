@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use Screened Count Residual in your research, please cite this software and the accompanying article."
+title: "Screened Count Residual: Spatial Threshold Calibration for Virtual Immunostaining"
+version: 1.1.0
+date-released: 2026-11-20
+license: MIT
+repository-code: "https://github.com/gxCaesar/screened-count-residual"
+authors:
+  - given-names: Guanxing
+    family-names: Chen
+    email: guanxing.chen@cityu-dg.edu.cn
+    affiliation: "Department of Computer Science, City University of Hong Kong (Dongguan)"
+    orcid: "https://orcid.org/0000-0002-4435-0884"
+  - given-names: Haohuai
+    family-names: He
+    email: haohuai.he@connect.polyu.hk
+    affiliation: "Department of Data Science and Artificial Intelligence, The Hong Kong Polytechnic University"
+    orcid: "https://orcid.org/0000-0003-3831-3996"
+  - given-names: Zhenchao
+    family-names: Tang
+    affiliation: "AI for Life Sciences Lab, Tencent"
+    orcid: "https://orcid.org/0000-0003-4258-1301"
+  - given-names: Yu-An
+    family-names: Huang
+    email: yuanhuang@nwpu.edu.cn
+    affiliation: "School of Computer Science, Northwestern Polytechnical University"
+    orcid: "https://orcid.org/0000-0002-5346-2394"
+  - given-names: Zhi-An
+    family-names: Huang
+    email: huang.za@cityu-dg.edu.cn
+    affiliation: "Department of Computer Science, City University of Hong Kong (Dongguan)"
+    orcid: "https://orcid.org/0000-0001-9974-148X"

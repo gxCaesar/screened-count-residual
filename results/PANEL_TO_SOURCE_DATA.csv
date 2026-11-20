@@ -1,15 +1,17 @@
 figure,panels,primary_source_data_csv,auxiliary_source_data_csvs
-Figure 1,a-h,fig1_source_data.csv,inference_latency_and_clip_audit.csv
-Figure 2,a-h,fig2_source_data.csv,ed_fig2_source_data.csv;hemit_per_seed_stability.csv
-Figure 3,a-h,fig3_source_data.csv,fig2_source_data.csv
-Figure 4,a-h,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv
-Figure 5,a-h,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
-Figure 6,a-h,fig6_source_data.csv,ed_fig5_source_data.csv
-Extended Data Figure 1,a-h,ed_fig1_source_data.csv,fig2_source_data.csv;inference_latency_and_clip_audit.csv
-Extended Data Figure 2,a-h,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
-Extended Data Figure 3,a-h,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
-Extended Data Figure 4,a-h,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
-Extended Data Figure 5,a-h,ed_fig5_source_data.csv,fig6_source_data.csv
-Extended Data Figure 6,a-h,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;inference_latency_and_clip_audit.csv
-Supplementary Figure 1,a-h,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
-Supplementary Figure 2,a-h,supp_fig2_source_data.csv,fig1_source_data.csv
+Figure 1,a-k,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 2,a-k,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 3,a-n,fig3_source_data.csv,fig2_source_data.csv
+Figure 4,a-k,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv;supp_fig2_source_data.csv
+Figure 5,a-k,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 6,a-k,fig6_source_data.csv,fig6_tile_burden_scatter.csv;ed_fig5_source_data.csv;supp_fig2_source_data.csv
+Extended Data Figure 1,a-k,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 2,a-k,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 3,a-k,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 4,a-k,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 5,a-k,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 6,a-k,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 7,a-j,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 8,a-k,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Supplementary Figure 1,a-l,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,a-l,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv

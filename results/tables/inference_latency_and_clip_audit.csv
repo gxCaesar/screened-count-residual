@@ -1,6 +1,0 @@
-cohort,item,hardware,latency_sec,preclip_dc_max,cg_rel_res_max,postclip_mean_shift_u8,her2_hdab_fallback_max_diff
-Benchmark,2seed_512x512_per_channel_cpu,CPU (arm64),0.8213,0.0,0.0,0.0,0
-HEMIT,sanofi_miphei_vit,Held-out test crops,0.8213,0.0,0.0,0.552,0
-HEMIT,native_hybrid_donor,Held-out test crops,0.8213,0.0,0.0,0.0285,0
-Orion-CRC,orion_miphei_convnext,Held-out test crops,0.8213,0.0,0.0,0.294,0
-HER2match,her2_hoptimus_lora_ihc,Held-out test crops,0.8213,0.0,0.0,0.022,0

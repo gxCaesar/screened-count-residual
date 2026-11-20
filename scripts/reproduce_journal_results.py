@@ -55,9 +55,21 @@ def main() -> int:
     )
     assert 0.5 < float(ora_res["c_index"]) <= 1.0
 
+    # Verify full 5-fold Orion-CRC (30/30 wins) and 20-generator x 12-arm comparator table
+    exp_dir = ROOT / "results" / "expansion"
+    df_o5 = pd.read_csv(exp_dir / "orion_5fold_n40_16ch.csv")
+    df_c12 = pd.read_csv(exp_dir / "comp12_all20.csv")
+    assert len(df_o5) == 30, f"Expected 30 Orion 5-fold rows, got {len(df_o5)}"
+    assert int((df_o5["sc_f1"] > df_o5["up_f1"]).sum()) == 30
+    assert int((df_o5["sc_f1"] > df_o5["sr_f1"]).sum()) == 30
+    assert len(df_c12) == 20 and int(df_c12["s_dice_f1"].notna().sum()) == 20
+    assert int((df_c12["s_count_f1"] > df_c12["s_dice_f1"]).sum()) == 18
+    assert int((df_c12["s_count_f1"] > df_c12["s_bce_f1"]).sum()) == 18
+
     print(
         f"Verified 20 frozen generator instances across 3 cohorts: "
         f"wins={wins_up}/20, mean_delta={mean_gain_up:+.6f}, wilcoxon_p={p_wilcox:.3e}, "
+        f"orion_5fold_wins=30/30, comp12_vs_dice=18/20, comp12_vs_bce=18/20, "
         f"determinism_480_max_diff={float(df_det['abs_diff'].max()):.1f}, "
         f"Orion N=40 oracle C-index={ora_res['c_index']:.4f}"
     )

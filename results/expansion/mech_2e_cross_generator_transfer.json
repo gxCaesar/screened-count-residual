@@ -1,0 +1,94 @@
+{
+  "schema": "mech-2e-v1",
+  "backbones": [
+    "sanofi_miphei_convnext",
+    "sanofi_miphei_hemit",
+    "sanofi_pix2pix",
+    "native_dgr",
+    "native_hemit_fml"
+  ],
+  "transfer_matrix": {
+    "sanofi_miphei_convnext": {
+      "sanofi_miphei_convnext": 0.6579477741934503,
+      "sanofi_miphei_hemit": 0.65305205713363,
+      "sanofi_pix2pix": 0.5049952685782358,
+      "native_dgr": 0.7298095903644161,
+      "native_hemit_fml": 0.7448875716313591
+    },
+    "sanofi_miphei_hemit": {
+      "sanofi_miphei_convnext": 0.6449445207910514,
+      "sanofi_miphei_hemit": 0.648273664443074,
+      "sanofi_pix2pix": 0.5437705154337356,
+      "native_dgr": 0.7459352121139089,
+      "native_hemit_fml": 0.7616584124144171
+    },
+    "sanofi_pix2pix": {
+      "sanofi_miphei_convnext": 0.5193622098349713,
+      "sanofi_miphei_hemit": 0.5125308339994284,
+      "sanofi_pix2pix": 0.49480653567107097,
+      "native_dgr": 0.7659627620252077,
+      "native_hemit_fml": 0.804737377406206
+    },
+    "native_dgr": {
+      "sanofi_miphei_convnext": 0.5160482643366271,
+      "sanofi_miphei_hemit": 0.5084103781118916,
+      "sanofi_pix2pix": 0.3027585093557978,
+      "native_dgr": 0.7849381091875399,
+      "native_hemit_fml": 0.8358893326246731
+    },
+    "native_hemit_fml": {
+      "sanofi_miphei_convnext": 0.48517337629536716,
+      "sanofi_miphei_hemit": 0.4864525156279915,
+      "sanofi_pix2pix": 0.2690792878436509,
+      "native_dgr": 0.7804714668263216,
+      "native_hemit_fml": 0.8401754381085501
+    }
+  },
+  "pooled_universal": {
+    "sanofi_miphei_convnext": {
+      "Fixed_tol_F1": 0.5623632901143955,
+      "Cal_F1": 0.6075653672712577,
+      "ODS_F": 0.6309761793146031,
+      "AP": 0.6016118319941676,
+      "SSIM": 0.6072076601438102,
+      "PSNR_dB": 21.38502639176504,
+      "mismatch_gap_ods_minus_fixed": 0.06861288920020767
+    },
+    "sanofi_miphei_hemit": {
+      "Fixed_tol_F1": 0.5624019811983074,
+      "Cal_F1": 0.5957173982760654,
+      "ODS_F": 0.6190365912082813,
+      "AP": 0.5767427061970004,
+      "SSIM": 0.6370904464501663,
+      "PSNR_dB": 22.214284133336747,
+      "mismatch_gap_ods_minus_fixed": 0.05663461000997382
+    },
+    "sanofi_pix2pix": {
+      "Fixed_tol_F1": 0.48317174133227825,
+      "Cal_F1": 0.5339001459367833,
+      "ODS_F": 0.575812326774836,
+      "AP": 0.49713841772075246,
+      "SSIM": 0.5375069805048037,
+      "PSNR_dB": 22.006115138731328,
+      "mismatch_gap_ods_minus_fixed": 0.09264058544255767
+    },
+    "native_dgr": {
+      "Fixed_tol_F1": 0.7852005819520053,
+      "Cal_F1": 0.7852434775051079,
+      "ODS_F": 0.7927321063353502,
+      "AP": 0.7437541486428599,
+      "SSIM": 0.7764794493288699,
+      "PSNR_dB": 29.474509024428727,
+      "mismatch_gap_ods_minus_fixed": 0.007531524383344923
+    },
+    "native_hemit_fml": {
+      "Fixed_tol_F1": 0.830019590361147,
+      "Cal_F1": 0.8349956888396436,
+      "ODS_F": 0.8435144260953157,
+      "AP": 0.825565543099295,
+      "SSIM": 0.7876850662979976,
+      "PSNR_dB": 29.829338242174373,
+      "mismatch_gap_ods_minus_fixed": 0.013494835734168653
+    }
+  }
+}
