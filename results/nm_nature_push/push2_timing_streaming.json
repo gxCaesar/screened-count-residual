@@ -1,0 +1,68 @@
+{
+  "schema": "push2-streaming-timing-v1",
+  "device_name": "NVIDIA H100 80GB HBM3",
+  "profiles": [
+    {
+      "resolution": "256x256",
+      "hw": 256,
+      "n_distinct_real_tiles": 100,
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm_L_psi": 0.335558,
+      "min_sol_norm_r": 0.273631,
+      "cg_rel_residual_max": 2.903902207911722e-16,
+      "preclip_dc_drift_max": 8.673617379884035e-19,
+      "gpu_ms_2seed_bs1_with_h2d": 63.962,
+      "gpu_ms_2seed_batched": 10.93,
+      "batch_size_timed": 8,
+      "gpu_tiles_per_sec_bs1": 15.63,
+      "gpu_tiles_per_sec_batched": 91.49,
+      "gpu_peak_vram_mb": 111.34
+    },
+    {
+      "resolution": "512x512",
+      "hw": 512,
+      "n_distinct_real_tiles": 100,
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm_L_psi": 0.474641,
+      "min_sol_norm_r": 0.387352,
+      "cg_rel_residual_max": 2.8461690486362843e-16,
+      "preclip_dc_drift_max": 4.336808689942018e-19,
+      "gpu_ms_2seed_bs1_with_h2d": 63.354,
+      "gpu_ms_2seed_batched": 25.208,
+      "batch_size_timed": 8,
+      "gpu_tiles_per_sec_bs1": 15.78,
+      "gpu_tiles_per_sec_batched": 39.67,
+      "gpu_peak_vram_mb": 321.34
+    },
+    {
+      "resolution": "1024x1024",
+      "hw": 1024,
+      "n_distinct_real_tiles": 25,
+      "nonzero_rhs_frac": 1.0,
+      "min_rhs_norm_L_psi": 23.293448,
+      "min_sol_norm_r": 19.317379,
+      "cg_rel_residual_max": 2.800740855270955e-16,
+      "preclip_dc_drift_max": 2.168404344971009e-19,
+      "gpu_ms_2seed_bs1_with_h2d": 123.303,
+      "gpu_ms_2seed_batched": 91.551,
+      "batch_size_timed": 2,
+      "gpu_tiles_per_sec_bs1": 8.11,
+      "gpu_tiles_per_sec_batched": 10.92,
+      "gpu_peak_vram_mb": 1181.34
+    }
+  ],
+  "streaming_1000_tiles_512_bs8_sec": 16.986,
+  "streaming_1000_tiles_512_ms_per_tile": 16.986,
+  "upstream_overhead_comparison": {
+    "DoubleConv_UNet_7.76M": {
+      "upstream_ms_per_512_tile_bs8": 5.666,
+      "head_3ch_2seed_ms_bs8": 75.624,
+      "head_overhead_pct_of_3ch_pipeline": 93.03
+    },
+    "ResNet34_UNet_24.4M": {
+      "upstream_ms_per_512_tile_bs8": 12.127,
+      "head_3ch_2seed_ms_bs8": 75.624,
+      "head_overhead_pct_of_3ch_pipeline": 86.18
+    }
+  }
+}

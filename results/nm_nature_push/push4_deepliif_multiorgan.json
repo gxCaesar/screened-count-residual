@@ -1,0 +1,4697 @@
+{
+  "schema": "push4-deepliif-multiorgan-v1",
+  "img_size": 256,
+  "suites": {
+    "lung_bladder_ihc_to_mif": {
+      "suite": "lung_bladder_ihc_to_mif",
+      "n_train": 575,
+      "n_val": 91,
+      "n_eval": 598,
+      "organs_eval": {
+        "Lung": 473,
+        "Bladder": 125
+      },
+      "cutoffs_u8": [
+        63,
+        37,
+        34
+      ],
+      "physical_cell_ki67_cutoff": 13.0,
+      "physical_train_cell_ki67_f1": 0.9319,
+      "backbones": {
+        "deepliif_unet": {
+          "upstream_info": {
+            "params": 7763107,
+            "best_epoch": 24,
+            "best_val_l1": 0.035796,
+            "train_sec": 54.4
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.8885171075299909,
+                "ODS_F": 0.9257322211602226,
+                "AP": 0.9454783462071511,
+                "Cal_F1": 0.9188540746354228,
+                "SSIM": 0.680565339271585,
+                "PSNR_dB": 25.46852588456473,
+                "Exact_r0_F1": 0.5861340249590561,
+                "mismatch_gap_ods_minus_fixed": 0.0372151136302317
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9821969178984221,
+                  "ODS_threshold": 61,
+                  "AP": 0.9928159389947407,
+                  "Fixed_tol_F1": 0.9820475191737225,
+                  "Cal_F1": 0.9821185986442217,
+                  "Fixed_exact_F1": 0.7476673666461404,
+                  "mismatch_gap_ods_minus_fixed": 0.00014939872469965643,
+                  "SSIM": 0.7348747715497665,
+                  "PSNR_dB": 22.848839800177874,
+                  "train_calibrated_threshold": 60,
+                  "Exact_r0_F1": 0.7476673666461404,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9653206643491633,
+                    "Lung": 0.9873749770496144
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.895097015290985,
+                  "ODS_threshold": 23,
+                  "AP": 0.9137944910555665,
+                  "Fixed_tol_F1": 0.7855458185957143,
+                  "Cal_F1": 0.8903027221995108,
+                  "Fixed_exact_F1": 0.3692564359681541,
+                  "mismatch_gap_ods_minus_fixed": 0.10955119669527069,
+                  "SSIM": 0.4590259874336347,
+                  "PSNR_dB": 22.503844043972546,
+                  "train_calibrated_threshold": 18,
+                  "Exact_r0_F1": 0.3692564359681541,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.7402189236330594,
+                    "Lung": 0.8007027123423394
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.899902730291261,
+                  "ODS_threshold": 31,
+                  "AP": 0.9298246085711459,
+                  "Fixed_tol_F1": 0.8979579848205362,
+                  "Cal_F1": 0.8841409030625357,
+                  "Fixed_exact_F1": 0.6414782722628738,
+                  "mismatch_gap_ods_minus_fixed": 0.0019447454707247624,
+                  "SSIM": 0.8477952588313536,
+                  "PSNR_dB": 31.052893809543768,
+                  "train_calibrated_threshold": 24,
+                  "Exact_r0_F1": 0.6414782722628738,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8917386588103925,
+                    "Lung": 0.8999572473932848
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7356868483629047,
+                "ki67_cell_precision": 0.633651927318559,
+                "ki67_cell_recall": 0.8768895348837209,
+                "ki67_cell_auroc": 0.9425946955164877
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 8.434,
+                "pi_pearson_r": 0.796,
+                "pi_spearman_rho": 0.8284,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8241335044929397,
+                    "auroc": 0.9235208255541602
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7414104882459313,
+                    "auroc": 0.9166284403669724
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 8.338,
+                    "ki67_pi_pearson_r": 0.8307,
+                    "ki67_fixed_f1": 0.8917
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 8.459,
+                    "ki67_pi_pearson_r": 0.7787,
+                    "ki67_fixed_f1": 0.9
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9115805240956713,
+                "ODS_F": 0.9251673385515242,
+                "AP": 0.944825834640961,
+                "Cal_F1": 0.9193754201971384,
+                "SSIM": 0.7131351756585822,
+                "PSNR_dB": 25.444557228721525,
+                "Exact_r0_F1": 0.6096955053537324,
+                "mismatch_gap_ods_minus_fixed": 0.013586814455852822
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.982169420891686,
+                  "ODS_threshold": 61,
+                  "AP": 0.9928317074001406,
+                  "Fixed_tol_F1": 0.9820553877238593,
+                  "Cal_F1": 0.9821015497924598,
+                  "Fixed_exact_F1": 0.7487538386495937,
+                  "mismatch_gap_ods_minus_fixed": 0.00011403316782676587,
+                  "SSIM": 0.7336905457669975,
+                  "PSNR_dB": 22.839629245191034,
+                  "train_calibrated_threshold": 60,
+                  "Exact_r0_F1": 0.7487538386495937,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.96516612013727,
+                    "Lung": 0.9874179698431834
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8939042056410522,
+                  "ODS_threshold": 26,
+                  "AP": 0.9118600986326167,
+                  "Fixed_tol_F1": 0.8566247694322299,
+                  "Cal_F1": 0.8887200499771977,
+                  "Fixed_exact_F1": 0.43895746427054055,
+                  "mismatch_gap_ods_minus_fixed": 0.03727943620882235,
+                  "SSIM": 0.551969396964603,
+                  "PSNR_dB": 22.37389387197073,
+                  "train_calibrated_threshold": 20,
+                  "Exact_r0_F1": 0.43895746427054055,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.811961667346752,
+                    "Lung": 0.8712263161558241
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8994283891218343,
+                  "ODS_threshold": 30,
+                  "AP": 0.9297856978901258,
+                  "Fixed_tol_F1": 0.896061415130925,
+                  "Cal_F1": 0.8873046608217576,
+                  "Fixed_exact_F1": 0.6413752131410627,
+                  "mismatch_gap_ods_minus_fixed": 0.00336697399090935,
+                  "SSIM": 0.8537455842441461,
+                  "PSNR_dB": 31.12014856900281,
+                  "train_calibrated_threshold": 24,
+                  "Exact_r0_F1": 0.6413752131410627,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8863040322280811,
+                    "Lung": 0.8992816604390149
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7439152783798848,
+                "ki67_cell_precision": 0.648106183230819,
+                "ki67_cell_recall": 0.8729651162790698,
+                "ki67_cell_auroc": 0.9425460054172352
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 7.837,
+                "pi_pearson_r": 0.8053,
+                "pi_spearman_rho": 0.8369,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8333333333333334,
+                    "auroc": 0.9285108116365117
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7536764705882353,
+                    "auroc": 0.9202800579430226
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 7.551,
+                    "ki67_pi_pearson_r": 0.843,
+                    "ki67_fixed_f1": 0.8863
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 7.913,
+                    "ki67_pi_pearson_r": 0.7884,
+                    "ki67_fixed_f1": 0.8993
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9181159097915587,
+                "ODS_F": 0.9257322211602226,
+                "AP": 0.9447445095432606,
+                "Cal_F1": 0.9188540746354228,
+                "SSIM": 0.6814778823322319,
+                "PSNR_dB": 24.080308086607232,
+                "Exact_r0_F1": 0.6102689228620529,
+                "mismatch_gap_ods_minus_fixed": 0.007616311368664104
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9821969178984221,
+                  "ODS_threshold": 62,
+                  "AP": 0.9928155734922517,
+                  "Fixed_tol_F1": 0.9821621179803637,
+                  "Cal_F1": 0.9821185986442217,
+                  "Fixed_exact_F1": 0.749630103233393,
+                  "mismatch_gap_ods_minus_fixed": 3.479991805843685e-05,
+                  "SSIM": 0.7287618743758929,
+                  "PSNR_dB": 22.527797483313485,
+                  "train_calibrated_threshold": 61,
+                  "Exact_r0_F1": 0.749630103233393,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9647745108949644,
+                    "Lung": 0.987676648255674
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.895097015290985,
+                  "ODS_threshold": 23,
+                  "AP": 0.9118720166049734,
+                  "Fixed_tol_F1": 0.8727986741988734,
+                  "Cal_F1": 0.8903027221995108,
+                  "Fixed_exact_F1": 0.4456319501076132,
+                  "mismatch_gap_ods_minus_fixed": 0.022298341092111595,
+                  "SSIM": 0.5565278573326942,
+                  "PSNR_dB": 20.45044682393585,
+                  "train_calibrated_threshold": 16,
+                  "Exact_r0_F1": 0.4456319501076132,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8344215608961852,
+                    "Lung": 0.8854400185600471
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.899902730291261,
+                  "ODS_threshold": 36,
+                  "AP": 0.9295459385325571,
+                  "Fixed_tol_F1": 0.8993869371954387,
+                  "Cal_F1": 0.8841409030625357,
+                  "Fixed_exact_F1": 0.6355447152451528,
+                  "mismatch_gap_ods_minus_fixed": 0.0005157930958222812,
+                  "SSIM": 0.7591439152881088,
+                  "PSNR_dB": 29.262679952572366,
+                  "train_calibrated_threshold": 27,
+                  "Exact_r0_F1": 0.6355447152451528,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9019213293102063,
+                    "Lung": 0.8983344931757666
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.6754066256867758,
+                "ki67_cell_precision": 0.5396852994870903,
+                "ki67_cell_recall": 0.9023255813953488,
+                "ki67_cell_auroc": 0.9421102941725679
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 13.04,
+                "pi_pearson_r": 0.7523,
+                "pi_spearman_rho": 0.7922,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7723004694835681,
+                    "auroc": 0.9046527942790545
+                  },
+                  "ge_20pct": {
+                    "f1": 0.660347551342812,
+                    "auroc": 0.9008329309512313
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 13.623,
+                    "ki67_pi_pearson_r": 0.7933,
+                    "ki67_fixed_f1": 0.9019
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 12.886,
+                    "ki67_pi_pearson_r": 0.7293,
+                    "ki67_fixed_f1": 0.8983
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9216871134768163,
+                "ODS_F": 0.9257553762579097,
+                "AP": 0.9373840342989695,
+                "Cal_F1": 0.9207342113899579,
+                "SSIM": 0.6986459254087479,
+                "PSNR_dB": 24.592165240462673,
+                "Exact_r0_F1": 0.6065238299137251,
+                "mismatch_gap_ods_minus_fixed": 0.00406826278109329
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.982223105411592,
+                  "ODS_threshold": 63,
+                  "AP": 0.9928604230609468,
+                  "Fixed_tol_F1": 0.982223105411592,
+                  "Cal_F1": 0.9822024990899769,
+                  "Fixed_exact_F1": 0.7528323174367226,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.7336745741133728,
+                  "PSNR_dB": 22.822078402660683,
+                  "train_calibrated_threshold": 62,
+                  "Exact_r0_F1": 0.7528323174367226,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9643796685370359,
+                    "Lung": 0.9878746711638376
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8967849978592857,
+                  "ODS_threshold": 45,
+                  "AP": 0.8919806360778643,
+                  "Fixed_tol_F1": 0.8916448748928206,
+                  "Cal_F1": 0.8933176065242994,
+                  "Fixed_exact_F1": 0.4495224750218785,
+                  "mismatch_gap_ods_minus_fixed": 0.005140122966465044,
+                  "SSIM": 0.5353385220678439,
+                  "PSNR_dB": 21.081765131567654,
+                  "train_calibrated_threshold": 39,
+                  "Exact_r0_F1": 0.4495224750218785,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8758655462761812,
+                    "Lung": 0.8968009151966115
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8982580255028514,
+                  "ODS_threshold": 41,
+                  "AP": 0.9273110437580976,
+                  "Fixed_tol_F1": 0.8911933601260366,
+                  "Cal_F1": 0.8866825285555974,
+                  "Fixed_exact_F1": 0.6172166972825742,
+                  "mismatch_gap_ods_minus_fixed": 0.007064665376814827,
+                  "SSIM": 0.8269246800450271,
+                  "PSNR_dB": 29.872652187159687,
+                  "train_calibrated_threshold": 32,
+                  "Exact_r0_F1": 0.6172166972825742,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8982539811921569,
+                    "Lung": 0.8885690525931526
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.6950554086741295,
+                "ki67_cell_precision": 0.5669450307424062,
+                "ki67_cell_recall": 0.8979651162790697,
+                "ki67_cell_auroc": 0.9439908023116614
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 11.613,
+                "pi_pearson_r": 0.7679,
+                "pi_spearman_rho": 0.8097,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7950920245398773,
+                    "auroc": 0.9127714224289125
+                  },
+                  "ge_20pct": {
+                    "f1": 0.6864686468646864,
+                    "auroc": 0.9079852728150652
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 12.145,
+                    "ki67_pi_pearson_r": 0.7954,
+                    "ki67_fixed_f1": 0.8983
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 11.472,
+                    "ki67_pi_pearson_r": 0.7504,
+                    "ki67_fixed_f1": 0.8886
+                  }
+                }
+              },
+              "max_dc_drift": 0.06202044685188923
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9231442090457604,
+                "ODS_F": 0.9255148556470418,
+                "AP": 0.9328603613615577,
+                "Cal_F1": 0.9232618547683643,
+                "SSIM": 0.6961308767597431,
+                "PSNR_dB": 24.79402559130038,
+                "Exact_r0_F1": 0.6081648109764394,
+                "mismatch_gap_ods_minus_fixed": 0.00237064660128139
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9820822153947774,
+                  "ODS_threshold": 65,
+                  "AP": 0.9928169735606492,
+                  "Fixed_tol_F1": 0.9819221508360391,
+                  "Cal_F1": 0.9819221508360391,
+                  "Fixed_exact_F1": 0.7536853682074194,
+                  "mismatch_gap_ods_minus_fixed": 0.00016006455873829317,
+                  "SSIM": 0.7222020588931658,
+                  "PSNR_dB": 22.65319235411103,
+                  "train_calibrated_threshold": 63,
+                  "Exact_r0_F1": 0.7536853682074194,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9628093216021237,
+                    "Lung": 0.9878620797763575
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8985769175771675,
+                  "ODS_threshold": 41,
+                  "AP": 0.876261866348829,
+                  "Fixed_tol_F1": 0.8974071374787139,
+                  "Cal_F1": 0.894844363617464,
+                  "Fixed_exact_F1": 0.45353145733576283,
+                  "mismatch_gap_ods_minus_fixed": 0.0011697800984535878,
+                  "SSIM": 0.5423617446829162,
+                  "PSNR_dB": 21.488596703879157,
+                  "train_calibrated_threshold": 33,
+                  "Exact_r0_F1": 0.45353145733576283,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8733010873746884,
+                    "Lung": 0.9052909963643424
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8958854339691807,
+                  "ODS_threshold": 42,
+                  "AP": 0.9295022441751946,
+                  "Fixed_tol_F1": 0.8901033388225285,
+                  "Cal_F1": 0.8930190498515899,
+                  "Fixed_exact_F1": 0.6172776073861361,
+                  "mismatch_gap_ods_minus_fixed": 0.0057820951466522885,
+                  "SSIM": 0.8238288267031469,
+                  "PSNR_dB": 30.240287715910945,
+                  "train_calibrated_threshold": 37,
+                  "Exact_r0_F1": 0.6172776073861361,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8943799448941866,
+                    "Lung": 0.8883236466821522
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7438971899403554,
+                "ki67_cell_precision": 0.6446765426835767,
+                "ki67_cell_recall": 0.8792151162790698,
+                "ki67_cell_auroc": 0.9435690852796924
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 8.019,
+                "pi_pearson_r": 0.8064,
+                "pi_spearman_rho": 0.8361,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8258064516129032,
+                    "auroc": 0.9286296208289487
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7481751824817519,
+                    "auroc": 0.9224710284886528
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 8.115,
+                    "ki67_pi_pearson_r": 0.8366,
+                    "ki67_fixed_f1": 0.8944
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 7.993,
+                    "ki67_pi_pearson_r": 0.7899,
+                    "ki67_fixed_f1": 0.8883
+                  }
+                }
+              },
+              "max_dc_drift": 6.505213034913027e-19
+            }
+          }
+        },
+        "deepliif_resnet34": {
+          "upstream_info": {
+            "params": 24462915,
+            "best_epoch": 18,
+            "best_val_l1": 0.032777,
+            "train_sec": 220.4
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9096121998163674,
+                "ODS_F": 0.9246557280699129,
+                "AP": 0.9483455507613093,
+                "Cal_F1": 0.9208259075991002,
+                "SSIM": 0.7159413285406311,
+                "PSNR_dB": 25.651437188766284,
+                "Exact_r0_F1": 0.601054687639884,
+                "mismatch_gap_ods_minus_fixed": 0.015043528253545565
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.985005423779047,
+                  "ODS_threshold": 62,
+                  "AP": 0.99390900475233,
+                  "Fixed_tol_F1": 0.984937996277282,
+                  "Cal_F1": 0.9846310535478271,
+                  "Fixed_exact_F1": 0.7572761492602077,
+                  "mismatch_gap_ods_minus_fixed": 6.742750176502721e-05,
+                  "SSIM": 0.7359552241428899,
+                  "PSNR_dB": 22.95923662976721,
+                  "train_calibrated_threshold": 59,
+                  "Exact_r0_F1": 0.7572761492602077,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9696107390482661,
+                    "Lung": 0.9893161448925879
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8951037638923061,
+                  "ODS_threshold": 25,
+                  "AP": 0.9181828838217367,
+                  "Fixed_tol_F1": 0.8545773873696754,
+                  "Cal_F1": 0.8916996645792057,
+                  "Fixed_exact_F1": 0.4147027215970709,
+                  "mismatch_gap_ods_minus_fixed": 0.04052637652263069,
+                  "SSIM": 0.5627642418238699,
+                  "PSNR_dB": 22.403992258792908,
+                  "train_calibrated_threshold": 20,
+                  "Exact_r0_F1": 0.4147027215970709,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8119456075273509,
+                    "Lung": 0.8685328374971584
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8938579965383856,
+                  "ODS_threshold": 30,
+                  "AP": 0.9329447637098612,
+                  "Fixed_tol_F1": 0.8893212158021446,
+                  "Cal_F1": 0.8861470046702679,
+                  "Fixed_exact_F1": 0.6311851920623734,
+                  "mismatch_gap_ods_minus_fixed": 0.004536780736240975,
+                  "SSIM": 0.8491045196551336,
+                  "PSNR_dB": 31.591082677738736,
+                  "train_calibrated_threshold": 25,
+                  "Exact_r0_F1": 0.6311851920623734,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.874624133145794,
+                    "Lung": 0.8943298778796375
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.742088213306753,
+                "ki67_cell_precision": 0.6493676406454426,
+                "ki67_cell_recall": 0.8656976744186047,
+                "ki67_cell_auroc": 0.9356704672925436
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 7.85,
+                "pi_pearson_r": 0.7936,
+                "pi_spearman_rho": 0.8321,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8292046936114733,
+                    "auroc": 0.9272944318091813
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7418181818181818,
+                    "auroc": 0.9123430709802027
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 6.211,
+                    "ki67_pi_pearson_r": 0.8415,
+                    "ki67_fixed_f1": 0.8746
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 8.284,
+                    "ki67_pi_pearson_r": 0.786,
+                    "ki67_fixed_f1": 0.8943
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9109931200301934,
+                "ODS_F": 0.9240658257746851,
+                "AP": 0.948132011407108,
+                "Cal_F1": 0.9209482419442336,
+                "SSIM": 0.7169111027052063,
+                "PSNR_dB": 25.65557042198776,
+                "Exact_r0_F1": 0.6048545492777299,
+                "mismatch_gap_ods_minus_fixed": 0.013072705744491597
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9850533067531126,
+                  "ODS_threshold": 62,
+                  "AP": 0.9938444884725744,
+                  "Fixed_tol_F1": 0.9850103408307244,
+                  "Cal_F1": 0.9846833108828994,
+                  "Fixed_exact_F1": 0.7567653578109254,
+                  "mismatch_gap_ods_minus_fixed": 4.2965922388282785e-05,
+                  "SSIM": 0.7356751494315997,
+                  "PSNR_dB": 22.995352082870987,
+                  "train_calibrated_threshold": 59,
+                  "Exact_r0_F1": 0.7567653578109254,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9694814409304738,
+                    "Lung": 0.9894452466649277
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8949142539723014,
+                  "ODS_threshold": 25,
+                  "AP": 0.9187644621863349,
+                  "Fixed_tol_F1": 0.8626082577916676,
+                  "Cal_F1": 0.8922435467780503,
+                  "Fixed_exact_F1": 0.4283955107536593,
+                  "mismatch_gap_ods_minus_fixed": 0.03230599618063379,
+                  "SSIM": 0.565274928908611,
+                  "PSNR_dB": 22.3700289281121,
+                  "train_calibrated_threshold": 21,
+                  "Exact_r0_F1": 0.4283955107536593,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8197239999863312,
+                    "Lung": 0.8765794121251097
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8922299165986413,
+                  "ODS_threshold": 29,
+                  "AP": 0.9317870835624145,
+                  "Fixed_tol_F1": 0.8853607614681885,
+                  "Cal_F1": 0.8859178681717513,
+                  "Fixed_exact_F1": 0.6294027792686049,
+                  "mismatch_gap_ods_minus_fixed": 0.00686915513045272,
+                  "SSIM": 0.8497832297754084,
+                  "PSNR_dB": 31.601330254980205,
+                  "train_calibrated_threshold": 25,
+                  "Exact_r0_F1": 0.6294027792686049,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8676285325797686,
+                    "Lung": 0.8914210611010533
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.74368592148037,
+                "ki67_cell_precision": 0.6524791575252303,
+                "ki67_cell_recall": 0.8645348837209302,
+                "ki67_cell_auroc": 0.9350152856270799
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 7.765,
+                "pi_pearson_r": 0.7925,
+                "pi_spearman_rho": 0.8298,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.828125,
+                    "auroc": 0.9272774590674043
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7458866544789763,
+                    "auroc": 0.9107677450507001
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 6.16,
+                    "ki67_pi_pearson_r": 0.8377,
+                    "ki67_fixed_f1": 0.8676
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 8.19,
+                    "ki67_pi_pearson_r": 0.7859,
+                    "ki67_fixed_f1": 0.8914
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9187866144867755,
+                "ODS_F": 0.9246557280699129,
+                "AP": 0.9481683194309779,
+                "Cal_F1": 0.9208259075991002,
+                "SSIM": 0.7191358646053665,
+                "PSNR_dB": 24.705883555742457,
+                "Exact_r0_F1": 0.6107856026886817,
+                "mismatch_gap_ods_minus_fixed": 0.005869113583137427
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.985005423779047,
+                  "ODS_threshold": 61,
+                  "AP": 0.9939050390360458,
+                  "Fixed_tol_F1": 0.984937996277282,
+                  "Cal_F1": 0.9846310535478271,
+                  "Fixed_exact_F1": 0.7572761492602077,
+                  "mismatch_gap_ods_minus_fixed": 6.742750176502721e-05,
+                  "SSIM": 0.7339451762226652,
+                  "PSNR_dB": 22.623622259822653,
+                  "train_calibrated_threshold": 58,
+                  "Exact_r0_F1": 0.7572761492602077,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9696107390482661,
+                    "Lung": 0.9893161448925879
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8951037638923061,
+                  "ODS_threshold": 23,
+                  "AP": 0.9181108135186884,
+                  "Fixed_tol_F1": 0.8781286128067133,
+                  "Cal_F1": 0.8916996645792057,
+                  "Fixed_exact_F1": 0.44329276354329805,
+                  "mismatch_gap_ods_minus_fixed": 0.016975151085592777,
+                  "SSIM": 0.5603103876851377,
+                  "PSNR_dB": 20.696967205724246,
+                  "train_calibrated_threshold": 16,
+                  "Exact_r0_F1": 0.44329276354329805,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8394929305500433,
+                    "Lung": 0.8906990477686029
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8938579965383856,
+                  "ODS_threshold": 35,
+                  "AP": 0.9324891057381994,
+                  "Fixed_tol_F1": 0.8932932343763311,
+                  "Cal_F1": 0.8861470046702679,
+                  "Fixed_exact_F1": 0.6317878952625391,
+                  "mismatch_gap_ods_minus_fixed": 0.0005647621620544774,
+                  "SSIM": 0.8631520299082964,
+                  "PSNR_dB": 30.79706120168047,
+                  "train_calibrated_threshold": 28,
+                  "Exact_r0_F1": 0.6317878952625391,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8938450767748504,
+                    "Lung": 0.893038881519271
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.6787011557512383,
+                "ki67_cell_precision": 0.5461470327723649,
+                "ki67_cell_recall": 0.8962209302325581,
+                "ki67_cell_auroc": 0.934467438193748
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 12.556,
+                "pi_pearson_r": 0.74,
+                "pi_spearman_rho": 0.7819,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7789725209080047,
+                    "auroc": 0.9044830668612873
+                  },
+                  "ge_20pct": {
+                    "f1": 0.6592356687898089,
+                    "auroc": 0.8926243360695316
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 9.08,
+                    "ki67_pi_pearson_r": 0.8204,
+                    "ki67_fixed_f1": 0.8938
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 13.474,
+                    "ki67_pi_pearson_r": 0.729,
+                    "ki67_fixed_f1": 0.893
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9189536265582023,
+                "ODS_F": 0.924037848712659,
+                "AP": 0.9441114128089915,
+                "Cal_F1": 0.9205311995418729,
+                "SSIM": 0.7057884864299314,
+                "PSNR_dB": 24.78343234127306,
+                "Exact_r0_F1": 0.6051228376946481,
+                "mismatch_gap_ods_minus_fixed": 0.005084222154456734
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9850005615947147,
+                  "ODS_threshold": 64,
+                  "AP": 0.993965589261654,
+                  "Fixed_tol_F1": 0.9849289776398269,
+                  "Cal_F1": 0.9845614087593807,
+                  "Fixed_exact_F1": 0.7605828019727997,
+                  "mismatch_gap_ods_minus_fixed": 7.158395488782165e-05,
+                  "SSIM": 0.7321777580202429,
+                  "PSNR_dB": 22.813899540734006,
+                  "train_calibrated_threshold": 61,
+                  "Exact_r0_F1": 0.7605828019727997,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9690115914489704,
+                    "Lung": 0.9894579371844776
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8952850138339232,
+                  "ODS_threshold": 45,
+                  "AP": 0.9067098253027221,
+                  "Fixed_tol_F1": 0.8922700475663915,
+                  "Cal_F1": 0.8932167076126242,
+                  "Fixed_exact_F1": 0.4510106877673071,
+                  "mismatch_gap_ods_minus_fixed": 0.003014966267531727,
+                  "SSIM": 0.542514566222284,
+                  "PSNR_dB": 21.08629008116039,
+                  "train_calibrated_threshold": 38,
+                  "Exact_r0_F1": 0.4510106877673071,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8738468079906127,
+                    "Lung": 0.8983946766220431
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8918279707093392,
+                  "ODS_threshold": 45,
+                  "AP": 0.931658823862598,
+                  "Fixed_tol_F1": 0.8796618544683885,
+                  "Cal_F1": 0.8838154822536137,
+                  "Fixed_exact_F1": 0.6037750233438378,
+                  "mismatch_gap_ods_minus_fixed": 0.012166116240950653,
+                  "SSIM": 0.8426731350472669,
+                  "PSNR_dB": 30.450107401924786,
+                  "train_calibrated_threshold": 37,
+                  "Exact_r0_F1": 0.6037750233438378,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8902281347918777,
+                    "Lung": 0.8760401631365226
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7131123667501602,
+                "ki67_cell_precision": 0.5950228443666764,
+                "ki67_cell_recall": 0.8896802325581395,
+                "ki67_cell_auroc": 0.9389335039148996
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 10.153,
+                "pi_pearson_r": 0.7738,
+                "pi_spearman_rho": 0.8101,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7935723114956736,
+                    "auroc": 0.9182479604421965
+                  },
+                  "ge_20pct": {
+                    "f1": 0.6983050847457627,
+                    "auroc": 0.907719700627716
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 8.292,
+                    "ki67_pi_pearson_r": 0.831,
+                    "ki67_fixed_f1": 0.8902
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 10.645,
+                    "ki67_pi_pearson_r": 0.7593,
+                    "ki67_fixed_f1": 0.876
+                  }
+                }
+              },
+              "max_dc_drift": 0.05540429172690153
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9228860909671294,
+                "ODS_F": 0.9253948617134814,
+                "AP": 0.942959056127466,
+                "Cal_F1": 0.9234125566156385,
+                "SSIM": 0.693334766415261,
+                "PSNR_dB": 24.93099237647193,
+                "Exact_r0_F1": 0.6099922988491215,
+                "mismatch_gap_ods_minus_fixed": 0.002508770746352177
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.985074324618612,
+                  "ODS_threshold": 70,
+                  "AP": 0.9937966418773556,
+                  "Fixed_tol_F1": 0.9841500042324782,
+                  "Cal_F1": 0.9849064721993075,
+                  "Fixed_exact_F1": 0.7594585558456151,
+                  "mismatch_gap_ods_minus_fixed": 0.0009243203861337701,
+                  "SSIM": 0.7136694332354253,
+                  "PSNR_dB": 22.549061328561663,
+                  "train_calibrated_threshold": 67,
+                  "Exact_r0_F1": 0.7594585558456151,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.966891427740989,
+                    "Lung": 0.9890197791067693
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8968140056032993,
+                  "ODS_threshold": 40,
+                  "AP": 0.9024921010863476,
+                  "Fixed_tol_F1": 0.896265014050137,
+                  "Cal_F1": 0.8925665359092646,
+                  "Fixed_exact_F1": 0.45318742446823274,
+                  "mismatch_gap_ods_minus_fixed": 0.0005489915531622369,
+                  "SSIM": 0.548153631252667,
+                  "PSNR_dB": 21.53890562246824,
+                  "train_calibrated_threshold": 31,
+                  "Exact_r0_F1": 0.45318742446823274,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8686854182479204,
+                    "Lung": 0.9052702811659458
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8942962549185332,
+                  "ODS_threshold": 42,
+                  "AP": 0.9325884254186951,
+                  "Fixed_tol_F1": 0.8882432546187726,
+                  "Cal_F1": 0.8927646617383433,
+                  "Fixed_exact_F1": 0.6173309162335167,
+                  "mismatch_gap_ods_minus_fixed": 0.006053000299760525,
+                  "SSIM": 0.8181812347576906,
+                  "PSNR_dB": 30.70501017838589,
+                  "train_calibrated_threshold": 38,
+                  "Exact_r0_F1": 0.6173309162335167,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8959844296018759,
+                    "Lung": 0.8855697084531426
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.746603218333229,
+                "ki67_cell_precision": 0.6558134418655813,
+                "ki67_cell_recall": 0.8665697674418604,
+                "ki67_cell_auroc": 0.9347979541246154
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 7.604,
+                "pi_pearson_r": 0.7962,
+                "pi_spearman_rho": 0.8299,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8264248704663213,
+                    "auroc": 0.9267795919752878
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7513812154696132,
+                    "auroc": 0.9132605021728634
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 6.265,
+                    "ki67_pi_pearson_r": 0.8422,
+                    "ki67_fixed_f1": 0.896
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 7.958,
+                    "ki67_pi_pearson_r": 0.7852,
+                    "ki67_fixed_f1": 0.8856
+                  }
+                }
+              },
+              "max_dc_drift": 6.505213034913027e-19
+            }
+          }
+        },
+        "deepliif_pix2pix": {
+          "upstream_info": {
+            "params": 7763107,
+            "best_epoch": 15,
+            "best_val_l1": 0.049855,
+            "train_sec": 72.5
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.8522972430986792,
+                "ODS_F": 0.8962340453679137,
+                "AP": 0.9143323552267946,
+                "Cal_F1": 0.8895286918893587,
+                "SSIM": 0.5978599474839175,
+                "PSNR_dB": 23.54742819252481,
+                "Exact_r0_F1": 0.5210729004334933,
+                "mismatch_gap_ods_minus_fixed": 0.04393680226923461
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9665416833106976,
+                  "ODS_threshold": 45,
+                  "AP": 0.9901810358913452,
+                  "Fixed_tol_F1": 0.9396989039189179,
+                  "Cal_F1": 0.9652614690994972,
+                  "Fixed_exact_F1": 0.6844592700900715,
+                  "mismatch_gap_ods_minus_fixed": 0.026842779391779703,
+                  "SSIM": 0.6838958181967786,
+                  "PSNR_dB": 21.148161961970203,
+                  "train_calibrated_threshold": 42,
+                  "Exact_r0_F1": 0.6844592700900715,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9198362109818854,
+                    "Lung": 0.9453792897468657
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8397397644681249,
+                  "ODS_threshold": 12,
+                  "AP": 0.8425114198070027,
+                  "Fixed_tol_F1": 0.7371286875858725,
+                  "Cal_F1": 0.8341248827610722,
+                  "Fixed_exact_F1": 0.271854674033099,
+                  "mismatch_gap_ods_minus_fixed": 0.10261107688225246,
+                  "SSIM": 0.4215022252344716,
+                  "PSNR_dB": 20.87059246433407,
+                  "train_calibrated_threshold": 8,
+                  "Exact_r0_F1": 0.271854674033099,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.7109930768741428,
+                    "Lung": 0.7455824142232429
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8824206883249189,
+                  "ODS_threshold": 37,
+                  "AP": 0.910304609982036,
+                  "Fixed_tol_F1": 0.8800641377912473,
+                  "Cal_F1": 0.8691997238075068,
+                  "Fixed_exact_F1": 0.6069047571773094,
+                  "mismatch_gap_ods_minus_fixed": 0.0023565505336716752,
+                  "SSIM": 0.6881817990205021,
+                  "PSNR_dB": 28.62353015127016,
+                  "train_calibrated_threshold": 30,
+                  "Exact_r0_F1": 0.6069047571773094,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8750263899699062,
+                    "Lung": 0.8815634782756931
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.6699068448764682,
+                "ki67_cell_precision": 0.5564740940113428,
+                "ki67_cell_recall": 0.8414244186046511,
+                "ki67_cell_auroc": 0.9159241366408932
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 9.892,
+                "pi_pearson_r": 0.787,
+                "pi_spearman_rho": 0.8086,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.757192174913694,
+                    "auroc": 0.9129015467825341
+                  },
+                  "ge_20pct": {
+                    "f1": 0.6530612244897959,
+                    "auroc": 0.9048285852245292
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 8.447,
+                    "ki67_pi_pearson_r": 0.8117,
+                    "ki67_fixed_f1": 0.875
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 10.274,
+                    "ki67_pi_pearson_r": 0.7796,
+                    "ki67_fixed_f1": 0.8816
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9078314458219324,
+                "ODS_F": 0.9224231319029479,
+                "AP": 0.9410268730204127,
+                "Cal_F1": 0.9147281311898169,
+                "SSIM": 0.6639336669978336,
+                "PSNR_dB": 25.01137866982262,
+                "Exact_r0_F1": 0.5969387828578693,
+                "mismatch_gap_ods_minus_fixed": 0.014591686081015501
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9782751855142244,
+                  "ODS_threshold": 53,
+                  "AP": 0.9927029991725458,
+                  "Fixed_tol_F1": 0.9723532211532531,
+                  "Cal_F1": 0.975802308376898,
+                  "Fixed_exact_F1": 0.7272285803936674,
+                  "mismatch_gap_ods_minus_fixed": 0.005921964360971366,
+                  "SSIM": 0.6940688737539225,
+                  "PSNR_dB": 22.36421559007311,
+                  "train_calibrated_threshold": 47,
+                  "Exact_r0_F1": 0.7272285803936674,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9578760951531825,
+                    "Lung": 0.97665497762388
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8910336213685147,
+                  "ODS_threshold": 26,
+                  "AP": 0.9033639320890064,
+                  "Fixed_tol_F1": 0.8706296960439414,
+                  "Cal_F1": 0.8851278717828448,
+                  "Fixed_exact_F1": 0.4400893906889937,
+                  "mismatch_gap_ods_minus_fixed": 0.020403925324573358,
+                  "SSIM": 0.513466828130017,
+                  "PSNR_dB": 22.141234066460036,
+                  "train_calibrated_threshold": 19,
+                  "Exact_r0_F1": 0.4400893906889937,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8382999166337921,
+                    "Lung": 0.881207105201128
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8979605888261047,
+                  "ODS_threshold": 26,
+                  "AP": 0.9270136877996858,
+                  "Fixed_tol_F1": 0.880511420268603,
+                  "Cal_F1": 0.8832542134097076,
+                  "Fixed_exact_F1": 0.6234983774909468,
+                  "mismatch_gap_ods_minus_fixed": 0.017449168557501782,
+                  "SSIM": 0.7842652991095617,
+                  "PSNR_dB": 30.52868635293471,
+                  "train_calibrated_threshold": 19,
+                  "Exact_r0_F1": 0.6234983774909468,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8469457968198677,
+                    "Lung": 0.8917914308410398
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7844488867443303,
+                "ki67_cell_precision": 0.7460338271928675,
+                "ki67_cell_recall": 0.8270348837209303,
+                "ki67_cell_auroc": 0.9327077343796151
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 5.163,
+                "pi_pearson_r": 0.8016,
+                "pi_spearman_rho": 0.8351,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.856338028169014,
+                    "auroc": 0.928369372121706
+                  },
+                  "ge_20pct": {
+                    "f1": 0.8057851239669421,
+                    "auroc": 0.9146728633510381
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 5.589,
+                    "ki67_pi_pearson_r": 0.802,
+                    "ki67_fixed_f1": 0.8469
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 5.05,
+                    "ki67_pi_pearson_r": 0.8063,
+                    "ki67_fixed_f1": 0.8918
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.8800729281458409,
+                "ODS_F": 0.8962340453679137,
+                "AP": 0.9135133018504772,
+                "Cal_F1": 0.8895286918893587,
+                "SSIM": 0.6474425140610675,
+                "PSNR_dB": 22.786304640373075,
+                "Exact_r0_F1": 0.5523055878642357,
+                "mismatch_gap_ods_minus_fixed": 0.016161117222072845
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9665416833106976,
+                  "ODS_threshold": 63,
+                  "AP": 0.9901627068679584,
+                  "Fixed_tol_F1": 0.9665416833106976,
+                  "Cal_F1": 0.9652614690994972,
+                  "Fixed_exact_F1": 0.7163802813144081,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.6546088961224571,
+                  "PSNR_dB": 20.080890067086763,
+                  "train_calibrated_threshold": 59,
+                  "Exact_r0_F1": 0.7163802813144081,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9407323082046299,
+                    "Lung": 0.9738770877564689
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8397397644681249,
+                  "ODS_threshold": 18,
+                  "AP": 0.8400771582600977,
+                  "Fixed_tol_F1": 0.8197365321800829,
+                  "Cal_F1": 0.8341248827610722,
+                  "Fixed_exact_F1": 0.3580627266629575,
+                  "mismatch_gap_ods_minus_fixed": 0.020003232288042017,
+                  "SSIM": 0.4766313067961679,
+                  "PSNR_dB": 19.751002025631415,
+                  "train_calibrated_threshold": 11,
+                  "Exact_r0_F1": 0.3580627266629575,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.794932263741732,
+                    "Lung": 0.8276837396318829
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8824206883249189,
+                  "ODS_threshold": 44,
+                  "AP": 0.9103000404233755,
+                  "Fixed_tol_F1": 0.8539405689467424,
+                  "Cal_F1": 0.8691997238075068,
+                  "Fixed_exact_F1": 0.5824737556153414,
+                  "mismatch_gap_ods_minus_fixed": 0.028480119378176516,
+                  "SSIM": 0.8110873392645774,
+                  "PSNR_dB": 28.527021828401043,
+                  "train_calibrated_threshold": 37,
+                  "Exact_r0_F1": 0.5824737556153414,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8584692472535255,
+                    "Lung": 0.852362534350565
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.560659057437408,
+                "ki67_cell_precision": 0.41022359913793105,
+                "ki67_cell_recall": 0.8853197674418605,
+                "ki67_cell_auroc": 0.9149581858441632
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 19.681,
+                "pi_pearson_r": 0.7679,
+                "pi_spearman_rho": 0.7707,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.71259418729817,
+                    "auroc": 0.8931452753544477
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5413533834586466,
+                    "auroc": 0.8904997585707388
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 17.663,
+                    "ki67_pi_pearson_r": 0.8136,
+                    "ki67_fixed_f1": 0.8585
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 20.215,
+                    "ki67_pi_pearson_r": 0.7533,
+                    "ki67_fixed_f1": 0.8524
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9211756347624301,
+                "ODS_F": 0.9237183572584708,
+                "AP": 0.9342247183152547,
+                "Cal_F1": 0.9174754759825188,
+                "SSIM": 0.6605806828161559,
+                "PSNR_dB": 23.949221484086692,
+                "Exact_r0_F1": 0.6027121374026043,
+                "mismatch_gap_ods_minus_fixed": 0.0025427224960407426
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9785190480090892,
+                  "ODS_threshold": 68,
+                  "AP": 0.9928241168107954,
+                  "Fixed_tol_F1": 0.9778107450030971,
+                  "Cal_F1": 0.9784747742649655,
+                  "Fixed_exact_F1": 0.7459641022045778,
+                  "mismatch_gap_ods_minus_fixed": 0.0007083030059921169,
+                  "SSIM": 0.6850313297936339,
+                  "PSNR_dB": 21.380158294329597,
+                  "train_calibrated_threshold": 66,
+                  "Exact_r0_F1": 0.7459641022045778,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.959049585565867,
+                    "Lung": 0.9837017645753187
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8950512261519395,
+                  "ODS_threshold": 43,
+                  "AP": 0.8809949301088633,
+                  "Fixed_tol_F1": 0.8930020037198503,
+                  "Cal_F1": 0.8930020037198503,
+                  "Fixed_exact_F1": 0.4507694695760156,
+                  "mismatch_gap_ods_minus_fixed": 0.0020492224320892705,
+                  "SSIM": 0.5172160862915849,
+                  "PSNR_dB": 20.966214687251675,
+                  "train_calibrated_threshold": 37,
+                  "Exact_r0_F1": 0.4507694695760156,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8797335536774656,
+                    "Lung": 0.8973696522055272
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8975847976143839,
+                  "ODS_threshold": 41,
+                  "AP": 0.9288551080261053,
+                  "Fixed_tol_F1": 0.8927141555643431,
+                  "Cal_F1": 0.8809496499627405,
+                  "Fixed_exact_F1": 0.6114028404272197,
+                  "mismatch_gap_ods_minus_fixed": 0.004870642050040841,
+                  "SSIM": 0.779494632363249,
+                  "PSNR_dB": 29.501291470678808,
+                  "train_calibrated_threshold": 29,
+                  "Exact_r0_F1": 0.6114028404272197,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8987965420602702,
+                    "Lung": 0.8907771335833481
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7380588343220598,
+                "ki67_cell_precision": 0.6371027346637103,
+                "ki67_cell_recall": 0.8770348837209302,
+                "ki67_cell_auroc": 0.9382032754987923
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 8.221,
+                "pi_pearson_r": 0.7978,
+                "pi_spearman_rho": 0.8316,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8305304010349288,
+                    "auroc": 0.9240243502268689
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7334525939177102,
+                    "auroc": 0.921450989859971
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 7.955,
+                    "ki67_pi_pearson_r": 0.83,
+                    "ki67_fixed_f1": 0.8988
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 8.291,
+                    "ki67_pi_pearson_r": 0.7845,
+                    "ki67_fixed_f1": 0.8908
+                  }
+                }
+              },
+              "max_dc_drift": 0.15988178414887955
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9234265020714388,
+                "ODS_F": 0.9235457835542871,
+                "AP": 0.9328035798374735,
+                "Cal_F1": 0.916379285384686,
+                "SSIM": 0.6194795516366919,
+                "PSNR_dB": 24.361617931444627,
+                "Exact_r0_F1": 0.6094016838465012,
+                "mismatch_gap_ods_minus_fixed": 0.00011928148284826949
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9806666431212355,
+                  "ODS_threshold": 63,
+                  "AP": 0.9929185045054167,
+                  "Fixed_tol_F1": 0.9806666431212355,
+                  "Cal_F1": 0.9799066399987113,
+                  "Fixed_exact_F1": 0.7484190556234607,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.6285797547101529,
+                  "PSNR_dB": 22.02396831126688,
+                  "train_calibrated_threshold": 58,
+                  "Exact_r0_F1": 0.7484190556234607,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9609397326354726,
+                    "Lung": 0.9865002958402562
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8926076416437871,
+                  "ODS_threshold": 38,
+                  "AP": 0.8744285612177429,
+                  "Fixed_tol_F1": 0.8925359559072235,
+                  "Cal_F1": 0.8886752004608307,
+                  "Fixed_exact_F1": 0.4520088536467881,
+                  "mismatch_gap_ods_minus_fixed": 7.168573656368693e-05,
+                  "SSIM": 0.5126719131712184,
+                  "PSNR_dB": 21.26643599538639,
+                  "train_calibrated_threshold": 29,
+                  "Exact_r0_F1": 0.4520088536467881,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8716614016428091,
+                    "Lung": 0.899373861404035
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.8973630658978388,
+                  "ODS_threshold": 36,
+                  "AP": 0.9310636737892608,
+                  "Fixed_tol_F1": 0.8970769071858576,
+                  "Cal_F1": 0.880556015694516,
+                  "Fixed_exact_F1": 0.6277771422692546,
+                  "mismatch_gap_ods_minus_fixed": 0.00028615871198112153,
+                  "SSIM": 0.7171869870287044,
+                  "PSNR_dB": 29.794449487680605,
+                  "train_calibrated_threshold": 25,
+                  "Exact_r0_F1": 0.6277771422692546,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.894348273470591,
+                    "Lung": 0.8979073238711062
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.7544734151329243,
+                "ki67_cell_precision": 0.6732436131386861,
+                "ki67_cell_recall": 0.8579941860465117,
+                "ki67_cell_auroc": 0.9353276759226377
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 6.77,
+                "pi_pearson_r": 0.8003,
+                "pi_spearman_rho": 0.8281,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.8401585204755614,
+                    "auroc": 0.9246636568337916
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7550644567219152,
+                    "auroc": 0.9189884113954612
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 6.298,
+                    "ki67_pi_pearson_r": 0.8162,
+                    "ki67_fixed_f1": 0.8943
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 6.895,
+                    "ki67_pi_pearson_r": 0.7952,
+                    "ki67_fixed_f1": 0.8979
+                  }
+                }
+              },
+              "max_dc_drift": 1.0842021724855044e-18
+            }
+          }
+        }
+      }
+    },
+    "lung_bladder_hem_to_mif": {
+      "suite": "lung_bladder_hem_to_mif",
+      "n_train": 575,
+      "n_val": 91,
+      "n_eval": 598,
+      "organs_eval": {
+        "Lung": 473,
+        "Bladder": 125
+      },
+      "cutoffs_u8": [
+        63,
+        37,
+        34
+      ],
+      "physical_cell_ki67_cutoff": 13.0,
+      "physical_train_cell_ki67_f1": 0.9319,
+      "backbones": {
+        "deepliif_unet": {
+          "upstream_info": {
+            "params": 7763107,
+            "best_epoch": 24,
+            "best_val_l1": 0.041322,
+            "train_sec": 73.4
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.580480340748274,
+                "ODS_F": 0.7509715498360386,
+                "AP": 0.7146887879125184,
+                "Cal_F1": 0.7401871357915435,
+                "SSIM": 0.6833237615383169,
+                "PSNR_dB": 24.44840314254021,
+                "Exact_r0_F1": 0.3676524528757839,
+                "mismatch_gap_ods_minus_fixed": 0.1704912090877646
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9849396157371056,
+                  "ODS_threshold": 55,
+                  "AP": 0.995741988606634,
+                  "Fixed_tol_F1": 0.9805080201578695,
+                  "Cal_F1": 0.9849396157371056,
+                  "Fixed_exact_F1": 0.7349951665552923,
+                  "mismatch_gap_ods_minus_fixed": 0.004431595579236114,
+                  "SSIM": 0.731112812530828,
+                  "PSNR_dB": 22.583685644589234,
+                  "train_calibrated_threshold": 55,
+                  "Exact_r0_F1": 0.7349951665552923,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9759799253024392,
+                    "Lung": 0.9821835655303247
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.899603958339207,
+                  "ODS_threshold": 21,
+                  "AP": 0.9285575861812263,
+                  "Fixed_tol_F1": 0.7609207693624265,
+                  "Cal_F1": 0.8960667678113794,
+                  "Fixed_exact_F1": 0.36796219207205944,
+                  "mismatch_gap_ods_minus_fixed": 0.13868318897678056,
+                  "SSIM": 0.4731813159404105,
+                  "PSNR_dB": 22.603324317768045,
+                  "train_calibrated_threshold": 16,
+                  "Exact_r0_F1": 0.36796219207205944,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.7271436166609556,
+                    "Lung": 0.7719582854225577
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.36837107543180314,
+                  "ODS_threshold": 10,
+                  "AP": 0.21976678894969487,
+                  "Fixed_tol_F1": 1.2232724525924583e-05,
+                  "Cal_F1": 0.3395550238261454,
+                  "Fixed_exact_F1": 0.0,
+                  "mismatch_gap_ods_minus_fixed": 0.3683588427072772,
+                  "SSIM": 0.8456771561437121,
+                  "PSNR_dB": 28.158199465263355,
+                  "train_calibrated_threshold": 12,
+                  "Exact_r0_F1": 0.0,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 4.654965247775072e-05,
+                    "Lung": 0.0
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.16084439904664624,
+                "ki67_cell_precision": 0.1513132607303011,
+                "ki67_cell_recall": 0.17165697674418604,
+                "ki67_cell_auroc": 0.5188437156033073
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 18.74,
+                "pi_pearson_r": -0.2729,
+                "pi_spearman_rho": -0.2393,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.46909667194928684,
+                    "auroc": 0.41862136076128403
+                  },
+                  "ge_20pct": {
+                    "f1": 0.27631578947368424,
+                    "auroc": 0.38608160309029455
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 21.094,
+                    "ki67_pi_pearson_r": -0.2823,
+                    "ki67_fixed_f1": 0.0
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 18.118,
+                    "ki67_pi_pearson_r": -0.28,
+                    "ki67_fixed_f1": 0.0
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6159165489092749,
+                "ODS_F": 0.7599278834961033,
+                "AP": 0.7351449992685906,
+                "Cal_F1": 0.7560741638809572,
+                "SSIM": 0.706515047755846,
+                "PSNR_dB": 24.401012920000287,
+                "Exact_r0_F1": 0.3936433847957561,
+                "mismatch_gap_ods_minus_fixed": 0.1440113345868285
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9848067872709607,
+                  "ODS_threshold": 56,
+                  "AP": 0.9956969049511877,
+                  "Fixed_tol_F1": 0.9809493422159217,
+                  "Cal_F1": 0.9847536420354733,
+                  "Fixed_exact_F1": 0.7360085064922294,
+                  "mismatch_gap_ods_minus_fixed": 0.0038574450550390438,
+                  "SSIM": 0.7288808120654247,
+                  "PSNR_dB": 22.556203718407723,
+                  "train_calibrated_threshold": 55,
+                  "Exact_r0_F1": 0.7360085064922294,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9760493475411475,
+                    "Lung": 0.9827069496532087
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8982912101785029,
+                  "ODS_threshold": 25,
+                  "AP": 0.9171093869965363,
+                  "Fixed_tol_F1": 0.8519579193891141,
+                  "Cal_F1": 0.8929274701194734,
+                  "Fixed_exact_F1": 0.44233470965058086,
+                  "mismatch_gap_ods_minus_fixed": 0.04633329078938875,
+                  "SSIM": 0.5645948058157949,
+                  "PSNR_dB": 22.505008171893163,
+                  "train_calibrated_threshold": 18,
+                  "Exact_r0_F1": 0.44233470965058086,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8231263949935796,
+                    "Lung": 0.861346860050832
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.3966856530388464,
+                  "ODS_threshold": 13,
+                  "AP": 0.29262870585804757,
+                  "Fixed_tol_F1": 0.014842385122788687,
+                  "Cal_F1": 0.3905413794879249,
+                  "Fixed_exact_F1": 0.0025869382444580554,
+                  "mismatch_gap_ods_minus_fixed": 0.3818432679160577,
+                  "SSIM": 0.8260695253863184,
+                  "PSNR_dB": 28.14182686969998,
+                  "train_calibrated_threshold": 14,
+                  "Exact_r0_F1": 0.0025869382444580554,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.017282830270470617,
+                    "Lung": 0.013975775676878247
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.2721182266009852,
+                "ki67_cell_precision": 0.20581222056631893,
+                "ki67_cell_recall": 0.40145348837209305,
+                "ki67_cell_auroc": 0.5729257351428356
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 21.115,
+                "pi_pearson_r": -0.183,
+                "pi_spearman_rho": -0.1598,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.6759581881533101,
+                    "auroc": 0.4514636160992113
+                  },
+                  "ge_20pct": {
+                    "f1": 0.47533632286995514,
+                    "auroc": 0.4356289232254949
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 20.405,
+                    "ki67_pi_pearson_r": -0.1178,
+                    "ki67_fixed_f1": 0.0173
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 21.303,
+                    "ki67_pi_pearson_r": -0.2211,
+                    "ki67_fixed_f1": 0.014
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7242416910029208,
+                "ODS_F": 0.7509715498360386,
+                "AP": 0.714121441962523,
+                "Cal_F1": 0.7401871357915435,
+                "SSIM": 0.6782161166278472,
+                "PSNR_dB": 22.8620364785464,
+                "Exact_r0_F1": 0.45118452899958794,
+                "mismatch_gap_ods_minus_fixed": 0.02672985883311781
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9849396157371056,
+                  "ODS_threshold": 57,
+                  "AP": 0.9957419886066341,
+                  "Fixed_tol_F1": 0.9832701000116113,
+                  "Cal_F1": 0.9849396157371056,
+                  "Fixed_exact_F1": 0.741866027791497,
+                  "mismatch_gap_ods_minus_fixed": 0.0016695157254943416,
+                  "SSIM": 0.7278831534372882,
+                  "PSNR_dB": 22.105672573011987,
+                  "train_calibrated_threshold": 57,
+                  "Exact_r0_F1": 0.741866027791497,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9747797038057849,
+                    "Lung": 0.9861037903505346
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.899603958339207,
+                  "ODS_threshold": 21,
+                  "AP": 0.926888662404969,
+                  "Fixed_tol_F1": 0.8742315248366856,
+                  "Cal_F1": 0.8960667678113794,
+                  "Fixed_exact_F1": 0.4564925056195742,
+                  "mismatch_gap_ods_minus_fixed": 0.025372433502521385,
+                  "SSIM": 0.5706917151394306,
+                  "PSNR_dB": 20.264250275039974,
+                  "train_calibrated_threshold": 14,
+                  "Exact_r0_F1": 0.4564925056195742,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8581190556952051,
+                    "Lung": 0.879533227823976
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.36837107543180314,
+                  "ODS_threshold": 15,
+                  "AP": 0.21973367487596607,
+                  "Fixed_tol_F1": 0.31522344816046544,
+                  "Cal_F1": 0.3395550238261454,
+                  "Fixed_exact_F1": 0.1551950535876927,
+                  "mismatch_gap_ods_minus_fixed": 0.053147627271337705,
+                  "SSIM": 0.7360734813068226,
+                  "PSNR_dB": 26.216186587587245,
+                  "train_calibrated_threshold": 26,
+                  "Exact_r0_F1": 0.1551950535876927,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.37538013576101076,
+                    "Lung": 0.29382594325977807
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.2886925386925387,
+                "ki67_cell_precision": 0.18013116171807436,
+                "ki67_cell_recall": 0.7265988372093023,
+                "ki67_cell_auroc": 0.5203581695136915
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 50.268,
+                "pi_pearson_r": -0.2233,
+                "pi_spearman_rho": -0.2252,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7141316073354909,
+                    "auroc": 0.41791982076784684
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5338253382533825,
+                    "auroc": 0.39373491067117333
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 47.504,
+                    "ki67_pi_pearson_r": -0.222,
+                    "ki67_fixed_f1": 0.3754
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 50.998,
+                    "ki67_pi_pearson_r": -0.2348,
+                    "ki67_fixed_f1": 0.2938
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7565571722639605,
+                "ODS_F": 0.7648149291327645,
+                "AP": 0.7339780188532196,
+                "Cal_F1": 0.7633998995120824,
+                "SSIM": 0.6833892291356211,
+                "PSNR_dB": 23.312980429266435,
+                "Exact_r0_F1": 0.47293090055387205,
+                "mismatch_gap_ods_minus_fixed": 0.008257756868803978
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9843624779483744,
+                  "ODS_threshold": 67,
+                  "AP": 0.995738976866503,
+                  "Fixed_tol_F1": 0.9837580957354023,
+                  "Cal_F1": 0.9843456351410816,
+                  "Fixed_exact_F1": 0.7441125920285484,
+                  "mismatch_gap_ods_minus_fixed": 0.0006043822129720988,
+                  "SSIM": 0.7201255922318108,
+                  "PSNR_dB": 21.847383913089516,
+                  "train_calibrated_threshold": 66,
+                  "Exact_r0_F1": 0.7441125920285484,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9675299083036573,
+                    "Lung": 0.988874289964745
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9052658867743792,
+                  "ODS_threshold": 47,
+                  "AP": 0.9134153329647101,
+                  "Fixed_tol_F1": 0.8998101267066525,
+                  "Cal_F1": 0.9011223992548543,
+                  "Fixed_exact_F1": 0.4609402845740975,
+                  "mismatch_gap_ods_minus_fixed": 0.005455760067726745,
+                  "SSIM": 0.5461362443767599,
+                  "PSNR_dB": 21.007775656366917,
+                  "train_calibrated_threshold": 39,
+                  "Exact_r0_F1": 0.4609402845740975,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9060618358285376,
+                    "Lung": 0.8978835932078321
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.4048164226755398,
+                  "ODS_threshold": 26,
+                  "AP": 0.2927797467284454,
+                  "Fixed_tol_F1": 0.3861032943498267,
+                  "Cal_F1": 0.40473166414031164,
+                  "Fixed_exact_F1": 0.2137398250589704,
+                  "mismatch_gap_ods_minus_fixed": 0.01871312832571309,
+                  "SSIM": 0.7839058507982923,
+                  "PSNR_dB": 27.083781718342873,
+                  "train_calibrated_threshold": 27,
+                  "Exact_r0_F1": 0.2137398250589704,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.469772387880567,
+                    "Lung": 0.35844719984316875
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.3035635236830456,
+                "ki67_cell_precision": 0.18746582832148714,
+                "ki67_cell_recall": 0.7973837209302326,
+                "ki67_cell_auroc": 0.5834629720134419
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 53.741,
+                "pi_pearson_r": -0.1559,
+                "pi_spearman_rho": -0.1722,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.71259418729817,
+                    "auroc": 0.43546963576496145
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5343137254901961,
+                    "auroc": 0.4214751327860937
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 49.726,
+                    "ki67_pi_pearson_r": -0.2168,
+                    "ki67_fixed_f1": 0.4698
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 54.802,
+                    "ki67_pi_pearson_r": -0.1369,
+                    "ki67_fixed_f1": 0.3584
+                  }
+                }
+              },
+              "max_dc_drift": 0.06979022566100923
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7568119318816371,
+                "ODS_F": 0.7671406164444576,
+                "AP": 0.733667606425072,
+                "Cal_F1": 0.7656910097031786,
+                "SSIM": 0.6588952891315695,
+                "PSNR_dB": 23.55704953836548,
+                "Exact_r0_F1": 0.46483038872827714,
+                "mismatch_gap_ods_minus_fixed": 0.010328684562820675
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9838979917822667,
+                  "ODS_threshold": 69,
+                  "AP": 0.9952489646917668,
+                  "Fixed_tol_F1": 0.9832635640005625,
+                  "Cal_F1": 0.9838979917822667,
+                  "Fixed_exact_F1": 0.7423466299269149,
+                  "mismatch_gap_ods_minus_fixed": 0.0006344277817041943,
+                  "SSIM": 0.6932867376171411,
+                  "PSNR_dB": 21.817399892940863,
+                  "train_calibrated_threshold": 69,
+                  "Exact_r0_F1": 0.7423466299269149,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.967221030132652,
+                    "Lung": 0.9882043692588772
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9042968899288175,
+                  "ODS_threshold": 40,
+                  "AP": 0.8860607914876927,
+                  "Fixed_tol_F1": 0.9036076303284964,
+                  "Cal_F1": 0.9003348125900901,
+                  "Fixed_exact_F1": 0.46667303644903096,
+                  "mismatch_gap_ods_minus_fixed": 0.0006892596003210683,
+                  "SSIM": 0.5596007590903804,
+                  "PSNR_dB": 21.654154707391545,
+                  "train_calibrated_threshold": 30,
+                  "Exact_r0_F1": 0.46667303644903096,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9045548402653747,
+                    "Lung": 0.9036684720507622
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.41322696762228905,
+                  "ODS_threshold": 23,
+                  "AP": 0.31969306309575674,
+                  "Fixed_tol_F1": 0.3835646013158523,
+                  "Cal_F1": 0.4128402247371792,
+                  "Fixed_exact_F1": 0.18547149980888564,
+                  "mismatch_gap_ods_minus_fixed": 0.02966236630643676,
+                  "SSIM": 0.7237983706871867,
+                  "PSNR_dB": 27.19959401476403,
+                  "train_calibrated_threshold": 20,
+                  "Exact_r0_F1": 0.18547149980888564,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.4666966675758107,
+                    "Lung": 0.3553390831046735
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.3045912653975364,
+                "ki67_cell_precision": 0.20266307744075374,
+                "ki67_cell_recall": 0.6127906976744186,
+                "ki67_cell_auroc": 0.5849054199172001
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 33.875,
+                "pi_pearson_r": -0.1557,
+                "pi_spearman_rho": -0.147,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7133620689655172,
+                    "auroc": 0.4516446586781629
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5338253382533825,
+                    "auroc": 0.4380733944954128
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 30.664,
+                    "ki67_pi_pearson_r": -0.0814,
+                    "ki67_fixed_f1": 0.4667
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 34.724,
+                    "ki67_pi_pearson_r": -0.1869,
+                    "ki67_fixed_f1": 0.3553
+                  }
+                }
+              },
+              "max_dc_drift": 6.505213034913027e-19
+            }
+          }
+        },
+        "deepliif_resnet34": {
+          "upstream_info": {
+            "params": 24462915,
+            "best_epoch": 24,
+            "best_val_l1": 0.038164,
+            "train_sec": 297.1
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6096759250677716,
+                "ODS_F": 0.7487014869692247,
+                "AP": 0.7408585946956756,
+                "Cal_F1": 0.7302644975421723,
+                "SSIM": 0.7209931137465387,
+                "PSNR_dB": 24.577297085551624,
+                "Exact_r0_F1": 0.3965165723156993,
+                "mismatch_gap_ods_minus_fixed": 0.13902556190145313
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9890207660271402,
+                  "ODS_threshold": 58,
+                  "AP": 0.9977990929946039,
+                  "Fixed_tol_F1": 0.9876766196035335,
+                  "Cal_F1": 0.9889846199372458,
+                  "Fixed_exact_F1": 0.7511795847628169,
+                  "mismatch_gap_ods_minus_fixed": 0.0013441464236066958,
+                  "SSIM": 0.7409981560593268,
+                  "PSNR_dB": 22.968604868811795,
+                  "train_calibrated_threshold": 57,
+                  "Exact_r0_F1": 0.7511795847628169,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9787268591423461,
+                    "Lung": 0.990224212940845
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.900972372064728,
+                  "ODS_threshold": 23,
+                  "AP": 0.9356686018120735,
+                  "Fixed_tol_F1": 0.8328223568374424,
+                  "Cal_F1": 0.897811144322992,
+                  "Fixed_exact_F1": 0.4366894958321626,
+                  "mismatch_gap_ods_minus_fixed": 0.06815001522728559,
+                  "SSIM": 0.5832108455626269,
+                  "PSNR_dB": 22.724301382318973,
+                  "train_calibrated_threshold": 17,
+                  "Exact_r0_F1": 0.4366894958321626,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.7550595001446735,
+                    "Lung": 0.857064605133497
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.356111322815806,
+                  "ODS_threshold": 10,
+                  "AP": 0.2891080892803494,
+                  "Fixed_tol_F1": 0.008528798762338937,
+                  "Cal_F1": 0.30399772836627853,
+                  "Fixed_exact_F1": 0.0016806363521185024,
+                  "mismatch_gap_ods_minus_fixed": 0.34758252405346707,
+                  "SSIM": 0.838770339617662,
+                  "PSNR_dB": 28.038985005524108,
+                  "train_calibrated_threshold": 13,
+                  "Exact_r0_F1": 0.0016806363521185024,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.03134295288534959,
+                    "Lung": 0.00020696706326155256
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.17055322470484927,
+                "ki67_cell_precision": 0.25942416147224695,
+                "ki67_cell_recall": 0.12703488372093022,
+                "ki67_cell_auroc": 0.5574389966911273
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 13.241,
+                "pi_pearson_r": 0.1882,
+                "pi_spearman_rho": 0.0418,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.3105022831050228,
+                    "auroc": 0.5370684680403273
+                  },
+                  "ge_20pct": {
+                    "f1": 0.2807017543859649,
+                    "auroc": 0.5315548044422984
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 11.427,
+                    "ki67_pi_pearson_r": 0.5963,
+                    "ki67_fixed_f1": 0.0313
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 13.721,
+                    "ki67_pi_pearson_r": -0.2118,
+                    "ki67_fixed_f1": 0.0002
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6134659379716624,
+                "ODS_F": 0.7619018519759898,
+                "AP": 0.7512179897031244,
+                "Cal_F1": 0.7470128162683644,
+                "SSIM": 0.7162389088117922,
+                "PSNR_dB": 24.609960034732726,
+                "Exact_r0_F1": 0.4004301442993626,
+                "mismatch_gap_ods_minus_fixed": 0.14843591400432746
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9890187472886188,
+                  "ODS_threshold": 56,
+                  "AP": 0.9977711875017834,
+                  "Fixed_tol_F1": 0.9872602536221633,
+                  "Cal_F1": 0.9890187472886188,
+                  "Fixed_exact_F1": 0.7503696476877315,
+                  "mismatch_gap_ods_minus_fixed": 0.0017584936664555295,
+                  "SSIM": 0.7394950339024993,
+                  "PSNR_dB": 23.022883191413882,
+                  "train_calibrated_threshold": 56,
+                  "Exact_r0_F1": 0.7503696476877315,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9793509798602332,
+                    "Lung": 0.9895017631932502
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9008542082459357,
+                  "ODS_threshold": 23,
+                  "AP": 0.935394297258457,
+                  "Fixed_tol_F1": 0.844677963192445,
+                  "Cal_F1": 0.8975608022037248,
+                  "Fixed_exact_F1": 0.4492352131120708,
+                  "mismatch_gap_ods_minus_fixed": 0.056176245053490614,
+                  "SSIM": 0.5837414847078174,
+                  "PSNR_dB": 22.685777444223746,
+                  "train_calibrated_threshold": 17,
+                  "Exact_r0_F1": 0.4492352131120708,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.7755950844270881,
+                    "Lung": 0.8664989048673083
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.3958326003934149,
+                  "ODS_threshold": 11,
+                  "AP": 0.32048848434913246,
+                  "Fixed_tol_F1": 0.008459597100378614,
+                  "Cal_F1": 0.35445889931274954,
+                  "Fixed_exact_F1": 0.0016855720982853425,
+                  "mismatch_gap_ods_minus_fixed": 0.38737300329303626,
+                  "SSIM": 0.8254802078250599,
+                  "PSNR_dB": 28.121219468560554,
+                  "train_calibrated_threshold": 14,
+                  "Exact_r0_F1": 0.0016855720982853425,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.031687873341598116,
+                    "Lung": 0.0
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.2321402268375313,
+                "ki67_cell_precision": 0.23529411764705882,
+                "ki67_cell_recall": 0.22906976744186047,
+                "ki67_cell_auroc": 0.5846670960347171
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 13.276,
+                "pi_pearson_r": 0.1024,
+                "pi_spearman_rho": -0.0069,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.5073649754500819,
+                    "auroc": 0.5163334351697839
+                  },
+                  "ge_20pct": {
+                    "f1": 0.327455919395466,
+                    "auroc": 0.5072066634476098
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 13.433,
+                    "ki67_pi_pearson_r": 0.6027,
+                    "ki67_fixed_f1": 0.0317
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 13.234,
+                    "ki67_pi_pearson_r": -0.2728,
+                    "ki67_fixed_f1": 0.0
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6825962025324938,
+                "ODS_F": 0.7487014869692247,
+                "AP": 0.740830073475927,
+                "Cal_F1": 0.7302644975421723,
+                "SSIM": 0.6997809345727952,
+                "PSNR_dB": 23.610978195085305,
+                "Exact_r0_F1": 0.43466021222200246,
+                "mismatch_gap_ods_minus_fixed": 0.06610528443673096
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9890207660271402,
+                  "ODS_threshold": 58,
+                  "AP": 0.9977978108364285,
+                  "Fixed_tol_F1": 0.9876766196035335,
+                  "Cal_F1": 0.9889846199372458,
+                  "Fixed_exact_F1": 0.7511795847628169,
+                  "mismatch_gap_ods_minus_fixed": 0.0013441464236066958,
+                  "SSIM": 0.7406754469621744,
+                  "PSNR_dB": 22.755850339470022,
+                  "train_calibrated_threshold": 57,
+                  "Exact_r0_F1": 0.7511795847628169,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9787268591423461,
+                    "Lung": 0.990224212940845
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.900972372064728,
+                  "ODS_threshold": 23,
+                  "AP": 0.935641308662121,
+                  "Fixed_tol_F1": 0.8879581135593422,
+                  "Cal_F1": 0.897811144322992,
+                  "Fixed_exact_F1": 0.47795562019003185,
+                  "mismatch_gap_ods_minus_fixed": 0.013014258505385845,
+                  "SSIM": 0.5812525904124604,
+                  "PSNR_dB": 20.241393249044513,
+                  "train_calibrated_threshold": 14,
+                  "Exact_r0_F1": 0.47795562019003185,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.860528618797411,
+                    "Lung": 0.8978440449627217
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.356111322815806,
+                  "ODS_threshold": 14,
+                  "AP": 0.2890511009292313,
+                  "Fixed_tol_F1": 0.17215387443460567,
+                  "Cal_F1": 0.30399772836627853,
+                  "Fixed_exact_F1": 0.07484543171315855,
+                  "mismatch_gap_ods_minus_fixed": 0.18395744838120032,
+                  "SSIM": 0.7774147663437508,
+                  "PSNR_dB": 27.835690996741373,
+                  "train_calibrated_threshold": 21,
+                  "Exact_r0_F1": 0.07484543171315855,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.378345681787704,
+                    "Lung": 0.07315141491132475
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.2694997310381926,
+                "ki67_cell_precision": 0.19484054964998704,
+                "ki67_cell_recall": 0.4369186046511628,
+                "ki67_cell_auroc": 0.5580931958970793
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 24.922,
+                "pi_pearson_r": 0.03,
+                "pi_spearman_rho": 0.0219,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.6805555555555556,
+                    "auroc": 0.5264265589463322
+                  },
+                  "ge_20pct": {
+                    "f1": 0.49343065693430654,
+                    "auroc": 0.5118722839208112
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 26.376,
+                    "ki67_pi_pearson_r": 0.6201,
+                    "ki67_fixed_f1": 0.3783
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 24.537,
+                    "ki67_pi_pearson_r": -0.2491,
+                    "ki67_fixed_f1": 0.0732
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7288071343783579,
+                "ODS_F": 0.7647338748321619,
+                "AP": 0.7508224869069527,
+                "Cal_F1": 0.7536505041810001,
+                "SSIM": 0.6967868532141659,
+                "PSNR_dB": 23.818503058185414,
+                "Exact_r0_F1": 0.45123232110488276,
+                "mismatch_gap_ods_minus_fixed": 0.03592674045380408
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.988843871379916,
+                  "ODS_threshold": 63,
+                  "AP": 0.9978045649375926,
+                  "Fixed_tol_F1": 0.988843871379916,
+                  "Cal_F1": 0.9888149056744827,
+                  "Fixed_exact_F1": 0.7541597371530965,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.7365000036496733,
+                  "PSNR_dB": 22.67975401184409,
+                  "train_calibrated_threshold": 62,
+                  "Exact_r0_F1": 0.7541597371530965,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.977300538171379,
+                    "Lung": 0.9921169552387714
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.903306249770621,
+                  "ODS_threshold": 47,
+                  "AP": 0.9234549088578801,
+                  "Fixed_tol_F1": 0.8997425392424762,
+                  "Cal_F1": 0.9006074596231799,
+                  "Fixed_exact_F1": 0.4623955043633305,
+                  "mismatch_gap_ods_minus_fixed": 0.003563710528144859,
+                  "SSIM": 0.5545913003254475,
+                  "PSNR_dB": 21.05562128966414,
+                  "train_calibrated_threshold": 39,
+                  "Exact_r0_F1": 0.4623955043633305,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9107601070421226,
+                    "Lung": 0.8970561665643527
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.4020515033459488,
+                  "ODS_threshold": 17,
+                  "AP": 0.3312079869253856,
+                  "Fixed_tol_F1": 0.2978349925126814,
+                  "Cal_F1": 0.3715291472453377,
+                  "Fixed_exact_F1": 0.13714172179822148,
+                  "mismatch_gap_ods_minus_fixed": 0.10421651083326738,
+                  "SSIM": 0.7992692556673769,
+                  "PSNR_dB": 27.720133873048017,
+                  "train_calibrated_threshold": 26,
+                  "Exact_r0_F1": 0.13714172179822148,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.4844055400071233,
+                    "Lung": 0.21263812857737632
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.3112280701754386,
+                "ki67_cell_precision": 0.2051341350601295,
+                "ki67_cell_recall": 0.6446220930232558,
+                "ki67_cell_auroc": 0.5999816133657272
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 35.006,
+                "pi_pearson_r": -0.0092,
+                "pi_spearman_rho": -0.0161,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.71259418729817,
+                    "auroc": 0.500792061282913
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5307125307125307,
+                    "auroc": 0.49556977305649447
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 34.687,
+                    "ki67_pi_pearson_r": 0.4681,
+                    "ki67_fixed_f1": 0.4844
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 35.09,
+                    "ki67_pi_pearson_r": -0.1878,
+                    "ki67_fixed_f1": 0.2126
+                  }
+                }
+              },
+              "max_dc_drift": 0.06567573895358692
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7246494035335024,
+                "ODS_F": 0.7669838887878625,
+                "AP": 0.7460485814920044,
+                "Cal_F1": 0.7601288792504604,
+                "SSIM": 0.6920504893982017,
+                "PSNR_dB": 24.06995007517692,
+                "Exact_r0_F1": 0.4355672671487423,
+                "mismatch_gap_ods_minus_fixed": 0.04233448525436014
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9885980411689639,
+                  "ODS_threshold": 64,
+                  "AP": 0.9976744622599933,
+                  "Fixed_tol_F1": 0.9885076044618895,
+                  "Cal_F1": 0.9885076044618895,
+                  "Fixed_exact_F1": 0.7518389494846248,
+                  "mismatch_gap_ods_minus_fixed": 9.043670707442608e-05,
+                  "SSIM": 0.7230844561206962,
+                  "PSNR_dB": 22.720810220685006,
+                  "train_calibrated_threshold": 63,
+                  "Exact_r0_F1": 0.7518389494846248,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9763138091040243,
+                    "Lung": 0.9919532737952094
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.907062034724063,
+                  "ODS_threshold": 42,
+                  "AP": 0.9146024618977416,
+                  "Fixed_tol_F1": 0.9056933078530961,
+                  "Cal_F1": 0.9023503854302041,
+                  "Fixed_exact_F1": 0.4735300578635277,
+                  "mismatch_gap_ods_minus_fixed": 0.0013687268709668965,
+                  "SSIM": 0.5673528742826438,
+                  "PSNR_dB": 21.76073959623781,
+                  "train_calibrated_threshold": 31,
+                  "Exact_r0_F1": 0.4735300578635277,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9099405107992646,
+                    "Lung": 0.9058414334211654
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.40529159047056046,
+                  "ODS_threshold": 13,
+                  "AP": 0.32586882031827813,
+                  "Fixed_tol_F1": 0.27974729828552136,
+                  "Cal_F1": 0.3895286478592874,
+                  "Fixed_exact_F1": 0.08133279409807438,
+                  "mismatch_gap_ods_minus_fixed": 0.1255442921850391,
+                  "SSIM": 0.7857141377912652,
+                  "PSNR_dB": 27.728300408607947,
+                  "train_calibrated_threshold": 20,
+                  "Exact_r0_F1": 0.08133279409807438,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.45875771704632146,
+                    "Lung": 0.19381002139482825
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.29486430506134154,
+                "ki67_cell_precision": 0.2323206962925768,
+                "ki67_cell_recall": 0.40348837209302324,
+                "ki67_cell_auroc": 0.5996312657575471
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 16.564,
+                "pi_pearson_r": 0.0706,
+                "pi_spearman_rho": 0.026,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.689173457508731,
+                    "auroc": 0.5267264107177206
+                  },
+                  "ge_20pct": {
+                    "f1": 0.4924924924924925,
+                    "auroc": 0.5214147754707871
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 18.027,
+                    "ki67_pi_pearson_r": 0.5714,
+                    "ki67_fixed_f1": 0.4588
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 16.178,
+                    "ki67_pi_pearson_r": -0.2164,
+                    "ki67_fixed_f1": 0.1938
+                  }
+                }
+              },
+              "max_dc_drift": 6.505213034913027e-19
+            }
+          }
+        },
+        "deepliif_pix2pix": {
+          "upstream_info": {
+            "params": 7763107,
+            "best_epoch": 6,
+            "best_val_l1": 0.058944,
+            "train_sec": 89.1
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6371840018451799,
+                "ODS_F": 0.6853123542817122,
+                "AP": 0.6638832652541147,
+                "Cal_F1": 0.6835339591402342,
+                "SSIM": 0.5315611496333036,
+                "PSNR_dB": 21.941919891196687,
+                "Exact_r0_F1": 0.3391840705952194,
+                "mismatch_gap_ods_minus_fixed": 0.04812835243653235
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9783943338001834,
+                  "ODS_threshold": 71,
+                  "AP": 0.9943757881593005,
+                  "Fixed_tol_F1": 0.9758947066469793,
+                  "Cal_F1": 0.9758947066469793,
+                  "Fixed_exact_F1": 0.7269893792309748,
+                  "mismatch_gap_ods_minus_fixed": 0.002499627153204065,
+                  "SSIM": 0.6671860346710066,
+                  "PSNR_dB": 21.130539076230296,
+                  "train_calibrated_threshold": 63,
+                  "Exact_r0_F1": 0.7269893792309748,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.957786760141944,
+                    "Lung": 0.981030954434491
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8070056479100736,
+                  "ODS_threshold": 27,
+                  "AP": 0.8205369033464333,
+                  "Fixed_tol_F1": 0.8009728723469177,
+                  "Cal_F1": 0.8068140968503,
+                  "Fixed_exact_F1": 0.24281314488007924,
+                  "mismatch_gap_ods_minus_fixed": 0.0060327755631558455,
+                  "SSIM": 0.14620026383620716,
+                  "PSNR_dB": 19.457680869161788,
+                  "train_calibrated_threshold": 26,
+                  "Exact_r0_F1": 0.24281314488007924,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8083242339974076,
+                    "Lung": 0.7991694305121755
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.27053708113487984,
+                  "ODS_threshold": 17,
+                  "AP": 0.1767371042566103,
+                  "Fixed_tol_F1": 0.1346844265416427,
+                  "Cal_F1": 0.2678930739234232,
+                  "Fixed_exact_F1": 0.047749687674604024,
+                  "mismatch_gap_ods_minus_fixed": 0.13585265459323714,
+                  "SSIM": 0.7812971503926972,
+                  "PSNR_dB": 25.23753972819798,
+                  "train_calibrated_threshold": 18,
+                  "Exact_r0_F1": 0.047749687674604024,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.17946034158413302,
+                    "Lung": 0.11905516062473895
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.1912248253185368,
+                "ki67_cell_precision": 0.14788620470438651,
+                "ki67_cell_recall": 0.27049418604651165,
+                "ki67_cell_auroc": 0.4925906829226724
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 15.565,
+                "pi_pearson_r": -0.1241,
+                "pi_spearman_rho": -0.103,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7007786429365962,
+                    "auroc": 0.4584903311947679
+                  },
+                  "ge_20pct": {
+                    "f1": 0.504225352112676,
+                    "auroc": 0.4528730082085949
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 19.595,
+                    "ki67_pi_pearson_r": -0.4793,
+                    "ki67_fixed_f1": 0.1795
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 14.5,
+                    "ki67_pi_pearson_r": -0.0156,
+                    "ki67_fixed_f1": 0.1191
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6891395714568084,
+                "ODS_F": 0.755100455759789,
+                "AP": 0.726112918638767,
+                "Cal_F1": 0.7520866318183647,
+                "SSIM": 0.6028814929786035,
+                "PSNR_dB": 23.31407438099879,
+                "Exact_r0_F1": 0.41417595782569494,
+                "mismatch_gap_ods_minus_fixed": 0.06596088430298057
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9791531391856156,
+                  "ODS_threshold": 61,
+                  "AP": 0.994473684831382,
+                  "Fixed_tol_F1": 0.978932765943945,
+                  "Cal_F1": 0.9765135697162343,
+                  "Fixed_exact_F1": 0.7338933382879755,
+                  "mismatch_gap_ods_minus_fixed": 0.0002203732416706794,
+                  "SSIM": 0.6899536934587803,
+                  "PSNR_dB": 21.83423623484112,
+                  "train_calibrated_threshold": 54,
+                  "Exact_r0_F1": 0.7338933382879755,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9660823114795103,
+                    "Lung": 0.9826956607294888
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8895079860565941,
+                  "ODS_threshold": 40,
+                  "AP": 0.9102929915667635,
+                  "Fixed_tol_F1": 0.8873832772417288,
+                  "Cal_F1": 0.8832739523322156,
+                  "Fixed_exact_F1": 0.442895549414637,
+                  "mismatch_gap_ods_minus_fixed": 0.0021247088148652615,
+                  "SSIM": 0.31085919631468634,
+                  "PSNR_dB": 20.367379402236693,
+                  "train_calibrated_threshold": 34,
+                  "Exact_r0_F1": 0.442895549414637,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8943779586225626,
+                    "Lung": 0.8856269881197608
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.3966402420371572,
+                  "ODS_threshold": 22,
+                  "AP": 0.27357207951815565,
+                  "Fixed_tol_F1": 0.20110267118475142,
+                  "Cal_F1": 0.39647237340664404,
+                  "Fixed_exact_F1": 0.06573898577447233,
+                  "mismatch_gap_ods_minus_fixed": 0.19553757085240578,
+                  "SSIM": 0.8078315891623438,
+                  "PSNR_dB": 27.74060750591856,
+                  "train_calibrated_threshold": 21,
+                  "Exact_r0_F1": 0.06573898577447233,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.2727670157362017,
+                    "Lung": 0.17590353900484104
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.2973451327433628,
+                "ki67_cell_precision": 0.17748978729398507,
+                "ki67_cell_recall": 0.9156976744186046,
+                "ki67_cell_auroc": 0.579114220021362
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 68.624,
+                "pi_pearson_r": -0.2396,
+                "pi_spearman_rho": -0.1881,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.71259418729817,
+                    "auroc": 0.4441144189098974
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5343137254901961,
+                    "auroc": 0.3898841139546113
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 64.218,
+                    "ki67_pi_pearson_r": -0.2862,
+                    "ki67_fixed_f1": 0.2728
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 69.789,
+                    "ki67_pi_pearson_r": -0.2155,
+                    "ki67_fixed_f1": 0.1759
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.6753620903455501,
+                "ODS_F": 0.6853123542817122,
+                "AP": 0.6618989995904323,
+                "Cal_F1": 0.6835339591402342,
+                "SSIM": 0.564554967479702,
+                "PSNR_dB": 20.954172910453078,
+                "Exact_r0_F1": 0.33709755942186576,
+                "mismatch_gap_ods_minus_fixed": 0.009950263936162218
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9783943338001834,
+                  "ODS_threshold": 74,
+                  "AP": 0.9943627723738258,
+                  "Fixed_tol_F1": 0.973567777329153,
+                  "Cal_F1": 0.9758947066469793,
+                  "Fixed_exact_F1": 0.7241467488831276,
+                  "mismatch_gap_ods_minus_fixed": 0.004826556471030363,
+                  "SSIM": 0.6655292247560742,
+                  "PSNR_dB": 20.494980128735328,
+                  "train_calibrated_threshold": 66,
+                  "Exact_r0_F1": 0.7241467488831276,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9545212406389164,
+                    "Lung": 0.9789451245537385
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8070056479100736,
+                  "ODS_threshold": 10,
+                  "AP": 0.8150093832579793,
+                  "Fixed_tol_F1": 0.7924217111509427,
+                  "Cal_F1": 0.8068140968503,
+                  "Fixed_exact_F1": 0.21118099205067395,
+                  "mismatch_gap_ods_minus_fixed": 0.014583936759130833,
+                  "SSIM": 0.41461159363614397,
+                  "PSNR_dB": 18.43720896703746,
+                  "train_calibrated_threshold": 8,
+                  "Exact_r0_F1": 0.21118099205067395,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.7949728177199237,
+                    "Lung": 0.792026160713974
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.27053708113487984,
+                  "ODS_threshold": 19,
+                  "AP": 0.17632484313949187,
+                  "Fixed_tol_F1": 0.2600967825565544,
+                  "Cal_F1": 0.2678930739234232,
+                  "Fixed_exact_F1": 0.07596493733179571,
+                  "mismatch_gap_ods_minus_fixed": 0.010440298578325458,
+                  "SSIM": 0.6135240840468881,
+                  "PSNR_dB": 23.930329635586446,
+                  "train_calibrated_threshold": 24,
+                  "Exact_r0_F1": 0.07596493733179571,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.3107029690957521,
+                    "Lung": 0.24099752354474588
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.16330399458361544,
+                "ki67_cell_precision": 0.15285171102661596,
+                "ki67_cell_recall": 0.1752906976744186,
+                "ki67_cell_auroc": 0.4984276849536262
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 11.315,
+                "pi_pearson_r": -0.2144,
+                "pi_spearman_rho": -0.1819,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.5833333333333334,
+                    "auroc": 0.4228758613666451
+                  },
+                  "ge_20pct": {
+                    "f1": 0.27860696517412936,
+                    "auroc": 0.42609246740704976
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 16.755,
+                    "ki67_pi_pearson_r": -0.5752,
+                    "ki67_fixed_f1": 0.3107
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 9.878,
+                    "ki67_pi_pearson_r": -0.1418,
+                    "ki67_fixed_f1": 0.241
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7589201882143901,
+                "ODS_F": 0.7636480723613394,
+                "AP": 0.7320691901428534,
+                "Cal_F1": 0.762123418683993,
+                "SSIM": 0.6506471174892012,
+                "PSNR_dB": 23.20251213379579,
+                "Exact_r0_F1": 0.4715668300594405,
+                "mismatch_gap_ods_minus_fixed": 0.004727884146949153
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9816017123346997,
+                  "ODS_threshold": 69,
+                  "AP": 0.9950040304221196,
+                  "Fixed_tol_F1": 0.9798180784293294,
+                  "Cal_F1": 0.9807067544851544,
+                  "Fixed_exact_F1": 0.7352442087144396,
+                  "mismatch_gap_ods_minus_fixed": 0.0017836339053702854,
+                  "SSIM": 0.6770725995071398,
+                  "PSNR_dB": 21.34473648961263,
+                  "train_calibrated_threshold": 65,
+                  "Exact_r0_F1": 0.7352442087144396,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9645636614387961,
+                    "Lung": 0.9846528045969966
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9038581870678707,
+                  "ODS_threshold": 40,
+                  "AP": 0.9078036402275702,
+                  "Fixed_tol_F1": 0.903096740427899,
+                  "Cal_F1": 0.9001791838853773,
+                  "Fixed_exact_F1": 0.46320480660908747,
+                  "mismatch_gap_ods_minus_fixed": 0.0007614466399716857,
+                  "SSIM": 0.5004855675335617,
+                  "PSNR_dB": 21.313150232072537,
+                  "train_calibrated_threshold": 32,
+                  "Exact_r0_F1": 0.46320480660908747,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9062039751311676,
+                    "Lung": 0.9019973041438577
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.4054843176814475,
+                  "ODS_threshold": 26,
+                  "AP": 0.2933998997788706,
+                  "Fixed_tol_F1": 0.393845745785942,
+                  "Cal_F1": 0.4054843176814475,
+                  "Fixed_exact_F1": 0.21625147485479448,
+                  "mismatch_gap_ods_minus_fixed": 0.01163857189550549,
+                  "SSIM": 0.774383185426902,
+                  "PSNR_dB": 26.94964967970219,
+                  "train_calibrated_threshold": 26,
+                  "Exact_r0_F1": 0.21625147485479448,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.4570540544280658,
+                    "Lung": 0.37104529388664276
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.30315532570166775,
+                "ki67_cell_precision": 0.18944730917277944,
+                "ki67_cell_recall": 0.7582848837209303,
+                "ki67_cell_auroc": 0.5866898570964897
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 49.589,
+                "pi_pearson_r": -0.2244,
+                "pi_spearman_rho": -0.136,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.6995614035087719,
+                    "auroc": 0.4450196318046551
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5137844611528822,
+                    "auroc": 0.43635924674070503
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 48.177,
+                    "ki67_pi_pearson_r": -0.4387,
+                    "ki67_fixed_f1": 0.4571
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 49.963,
+                    "ki67_pi_pearson_r": -0.1616,
+                    "ki67_fixed_f1": 0.371
+                  }
+                }
+              },
+              "max_dc_drift": 0.13026372751312465
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.7573592881106522,
+                "ODS_F": 0.7619999099920737,
+                "AP": 0.7313650660349639,
+                "Cal_F1": 0.7599648117917662,
+                "SSIM": 0.5907255309436938,
+                "PSNR_dB": 22.66094872577686,
+                "Exact_r0_F1": 0.4646644165950846,
+                "mismatch_gap_ods_minus_fixed": 0.004640621881421632
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9817825474324534,
+                  "ODS_threshold": 67,
+                  "AP": 0.9951868706293409,
+                  "Fixed_tol_F1": 0.9809010219336702,
+                  "Cal_F1": 0.9809010219336702,
+                  "Fixed_exact_F1": 0.7354870000195755,
+                  "mismatch_gap_ods_minus_fixed": 0.0008815254987831755,
+                  "SSIM": 0.6720649691513094,
+                  "PSNR_dB": 21.493226840860295,
+                  "train_calibrated_threshold": 63,
+                  "Exact_r0_F1": 0.7354870000195755,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.9641425759316469,
+                    "Lung": 0.9858419318902728
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.8990285480428113,
+                  "ODS_threshold": 47,
+                  "AP": 0.898244610967401,
+                  "Fixed_tol_F1": 0.8913559475424296,
+                  "Cal_F1": 0.8940163285631086,
+                  "Fixed_exact_F1": 0.4400770152986609,
+                  "mismatch_gap_ods_minus_fixed": 0.007672600500381654,
+                  "SSIM": 0.34980517138164957,
+                  "PSNR_dB": 19.86064571238505,
+                  "train_calibrated_threshold": 39,
+                  "Exact_r0_F1": 0.4400770152986609,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.8984604185719821,
+                    "Lung": 0.8894099191718788
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.40518863450095677,
+                  "ODS_threshold": 29,
+                  "AP": 0.3006637165081495,
+                  "Fixed_tol_F1": 0.3998208948558567,
+                  "Cal_F1": 0.4049770848785196,
+                  "Fixed_exact_F1": 0.2184292344670175,
+                  "mismatch_gap_ods_minus_fixed": 0.005367739645100067,
+                  "SSIM": 0.7503064522981225,
+                  "PSNR_dB": 26.62897362408523,
+                  "train_calibrated_threshold": 28,
+                  "Exact_r0_F1": 0.2184292344670175,
+                  "per_organ_fixed_f1": {
+                    "Bladder": 0.4699023819622656,
+                    "Lung": 0.37551540505677883
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 41129,
+                "n_gt_ki67_pos": 6880,
+                "ki67_cell_f1": 0.3002691365807531,
+                "ki67_cell_precision": 0.18019381311294125,
+                "ki67_cell_recall": 0.9,
+                "ki67_cell_auroc": 0.588169657559175
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 598,
+                "pi_mae_pct": 66.1,
+                "pi_pearson_r": -0.2005,
+                "pi_spearman_rho": -0.1434,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.71259418729817,
+                    "auroc": 0.4651493035518291
+                  },
+                  "ge_20pct": {
+                    "f1": 0.5343137254901961,
+                    "auroc": 0.40654273297923704
+                  }
+                },
+                "by_organ": {
+                  "Bladder": {
+                    "n_tiles": 125,
+                    "ki67_pi_mae_pct": 60.609,
+                    "ki67_pi_pearson_r": -0.2454,
+                    "ki67_fixed_f1": 0.4699
+                  },
+                  "Lung": {
+                    "n_tiles": 473,
+                    "ki67_pi_mae_pct": 67.551,
+                    "ki67_pi_pearson_r": -0.1565,
+                    "ki67_fixed_f1": 0.3755
+                  }
+                }
+              },
+              "max_dc_drift": 1.1926223897340549e-18
+            }
+          }
+        }
+      }
+    },
+    "breast_bc_deepliif_ihc_to_mif": {
+      "suite": "breast_bc_deepliif_ihc_to_mif",
+      "n_train": 330,
+      "n_val": 55,
+      "n_eval": 66,
+      "organs_eval": {
+        "Breast": 66
+      },
+      "cutoffs_u8": [
+        57,
+        39,
+        43
+      ],
+      "physical_cell_ki67_cutoff": 19.0,
+      "physical_train_cell_ki67_f1": 0.892,
+      "backbones": {
+        "deepliif_unet": {
+          "upstream_info": {
+            "params": 7763107,
+            "best_epoch": 24,
+            "best_val_l1": 0.039806,
+            "train_sec": 51.9
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.8791996498944322,
+                "ODS_F": 0.9503956658435001,
+                "AP": 0.9814390578024946,
+                "Cal_F1": 0.9483807105547054,
+                "SSIM": 0.6427856977822474,
+                "PSNR_dB": 24.447234141466073,
+                "Exact_r0_F1": 0.6010322873405801,
+                "mismatch_gap_ods_minus_fixed": 0.07119601594906784
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9844480510177652,
+                  "ODS_threshold": 52,
+                  "AP": 0.9981369865370766,
+                  "Fixed_tol_F1": 0.9808576987819363,
+                  "Cal_F1": 0.983703041423113,
+                  "Fixed_exact_F1": 0.7600206073342317,
+                  "mismatch_gap_ods_minus_fixed": 0.003590352235828931,
+                  "SSIM": 0.708590683032013,
+                  "PSNR_dB": 22.72065952715223,
+                  "train_calibrated_threshold": 49,
+                  "Exact_r0_F1": 0.7600206073342317,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9808576987819363
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9288156712574822,
+                  "ODS_threshold": 20,
+                  "AP": 0.9602530739143287,
+                  "Fixed_tol_F1": 0.7452639197105514,
+                  "Cal_F1": 0.9235158149857507,
+                  "Fixed_exact_F1": 0.43639344927307255,
+                  "mismatch_gap_ods_minus_fixed": 0.18355175154693082,
+                  "SSIM": 0.3411227638629752,
+                  "PSNR_dB": 22.057469549581658,
+                  "train_calibrated_threshold": 17,
+                  "Exact_r0_F1": 0.43639344927307255,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.7452639197105514
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9379232752552527,
+                  "ODS_threshold": 31,
+                  "AP": 0.9859271129560784,
+                  "Fixed_tol_F1": 0.9114773311908089,
+                  "Cal_F1": 0.9379232752552527,
+                  "Fixed_exact_F1": 0.6066828054144362,
+                  "mismatch_gap_ods_minus_fixed": 0.026445944064443783,
+                  "SSIM": 0.8786436464517537,
+                  "PSNR_dB": 28.563573347664327,
+                  "train_calibrated_threshold": 31,
+                  "Exact_r0_F1": 0.6066828054144362,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9114773311908089
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9170554691550026,
+                "ki67_cell_precision": 0.971444261394838,
+                "ki67_cell_recall": 0.868433971526755,
+                "ki67_cell_auroc": 0.9953619221906895
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 3.899,
+                "pi_pearson_r": 0.9451,
+                "pi_spearman_rho": 0.96,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 0.9981481481481481
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 3.899,
+                    "ki67_pi_pearson_r": 0.9451,
+                    "ki67_fixed_f1": 0.9115
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9078617273892182,
+                "ODS_F": 0.9490167148803469,
+                "AP": 0.9796622159800203,
+                "Cal_F1": 0.9473566966589226,
+                "SSIM": 0.6875780293611201,
+                "PSNR_dB": 24.429067099120093,
+                "Exact_r0_F1": 0.618970090498867,
+                "mismatch_gap_ods_minus_fixed": 0.041154987491128746
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9845934875678266,
+                  "ODS_threshold": 52,
+                  "AP": 0.9981442881746055,
+                  "Fixed_tol_F1": 0.9809707260453848,
+                  "Cal_F1": 0.9837204538677085,
+                  "Fixed_exact_F1": 0.7606608414828469,
+                  "mismatch_gap_ods_minus_fixed": 0.0036227615224417864,
+                  "SSIM": 0.7078252059450093,
+                  "PSNR_dB": 22.725189376140616,
+                  "train_calibrated_threshold": 49,
+                  "Exact_r0_F1": 0.7606608414828469,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9809707260453848
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9257337196704962,
+                  "ODS_threshold": 24,
+                  "AP": 0.9551453333738257,
+                  "Fixed_tol_F1": 0.8413305587352338,
+                  "Cal_F1": 0.9224558512775959,
+                  "Fixed_exact_F1": 0.49198213584430056,
+                  "mismatch_gap_ods_minus_fixed": 0.08440316093526246,
+                  "SSIM": 0.47523616775350414,
+                  "PSNR_dB": 21.985742841230916,
+                  "train_calibrated_threshold": 21,
+                  "Exact_r0_F1": 0.49198213584430056,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8413305587352338
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.936722937402718,
+                  "ODS_threshold": 31,
+                  "AP": 0.9856970263916298,
+                  "Fixed_tol_F1": 0.901283897387036,
+                  "Cal_F1": 0.9358937848314632,
+                  "Fixed_exact_F1": 0.6042672941694532,
+                  "mismatch_gap_ods_minus_fixed": 0.03543904001568199,
+                  "SSIM": 0.879672714384847,
+                  "PSNR_dB": 28.57626907998875,
+                  "train_calibrated_threshold": 28,
+                  "Exact_r0_F1": 0.6042672941694532,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.901283897387036
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.8964968152866242,
+                "ki67_cell_precision": 0.975736568457539,
+                "ki67_cell_recall": 0.8291605301914581,
+                "ki67_cell_auroc": 0.9909847690820022
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 4.563,
+                "pi_pearson_r": 0.9294,
+                "pi_spearman_rho": 0.9385,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 0.9981481481481482
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 4.563,
+                    "ki67_pi_pearson_r": 0.9294,
+                    "ki67_fixed_f1": 0.9013
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9309111401193877,
+                "ODS_F": 0.9503956658435001,
+                "AP": 0.9814088610651384,
+                "Cal_F1": 0.9483807105547054,
+                "SSIM": 0.6992146388968646,
+                "PSNR_dB": 23.83118552075095,
+                "Exact_r0_F1": 0.6396278687587666,
+                "mismatch_gap_ods_minus_fixed": 0.0194845257241123
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9844480510177652,
+                  "ODS_threshold": 54,
+                  "AP": 0.9981364152230843,
+                  "Fixed_tol_F1": 0.9839000234358132,
+                  "Cal_F1": 0.983703041423113,
+                  "Fixed_exact_F1": 0.7691543023467008,
+                  "mismatch_gap_ods_minus_fixed": 0.0005480275819520486,
+                  "SSIM": 0.7115943655699041,
+                  "PSNR_dB": 22.51267495067419,
+                  "train_calibrated_threshold": 50,
+                  "Exact_r0_F1": 0.7691543023467008,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9839000234358132
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9288156712574822,
+                  "ODS_threshold": 21,
+                  "AP": 0.9601630550162523,
+                  "Fixed_tol_F1": 0.8724198764128802,
+                  "Cal_F1": 0.9235158149857507,
+                  "Fixed_exact_F1": 0.5144511733660561,
+                  "mismatch_gap_ods_minus_fixed": 0.056395794844602,
+                  "SSIM": 0.5187181851261365,
+                  "PSNR_dB": 20.6056093254466,
+                  "train_calibrated_threshold": 16,
+                  "Exact_r0_F1": 0.5144511733660561,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8724198764128802
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9379232752552527,
+                  "ODS_threshold": 37,
+                  "AP": 0.9859271129560784,
+                  "Fixed_tol_F1": 0.9364135205094698,
+                  "Cal_F1": 0.9379232752552527,
+                  "Fixed_exact_F1": 0.635278130563543,
+                  "mismatch_gap_ods_minus_fixed": 0.0015097547457828542,
+                  "SSIM": 0.8673313659945533,
+                  "PSNR_dB": 28.37527228613206,
+                  "train_calibrated_threshold": 37,
+                  "Exact_r0_F1": 0.635278130563543,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9364135205094698
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9386317907444668,
+                "ki67_cell_precision": 0.962351727694688,
+                "ki67_cell_recall": 0.9160530191458026,
+                "ki67_cell_auroc": 0.9953594954895595
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 2.869,
+                "pi_pearson_r": 0.966,
+                "pi_spearman_rho": 0.9852,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 1.0
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 2.869,
+                    "ki67_pi_pearson_r": 0.966,
+                    "ki67_fixed_f1": 0.9364
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9509563017595313,
+                "ODS_F": 0.9519263222055528,
+                "AP": 0.9813622093593358,
+                "Cal_F1": 0.9515940100423143,
+                "SSIM": 0.6892492167025503,
+                "PSNR_dB": 24.163479730336984,
+                "Exact_r0_F1": 0.6465994912981702,
+                "mismatch_gap_ods_minus_fixed": 0.0009700204460217169
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9842995061367312,
+                  "ODS_threshold": 61,
+                  "AP": 0.9983412825792137,
+                  "Fixed_tol_F1": 0.9830772531720944,
+                  "Cal_F1": 0.9838932881644463,
+                  "Fixed_exact_F1": 0.7694820555192772,
+                  "mismatch_gap_ods_minus_fixed": 0.0012222529646368496,
+                  "SSIM": 0.7019547167576781,
+                  "PSNR_dB": 22.410507640770053,
+                  "train_calibrated_threshold": 59,
+                  "Exact_r0_F1": 0.7694820555192772,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9830772531720944
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.930670343406837,
+                  "ODS_threshold": 39,
+                  "AP": 0.9583376410602695,
+                  "Fixed_tol_F1": 0.930670343406837,
+                  "Cal_F1": 0.9300796248894061,
+                  "Fixed_exact_F1": 0.5298120903094972,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.48925864946675524,
+                  "PSNR_dB": 21.39597237783279,
+                  "train_calibrated_threshold": 36,
+                  "Exact_r0_F1": 0.5298120903094972,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.930670343406837
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9408091170730908,
+                  "ODS_threshold": 40,
+                  "AP": 0.9874077044385241,
+                  "Fixed_tol_F1": 0.9391213086996625,
+                  "Cal_F1": 0.9408091170730908,
+                  "Fixed_exact_F1": 0.6405043280657361,
+                  "mismatch_gap_ods_minus_fixed": 0.0016878083734283011,
+                  "SSIM": 0.8765342838832177,
+                  "PSNR_dB": 28.683959172408102,
+                  "train_calibrated_threshold": 40,
+                  "Exact_r0_F1": 0.6405043280657361,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9391213086996625
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9375914188200878,
+                "ki67_cell_precision": 0.9312348668280872,
+                "ki67_cell_recall": 0.9440353460972017,
+                "ki67_cell_auroc": 0.9960719314780733
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 2.084,
+                "pi_pearson_r": 0.9838,
+                "pi_spearman_rho": 0.9897,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 1.0
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 2.084,
+                    "ki67_pi_pearson_r": 0.9838,
+                    "ki67_fixed_f1": 0.9391
+                  }
+                }
+              },
+              "max_dc_drift": 0.03713768488864844
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9476751661154384,
+                "ODS_F": 0.9495670102195978,
+                "AP": 0.9784047861017453,
+                "Cal_F1": 0.9490902490945622,
+                "SSIM": 0.676069017229306,
+                "PSNR_dB": 24.14984614811607,
+                "Exact_r0_F1": 0.6443246288738248,
+                "mismatch_gap_ods_minus_fixed": 0.0018918441041593608
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9824832481963608,
+                  "ODS_threshold": 60,
+                  "AP": 0.9970761585808293,
+                  "Fixed_tol_F1": 0.9819419705571556,
+                  "Cal_F1": 0.9822230336109024,
+                  "Fixed_exact_F1": 0.7676195628509035,
+                  "mismatch_gap_ods_minus_fixed": 0.0005412776392051954,
+                  "SSIM": 0.6843090747135339,
+                  "PSNR_dB": 22.34949863132445,
+                  "train_calibrated_threshold": 58,
+                  "Exact_r0_F1": 0.7676195628509035,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9819419705571556
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.925195862070981,
+                  "ODS_threshold": 33,
+                  "AP": 0.952490938758352,
+                  "Fixed_tol_F1": 0.9212408730376159,
+                  "Cal_F1": 0.9241614760553591,
+                  "Fixed_exact_F1": 0.5263432655437209,
+                  "mismatch_gap_ods_minus_fixed": 0.003954989033365108,
+                  "SSIM": 0.48684731684442106,
+                  "PSNR_dB": 21.582495263903464,
+                  "train_calibrated_threshold": 30,
+                  "Exact_r0_F1": 0.5263432655437209,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9212408730376159
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9410219203914517,
+                  "ODS_threshold": 40,
+                  "AP": 0.9856472609660547,
+                  "Fixed_tol_F1": 0.9398426547515439,
+                  "Cal_F1": 0.9408862376174247,
+                  "Fixed_exact_F1": 0.6390110582268498,
+                  "mismatch_gap_ods_minus_fixed": 0.0011792656399077783,
+                  "SSIM": 0.8570506601299633,
+                  "PSNR_dB": 28.517544549120288,
+                  "train_calibrated_threshold": 38,
+                  "Exact_r0_F1": 0.6390110582268498,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9398426547515439
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9086148206336737,
+                "ki67_cell_precision": 0.9736251402918069,
+                "ki67_cell_recall": 0.8517427589592538,
+                "ki67_cell_auroc": 0.9876815942108039
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 4.294,
+                "pi_pearson_r": 0.9379,
+                "pi_spearman_rho": 0.9318,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 0.9981481481481481
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 4.294,
+                    "ki67_pi_pearson_r": 0.9379,
+                    "ki67_fixed_f1": 0.9398
+                  }
+                }
+              },
+              "max_dc_drift": 8.673617379884035e-19
+            }
+          }
+        },
+        "deepliif_resnet34": {
+          "upstream_info": {
+            "params": 24462915,
+            "best_epoch": 15,
+            "best_val_l1": 0.040681,
+            "train_sec": 165.3
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9207588643053586,
+                "ODS_F": 0.9440447263729682,
+                "AP": 0.9784953458616616,
+                "Cal_F1": 0.9428786706042468,
+                "SSIM": 0.681519979323803,
+                "PSNR_dB": 23.96206523635796,
+                "Exact_r0_F1": 0.619362884067287,
+                "mismatch_gap_ods_minus_fixed": 0.023285862067609558
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9848098078102309,
+                  "ODS_threshold": 50,
+                  "AP": 0.9990062293635908,
+                  "Fixed_tol_F1": 0.9806126264801541,
+                  "Cal_F1": 0.9816943470215147,
+                  "Fixed_exact_F1": 0.7644850912327548,
+                  "mismatch_gap_ods_minus_fixed": 0.004197181330076738,
+                  "SSIM": 0.6979093084558462,
+                  "PSNR_dB": 22.03641124497017,
+                  "train_calibrated_threshold": 56,
+                  "Exact_r0_F1": 0.7644850912327548,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9806126264801541
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9193700457352915,
+                  "ODS_threshold": 21,
+                  "AP": 0.9564168029595836,
+                  "Fixed_tol_F1": 0.8624337952840982,
+                  "Cal_F1": 0.919092295043219,
+                  "Fixed_exact_F1": 0.5010533067874319,
+                  "mismatch_gap_ods_minus_fixed": 0.056936250451193215,
+                  "SSIM": 0.4720560615818515,
+                  "PSNR_dB": 22.15927953331221,
+                  "train_calibrated_threshold": 23,
+                  "Exact_r0_F1": 0.5010533067874319,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8624337952840982
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.927954325573382,
+                  "ODS_threshold": 35,
+                  "AP": 0.9800630052618102,
+                  "Fixed_tol_F1": 0.9192301711518233,
+                  "Cal_F1": 0.927849369748007,
+                  "Fixed_exact_F1": 0.5925502541816742,
+                  "mismatch_gap_ods_minus_fixed": 0.008724154421558716,
+                  "SSIM": 0.8745945679337113,
+                  "PSNR_dB": 27.690504930791505,
+                  "train_calibrated_threshold": 36,
+                  "Exact_r0_F1": 0.5925502541816742,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9192301711518233
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9528210116731517,
+                "ki67_cell_precision": 0.9440963855421687,
+                "ki67_cell_recall": 0.9617083946980854,
+                "ki67_cell_auroc": 0.9976000650211025
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 1.826,
+                "pi_pearson_r": 0.9855,
+                "pi_spearman_rho": 0.9882,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.9863013698630136,
+                    "auroc": 0.9990740740740741
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 1.826,
+                    "ki67_pi_pearson_r": 0.9855,
+                    "ki67_fixed_f1": 0.9192
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9241889639239784,
+                "ODS_F": 0.9466813690811965,
+                "AP": 0.979372741619344,
+                "Cal_F1": 0.9462458450552288,
+                "SSIM": 0.6910794944570192,
+                "PSNR_dB": 24.0655917312331,
+                "Exact_r0_F1": 0.6251277669854892,
+                "mismatch_gap_ods_minus_fixed": 0.022492405157218065
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9846640371949749,
+                  "ODS_threshold": 49,
+                  "AP": 0.998959579866687,
+                  "Fixed_tol_F1": 0.9814240906728119,
+                  "Cal_F1": 0.9833574651170719,
+                  "Fixed_exact_F1": 0.7677647073390106,
+                  "mismatch_gap_ods_minus_fixed": 0.003239946522162973,
+                  "SSIM": 0.6979825256482569,
+                  "PSNR_dB": 22.240385586356645,
+                  "train_calibrated_threshold": 54,
+                  "Exact_r0_F1": 0.7677647073390106,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9814240906728119
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.925461535149088,
+                  "ODS_threshold": 23,
+                  "AP": 0.9586025848844437,
+                  "Fixed_tol_F1": 0.8770638402116895,
+                  "Cal_F1": 0.925461535149088,
+                  "Fixed_exact_F1": 0.5196506986194009,
+                  "mismatch_gap_ods_minus_fixed": 0.04839769493739854,
+                  "SSIM": 0.49856325952373215,
+                  "PSNR_dB": 22.1881259682312,
+                  "train_calibrated_threshold": 23,
+                  "Exact_r0_F1": 0.5196506986194009,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8770638402116895
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9299185348995266,
+                  "ODS_threshold": 35,
+                  "AP": 0.980556060106901,
+                  "Fixed_tol_F1": 0.9140789608874339,
+                  "Cal_F1": 0.9299185348995266,
+                  "Fixed_exact_F1": 0.5879678949980559,
+                  "mismatch_gap_ods_minus_fixed": 0.015839574012092683,
+                  "SSIM": 0.8766926981990684,
+                  "PSNR_dB": 27.76826363911145,
+                  "train_calibrated_threshold": 35,
+                  "Exact_r0_F1": 0.5879678949980559,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9140789608874339
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9386954389406572,
+                "ki67_cell_precision": 0.9377756001959824,
+                "ki67_cell_recall": 0.9396170839469808,
+                "ki67_cell_auroc": 0.9960741046432644
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 1.948,
+                "pi_pearson_r": 0.9811,
+                "pi_spearman_rho": 0.9844,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 0.9999999999999999
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 0.9999999999999999
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 1.948,
+                    "ki67_pi_pearson_r": 0.9811,
+                    "ki67_fixed_f1": 0.9141
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9297545397591761,
+                "ODS_F": 0.9440447263729682,
+                "AP": 0.9783408913400028,
+                "Cal_F1": 0.9428786706042468,
+                "SSIM": 0.6977526308993678,
+                "PSNR_dB": 23.379434744332496,
+                "Exact_r0_F1": 0.6266640796027919,
+                "mismatch_gap_ods_minus_fixed": 0.014290186613791925
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9848098078102309,
+                  "ODS_threshold": 44,
+                  "AP": 0.9990025031680794,
+                  "Fixed_tol_F1": 0.9747929844872977,
+                  "Cal_F1": 0.9816943470215147,
+                  "Fixed_exact_F1": 0.7589365544490947,
+                  "mismatch_gap_ods_minus_fixed": 0.010016823322933188,
+                  "SSIM": 0.7035325407327215,
+                  "PSNR_dB": 21.744196060098748,
+                  "train_calibrated_threshold": 51,
+                  "Exact_r0_F1": 0.7589365544490947,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9747929844872977
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9193700457352915,
+                  "ODS_threshold": 16,
+                  "AP": 0.9559964393972458,
+                  "Fixed_tol_F1": 0.8902329819244484,
+                  "Cal_F1": 0.919092295043219,
+                  "Fixed_exact_F1": 0.5221188446656428,
+                  "mismatch_gap_ods_minus_fixed": 0.029137063810843022,
+                  "SSIM": 0.5219282941247699,
+                  "PSNR_dB": 20.84192714697898,
+                  "train_calibrated_threshold": 19,
+                  "Exact_r0_F1": 0.5221188446656428,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8902329819244484
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.927954325573382,
+                  "ODS_threshold": 34,
+                  "AP": 0.980023731454683,
+                  "Fixed_tol_F1": 0.9242376528657824,
+                  "Cal_F1": 0.927849369748007,
+                  "Fixed_exact_F1": 0.5989368396936382,
+                  "mismatch_gap_ods_minus_fixed": 0.0037166727075995665,
+                  "SSIM": 0.8677970578406116,
+                  "PSNR_dB": 27.55218102591975,
+                  "train_calibrated_threshold": 36,
+                  "Exact_r0_F1": 0.5989368396936382,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9242376528657824
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9527520701412567,
+                "ki67_cell_precision": 0.9453842435959401,
+                "ki67_cell_recall": 0.9602356406480118,
+                "ki67_cell_auroc": 0.9975646786479058
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 1.818,
+                "pi_pearson_r": 0.985,
+                "pi_spearman_rho": 0.9894,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.9863013698630136,
+                    "auroc": 0.9990740740740741
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 1.818,
+                    "ki67_pi_pearson_r": 0.985,
+                    "ki67_fixed_f1": 0.9242
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9489396992520996,
+                "ODS_F": 0.9497044921323692,
+                "AP": 0.9800932863064019,
+                "Cal_F1": 0.9491719979297782,
+                "SSIM": 0.687501932206581,
+                "PSNR_dB": 23.82190810191688,
+                "Exact_r0_F1": 0.6394135847847994,
+                "mismatch_gap_ods_minus_fixed": 0.000764792880269427
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9867149013478651,
+                  "ODS_threshold": 51,
+                  "AP": 0.999093711672257,
+                  "Fixed_tol_F1": 0.9854264955929513,
+                  "Cal_F1": 0.9854264955929513,
+                  "Fixed_exact_F1": 0.7710912537465654,
+                  "mismatch_gap_ods_minus_fixed": 0.0012884057549138461,
+                  "SSIM": 0.6990241922611404,
+                  "PSNR_dB": 22.01456027612806,
+                  "train_calibrated_threshold": 57,
+                  "Exact_r0_F1": 0.7710912537465654,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9854264955929513
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9315237853063616,
+                  "ODS_threshold": 36,
+                  "AP": 0.9589976916377545,
+                  "Fixed_tol_F1": 0.9307264405937054,
+                  "Cal_F1": 0.9314031473164878,
+                  "Fixed_exact_F1": 0.5334223815119667,
+                  "mismatch_gap_ods_minus_fixed": 0.000797344712656245,
+                  "SSIM": 0.498631424582423,
+                  "PSNR_dB": 21.652302572571514,
+                  "train_calibrated_threshold": 35,
+                  "Exact_r0_F1": 0.5334223815119667,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9307264405937054
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9308747897428807,
+                  "ODS_threshold": 42,
+                  "AP": 0.9821884556091942,
+                  "Fixed_tol_F1": 0.9306661615696425,
+                  "Cal_F1": 0.9306863508798959,
+                  "Fixed_exact_F1": 0.6137271190958662,
+                  "mismatch_gap_ods_minus_fixed": 0.00020862817323819005,
+                  "SSIM": 0.8648501797761794,
+                  "PSNR_dB": 27.79886145705107,
+                  "train_calibrated_threshold": 40,
+                  "Exact_r0_F1": 0.6137271190958662,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9306661615696425
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.947949148476853,
+                "ki67_cell_precision": 0.926829268292683,
+                "ki67_cell_recall": 0.970054000981836,
+                "ki67_cell_auroc": 0.9968251505333419
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 2.114,
+                "pi_pearson_r": 0.9896,
+                "pi_spearman_rho": 0.989,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 1.0
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 2.114,
+                    "ki67_pi_pearson_r": 0.9896,
+                    "ki67_fixed_f1": 0.9307
+                  }
+                }
+              },
+              "max_dc_drift": 0.01968362536413082
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.947015535333806,
+                "ODS_F": 0.9496445215273139,
+                "AP": 0.9794483597026099,
+                "Cal_F1": 0.948043620223216,
+                "SSIM": 0.6880659481909045,
+                "PSNR_dB": 23.878763517129357,
+                "Exact_r0_F1": 0.6382940035350252,
+                "mismatch_gap_ods_minus_fixed": 0.002628986193508006
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.988038000672946,
+                  "ODS_threshold": 51,
+                  "AP": 0.9991697075367123,
+                  "Fixed_tol_F1": 0.9864676813675141,
+                  "Cal_F1": 0.985580061273763,
+                  "Fixed_exact_F1": 0.7699815765405031,
+                  "mismatch_gap_ods_minus_fixed": 0.0015703193054319442,
+                  "SSIM": 0.6966834801022193,
+                  "PSNR_dB": 21.986633203247546,
+                  "train_calibrated_threshold": 58,
+                  "Exact_r0_F1": 0.7699815765405031,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9864676813675141
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9325054786616981,
+                  "ODS_threshold": 32,
+                  "AP": 0.9575689260326243,
+                  "Fixed_tol_F1": 0.926188839386606,
+                  "Cal_F1": 0.9324311676547642,
+                  "Fixed_exact_F1": 0.534792168505966,
+                  "mismatch_gap_ods_minus_fixed": 0.006316639275092073,
+                  "SSIM": 0.507159932856188,
+                  "PSNR_dB": 21.857401656448506,
+                  "train_calibrated_threshold": 31,
+                  "Exact_r0_F1": 0.534792168505966,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.926188839386606
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9283900852472978,
+                  "ODS_threshold": 43,
+                  "AP": 0.9816064455384931,
+                  "Fixed_tol_F1": 0.9283900852472978,
+                  "Cal_F1": 0.9261196317411207,
+                  "Fixed_exact_F1": 0.6101082655586064,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.8603544316143065,
+                  "PSNR_dB": 27.792255691692024,
+                  "train_calibrated_threshold": 38,
+                  "Exact_r0_F1": 0.6101082655586064,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9283900852472978
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9477267201556042,
+                "ki67_cell_precision": 0.9388246628131022,
+                "ki67_cell_recall": 0.9567992145311733,
+                "ki67_cell_auroc": 0.997044060706935
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 1.842,
+                "pi_pearson_r": 0.9847,
+                "pi_spearman_rho": 0.9889,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.972972972972973,
+                    "auroc": 0.9981481481481481
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 1.842,
+                    "ki67_pi_pearson_r": 0.9847,
+                    "ki67_fixed_f1": 0.9284
+                  }
+                }
+              },
+              "max_dc_drift": 3.2526065174565133e-19
+            }
+          }
+        },
+        "deepliif_pix2pix": {
+          "upstream_info": {
+            "params": 7763107,
+            "best_epoch": 12,
+            "best_val_l1": 0.047928,
+            "train_sec": 56.0
+          },
+          "arms": {
+            "upstream": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.8743888267443697,
+                "ODS_F": 0.9260839458441157,
+                "AP": 0.9552881761070263,
+                "Cal_F1": 0.925166926988814,
+                "SSIM": 0.576309766484087,
+                "PSNR_dB": 22.44496900636216,
+                "Exact_r0_F1": 0.5481133562025735,
+                "mismatch_gap_ods_minus_fixed": 0.051695119099746036
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9600983872107658,
+                  "ODS_threshold": 41,
+                  "AP": 0.9885542410416887,
+                  "Fixed_tol_F1": 0.9215409863360634,
+                  "Cal_F1": 0.95956113107189,
+                  "Fixed_exact_F1": 0.6138189016524817,
+                  "mismatch_gap_ods_minus_fixed": 0.038557400874702386,
+                  "SSIM": 0.6606652093570139,
+                  "PSNR_dB": 21.000490554877494,
+                  "train_calibrated_threshold": 39,
+                  "Exact_r0_F1": 0.6138189016524817,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9215409863360634
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.894915465980957,
+                  "ODS_threshold": 20,
+                  "AP": 0.9213688721061664,
+                  "Fixed_tol_F1": 0.7887944082472138,
+                  "Cal_F1": 0.8947216314814134,
+                  "Fixed_exact_F1": 0.4492842668995227,
+                  "mismatch_gap_ods_minus_fixed": 0.10612105773374314,
+                  "SSIM": 0.2604604627485283,
+                  "PSNR_dB": 19.799384020944878,
+                  "train_calibrated_threshold": 19,
+                  "Exact_r0_F1": 0.4492842668995227,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.7887944082472138
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9232379843406245,
+                  "ODS_threshold": 53,
+                  "AP": 0.955941415173224,
+                  "Fixed_tol_F1": 0.912831085649832,
+                  "Cal_F1": 0.9212180184131386,
+                  "Fixed_exact_F1": 0.5812369000557163,
+                  "mismatch_gap_ods_minus_fixed": 0.010406898690792588,
+                  "SSIM": 0.8078036273467191,
+                  "PSNR_dB": 26.53503244326411,
+                  "train_calibrated_threshold": 48,
+                  "Exact_r0_F1": 0.5812369000557163,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.912831085649832
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.7393757051523129,
+                "ki67_cell_precision": 0.5992075586711368,
+                "ki67_cell_recall": 0.9651448208149239,
+                "ki67_cell_auroc": 0.9786021462614062
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 15.369,
+                "pi_pearson_r": 0.5731,
+                "pi_spearman_rho": 0.5083,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7058823529411765,
+                    "auroc": 0.7981481481481482
+                  },
+                  "ge_20pct": {
+                    "f1": 0.7415730337078652,
+                    "auroc": 0.8705234159779613
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 15.369,
+                    "ki67_pi_pearson_r": 0.5731,
+                    "ki67_fixed_f1": 0.9128
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "S_recon": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9178865760888614,
+                "ODS_F": 0.9372315264401995,
+                "AP": 0.9628189356877983,
+                "Cal_F1": 0.9349599519764435,
+                "SSIM": 0.6281244589138925,
+                "PSNR_dB": 23.37679975357264,
+                "Exact_r0_F1": 0.5900904100470942,
+                "mismatch_gap_ods_minus_fixed": 0.01934495035133806
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9697529949444085,
+                  "ODS_threshold": 43,
+                  "AP": 0.9946314404370449,
+                  "Fixed_tol_F1": 0.9341088633487662,
+                  "Cal_F1": 0.969147042040931,
+                  "Fixed_exact_F1": 0.6505017194549695,
+                  "mismatch_gap_ods_minus_fixed": 0.03564413159564228,
+                  "SSIM": 0.6669134433324311,
+                  "PSNR_dB": 21.318832688918114,
+                  "train_calibrated_threshold": 41,
+                  "Exact_r0_F1": 0.6505017194549695,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9341088633487662
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9096500351526499,
+                  "ODS_threshold": 30,
+                  "AP": 0.9504162299527441,
+                  "Fixed_tol_F1": 0.8891431176232695,
+                  "Cal_F1": 0.9087020686214098,
+                  "Fixed_exact_F1": 0.5101600987526416,
+                  "mismatch_gap_ods_minus_fixed": 0.020506917529380386,
+                  "SSIM": 0.36542833966668165,
+                  "PSNR_dB": 21.17358055157406,
+                  "train_calibrated_threshold": 29,
+                  "Exact_r0_F1": 0.5101600987526416,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8891431176232695
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9322915492235401,
+                  "ODS_threshold": 40,
+                  "AP": 0.9434091366736059,
+                  "Fixed_tol_F1": 0.9304077472945486,
+                  "Cal_F1": 0.9270307452669896,
+                  "Fixed_exact_F1": 0.6096094119336712,
+                  "mismatch_gap_ods_minus_fixed": 0.001883801928991513,
+                  "SSIM": 0.8520315937425645,
+                  "PSNR_dB": 27.63798602022576,
+                  "train_calibrated_threshold": 34,
+                  "Exact_r0_F1": 0.6096094119336712,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9304077472945486
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9356243949661182,
+                "ki67_cell_precision": 0.922673031026253,
+                "ki67_cell_recall": 0.9489445262641139,
+                "ki67_cell_auroc": 0.9903692200415959
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 1.924,
+                "pi_pearson_r": 0.9856,
+                "pi_spearman_rho": 0.9721,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.96,
+                    "auroc": 0.9972222222222222
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 1.924,
+                    "ki67_pi_pearson_r": 0.9856,
+                    "ki67_fixed_f1": 0.9304
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "QuantileMatch": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.8938344199809897,
+                "ODS_F": 0.9260839458441157,
+                "AP": 0.9552184589647478,
+                "Cal_F1": 0.925166926988814,
+                "SSIM": 0.644302293091198,
+                "PSNR_dB": 22.26898822882084,
+                "Exact_r0_F1": 0.5819791312235584,
+                "mismatch_gap_ods_minus_fixed": 0.03224952586312609
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9600983872107658,
+                  "ODS_threshold": 52,
+                  "AP": 0.9885398307881522,
+                  "Fixed_tol_F1": 0.9577521128541534,
+                  "Cal_F1": 0.95956113107189,
+                  "Fixed_exact_F1": 0.7041599537323915,
+                  "mismatch_gap_ods_minus_fixed": 0.002346274356612388,
+                  "SSIM": 0.6483835459606372,
+                  "PSNR_dB": 21.20890523264978,
+                  "train_calibrated_threshold": 50,
+                  "Exact_r0_F1": 0.7041599537323915,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9577521128541534
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.894915465980957,
+                  "ODS_threshold": 17,
+                  "AP": 0.9212356552533562,
+                  "Fixed_tol_F1": 0.8038511272071076,
+                  "Cal_F1": 0.8947216314814134,
+                  "Fixed_exact_F1": 0.4596033406462245,
+                  "mismatch_gap_ods_minus_fixed": 0.09106433877384934,
+                  "SSIM": 0.47225018831433996,
+                  "PSNR_dB": 19.75711446266914,
+                  "train_calibrated_threshold": 15,
+                  "Exact_r0_F1": 0.4596033406462245,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.8038511272071076
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9232379843406245,
+                  "ODS_threshold": 50,
+                  "AP": 0.955879890852735,
+                  "Fixed_tol_F1": 0.919900019881708,
+                  "Cal_F1": 0.9212180184131386,
+                  "Fixed_exact_F1": 0.5821740992920593,
+                  "mismatch_gap_ods_minus_fixed": 0.0033379644589165425,
+                  "SSIM": 0.8122731449986169,
+                  "PSNR_dB": 25.8409449911436,
+                  "train_calibrated_threshold": 44,
+                  "Exact_r0_F1": 0.5821740992920593,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.919900019881708
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.7383863080684596,
+                "ki67_cell_precision": 0.5984756097560976,
+                "ki67_cell_recall": 0.9636720667648503,
+                "ki67_cell_auroc": 0.9782401331599728
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 15.26,
+                "pi_pearson_r": 0.5652,
+                "pi_spearman_rho": 0.4957,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.7058823529411765,
+                    "auroc": 0.7944444444444445
+                  },
+                  "ge_20pct": {
+                    "f1": 0.75,
+                    "auroc": 0.862258953168044
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 15.26,
+                    "ki67_pi_pearson_r": 0.5652,
+                    "ki67_fixed_f1": 0.9199
+                  }
+                }
+              },
+              "max_dc_drift": 0.0
+            },
+            "E_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9418317001994613,
+                "ODS_F": 0.9434656405943378,
+                "AP": 0.9689331770093762,
+                "Cal_F1": 0.9426355495737844,
+                "SSIM": 0.6531733892069099,
+                "PSNR_dB": 23.310429924780596,
+                "Exact_r0_F1": 0.6252004150458368,
+                "mismatch_gap_ods_minus_fixed": 0.0016339403948765578
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.977563936429256,
+                  "ODS_threshold": 59,
+                  "AP": 0.9973222587351226,
+                  "Fixed_tol_F1": 0.977314325272004,
+                  "Cal_F1": 0.977314325272004,
+                  "Fixed_exact_F1": 0.7588135951935661,
+                  "mismatch_gap_ods_minus_fixed": 0.00024961115725197214,
+                  "SSIM": 0.6677525853046022,
+                  "PSNR_dB": 21.686889703776718,
+                  "train_calibrated_threshold": 57,
+                  "Exact_r0_F1": 0.7588135951935661,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.977314325272004
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9211564543615008,
+                  "ODS_threshold": 35,
+                  "AP": 0.9598379901585317,
+                  "Fixed_tol_F1": 0.9206844063171005,
+                  "Cal_F1": 0.9206947812885712,
+                  "Fixed_exact_F1": 0.5147550640429926,
+                  "mismatch_gap_ods_minus_fixed": 0.00047204804440037496,
+                  "SSIM": 0.4453431781323243,
+                  "PSNR_dB": 21.22193311172599,
+                  "train_calibrated_threshold": 33,
+                  "Exact_r0_F1": 0.5147550640429926,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9206844063171005
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9316765309922567,
+                  "ODS_threshold": 49,
+                  "AP": 0.9496392821344741,
+                  "Fixed_tol_F1": 0.9274963690092793,
+                  "Cal_F1": 0.9298975421607779,
+                  "Fixed_exact_F1": 0.6020325859009518,
+                  "mismatch_gap_ods_minus_fixed": 0.004180161982977326,
+                  "SSIM": 0.8464244041838033,
+                  "PSNR_dB": 27.02246695883909,
+                  "train_calibrated_threshold": 45,
+                  "Exact_r0_F1": 0.6020325859009518,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9274963690092793
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9358148413266524,
+                "ki67_cell_precision": 0.9103992571959145,
+                "ki67_cell_recall": 0.9626902307314679,
+                "ki67_cell_auroc": 0.9946298190571954
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 2.08,
+                "pi_pearson_r": 0.9933,
+                "pi_spearman_rho": 0.9782,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.9863013698630136,
+                    "auroc": 0.9990740740740741
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 2.08,
+                    "ki67_pi_pearson_r": 0.9933,
+                    "ki67_fixed_f1": 0.9275
+                  }
+                }
+              },
+              "max_dc_drift": 0.06198896655124031
+            },
+            "S_count": {
+              "macro_3ch": {
+                "Fixed_tol_F1": 0.9408256218521146,
+                "ODS_F": 0.9422183412086649,
+                "AP": 0.9680758523523428,
+                "Cal_F1": 0.9398799020265601,
+                "SSIM": 0.6140218880930922,
+                "PSNR_dB": 23.074728633065053,
+                "Exact_r0_F1": 0.6150531350499907,
+                "mismatch_gap_ods_minus_fixed": 0.001392719356550313
+              },
+              "per_channel": {
+                "DAPI": {
+                  "ODS_F": 0.9734243321716709,
+                  "ODS_threshold": 53,
+                  "AP": 0.9939674187998336,
+                  "Fixed_tol_F1": 0.9726492999773515,
+                  "Cal_F1": 0.9728697487924991,
+                  "Fixed_exact_F1": 0.7207758326162569,
+                  "mismatch_gap_ods_minus_fixed": 0.0007750321943194027,
+                  "SSIM": 0.6244193988121187,
+                  "PSNR_dB": 21.061045819531667,
+                  "train_calibrated_threshold": 50,
+                  "Exact_r0_F1": 0.7207758326162569,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9726492999773515
+                  }
+                },
+                "Lap2": {
+                  "ODS_F": 0.9194884296149887,
+                  "ODS_threshold": 39,
+                  "AP": 0.9577122379847367,
+                  "Fixed_tol_F1": 0.9194884296149887,
+                  "Cal_F1": 0.9189308602379265,
+                  "Fixed_exact_F1": 0.5116228320914172,
+                  "mismatch_gap_ods_minus_fixed": 0.0,
+                  "SSIM": 0.3872341338996422,
+                  "PSNR_dB": 20.806111189910517,
+                  "train_calibrated_threshold": 36,
+                  "Exact_r0_F1": 0.5116228320914172,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9194884296149887
+                  }
+                },
+                "Ki67": {
+                  "ODS_F": 0.9337422618393353,
+                  "ODS_threshold": 48,
+                  "AP": 0.9525479002724584,
+                  "Fixed_tol_F1": 0.9303391359640037,
+                  "Cal_F1": 0.9278390970492549,
+                  "Fixed_exact_F1": 0.6127607404422979,
+                  "mismatch_gap_ods_minus_fixed": 0.0034031258753315363,
+                  "SSIM": 0.830412131567516,
+                  "PSNR_dB": 27.357028889752982,
+                  "train_calibrated_threshold": 41,
+                  "Exact_r0_F1": 0.6127607404422979,
+                  "per_organ_fixed_f1": {
+                    "Breast": 0.9303391359640037
+                  }
+                }
+              },
+              "single_cell_ki67": {
+                "n_total_nuclei": 8814,
+                "n_gt_ki67_pos": 2037,
+                "ki67_cell_f1": 0.9379376962086452,
+                "ki67_cell_precision": 0.9230038022813688,
+                "ki67_cell_recall": 0.9533627884143349,
+                "ki67_cell_auroc": 0.9868564433877066
+              },
+              "clinical_ki67_index": {
+                "n_tiles_with_cells": 66,
+                "pi_mae_pct": 2.279,
+                "pi_pearson_r": 0.9822,
+                "pi_spearman_rho": 0.9572,
+                "st_gallen": {
+                  "ge_14pct": {
+                    "f1": 0.9473684210526315,
+                    "auroc": 0.999074074074074
+                  },
+                  "ge_20pct": {
+                    "f1": 1.0,
+                    "auroc": 1.0
+                  }
+                },
+                "by_organ": {
+                  "Breast": {
+                    "n_tiles": 66,
+                    "ki67_pi_mae_pct": 2.279,
+                    "ki67_pi_pearson_r": 0.9822,
+                    "ki67_fixed_f1": 0.9303
+                  }
+                }
+              },
+              "max_dc_drift": 8.673617379884035e-19
+            }
+          }
+        }
+      }
+    }
+  }
+}

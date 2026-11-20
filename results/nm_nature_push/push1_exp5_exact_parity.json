@@ -1,0 +1,2339 @@
+{
+  "schema": "push1-exp5-exact-parity-v3",
+  "parity_receipt": {
+    "passed": true,
+    "cutoff": 30,
+    "thr_floor": 24,
+    "active_thr_suh": 111,
+    "active_thr_e2e": 111,
+    "loss_abs_diff": 0.0,
+    "grad_max_abs_diff": 0.0,
+    "grad_norm_suh": 0.508008,
+    "grad_norm_e2e": 0.508008,
+    "isolated_fp_grad_positive": 0.08779479563236237,
+    "missed_tp_grad_negative": -1.407638669013977
+  },
+  "architectures": {
+    "double_conv_unet": {
+      "params_per_seed": 7763107,
+      "params_2seed": 15526214,
+      "pretrain_sec": 49.9,
+      "budgets": {
+        "N32": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5004350469097512,
+                "Cal_F1": 0.644219268601493,
+                "ODS_F": 0.673504514030864,
+                "AP": 0.6304280251474893,
+                "SSIM": 0.5761954725236629,
+                "PSNR_dB": 27.660890690571353,
+                "mismatch_gap_ods_minus_fixed": 0.17306946712111274
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5688414188933008,
+                  "SSIM": 0.41673601553437356
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 7.858882595118848e-06,
+                  "SSIM": 0.4485742837857524
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9324558629533576,
+                  "SSIM": 0.8632761182508626
+                }
+              },
+              "cd3_cell_f1": 0.0059499214940913975,
+              "panck_cell_f1": 0.6609566669086158,
+              "infiltration_r": 0.02443492591046798
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 4087.75,
+            "train_wall_sec": 16.9,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.49325866560474885,
+                "Cal_F1": 0.6394807366203678,
+                "ODS_F": 0.6631669345105835,
+                "AP": 0.6305871482047637,
+                "SSIM": 0.5743589193063608,
+                "PSNR_dB": 27.825405776940276,
+                "mismatch_gap_ods_minus_fixed": 0.16990826890583463
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5399618733311758,
+                  "SSIM": 0.40854971714158983
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.002054181715538127,
+                  "SSIM": 0.453522567835595
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9377599417675325,
+                  "SSIM": 0.8610044729418976
+                }
+              },
+              "cd3_cell_f1": 0.028885995027820528,
+              "panck_cell_f1": 0.6302219405017859,
+              "infiltration_r": 0.027360727474317913
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 4716.11,
+              "train_wall_sec": 29.7,
+              "train_composite_mean": 0.631211,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.630318,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.632104,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6004468541020621,
+                  "Cal_F1": 0.6474822836055543,
+                  "ODS_F": 0.6573445103309403,
+                  "AP": 0.6229648533407436,
+                  "SSIM": 0.5604326157594888,
+                  "PSNR_dB": 28.3379837714307,
+                  "mismatch_gap_ods_minus_fixed": 0.05689765622887816
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.6632754476076023,
+                    "SSIM": 0.4066682705558265
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.1530723205828597,
+                    "SSIM": 0.3884256177761276
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9849927941157244,
+                    "SSIM": 0.8862039589465122
+                  }
+                },
+                "cd3_cell_f1": 0.2814064478426025,
+                "panck_cell_f1": 0.6893986856662979,
+                "infiltration_r": 0.11069879714870187
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 4716.11,
+              "train_wall_sec": 29.6,
+              "train_composite_mean": 0.651126,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.650169,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.652082,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6139747667974255,
+                  "Cal_F1": 0.6327132365962514,
+                  "ODS_F": 0.6528871335720138,
+                  "AP": 0.6225597661371252,
+                  "SSIM": 0.5710184776709759,
+                  "PSNR_dB": 28.242824836330076,
+                  "mismatch_gap_ods_minus_fixed": 0.038912366774588335
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.6489228771749934,
+                    "SSIM": 0.4074346586599138
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.2100194268334375,
+                    "SSIM": 0.415398257825146
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9829819963838454,
+                    "SSIM": 0.8902225165278679
+                  }
+                },
+                "cd3_cell_f1": 0.3002461255510778,
+                "panck_cell_f1": 0.6858508779994483,
+                "infiltration_r": 0.10377622207653345
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_1e-03": {
+              "lr": 0.001,
+              "peak_vram_mb": 4716.11,
+              "train_wall_sec": 29.9,
+              "train_composite_mean": 0.664011,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.656767,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.671256,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6135718275156924,
+                  "Cal_F1": 0.6337079080585618,
+                  "ODS_F": 0.6566770119489105,
+                  "AP": 0.6194749023609135,
+                  "SSIM": 0.6032524412634671,
+                  "PSNR_dB": 28.474926875217466,
+                  "mismatch_gap_ods_minus_fixed": 0.04310518443321812
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.6411158087920158,
+                    "SSIM": 0.4044119441112917
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.21471179489117567,
+                    "SSIM": 0.5168087449164127
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9848878788638857,
+                    "SSIM": 0.888536634762697
+                  }
+                },
+                "cd3_cell_f1": 0.31783253364118474,
+                "panck_cell_f1": 0.6507112720755703,
+                "infiltration_r": 0.1499308548714943
+              },
+              "trainable_params_2seed": 15526214
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_1e-03",
+            "lr": 0.001,
+            "peak_vram_mb": 4716.11,
+            "train_wall_sec": 29.9,
+            "train_composite_mean": 0.664011,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.656767,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.671256,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6135718275156924,
+                "Cal_F1": 0.6337079080585618,
+                "ODS_F": 0.6566770119489105,
+                "AP": 0.6194749023609135,
+                "SSIM": 0.6032524412634671,
+                "PSNR_dB": 28.474926875217466,
+                "mismatch_gap_ods_minus_fixed": 0.04310518443321812
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6411158087920158,
+                  "SSIM": 0.4044119441112917
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.21471179489117567,
+                  "SSIM": 0.5168087449164127
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9848878788638857,
+                  "SSIM": 0.888536634762697
+                }
+              },
+              "cd3_cell_f1": 0.31783253364118474,
+              "panck_cell_f1": 0.6507112720755703,
+              "infiltration_r": 0.1499308548714943
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 4591.44,
+            "train_wall_sec": 144.3,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6241130070614997,
+                "Cal_F1": 0.6820747250901177,
+                "ODS_F": 0.6849974059263905,
+                "AP": 0.6343297424332374,
+                "SSIM": 0.6178449714265718,
+                "PSNR_dB": 27.5029214776341,
+                "mismatch_gap_ods_minus_fixed": 0.06088439886489072
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6066747568657387,
+                  "SSIM": 0.4215006180983696
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.32223165336281384,
+                  "SSIM": 0.5974503158818798
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9434326109559469,
+                  "SSIM": 0.8345839802994661
+                }
+              },
+              "cd3_cell_f1": 0.34140929318266783,
+              "panck_cell_f1": 0.6027011867771832,
+              "infiltration_r": 0.15781091492762994
+            }
+          }
+        },
+        "N64": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5004350469097512,
+                "Cal_F1": 0.6560342455667997,
+                "ODS_F": 0.673504514030864,
+                "AP": 0.6304280251474893,
+                "SSIM": 0.5761954725236629,
+                "PSNR_dB": 27.660890690571353,
+                "mismatch_gap_ods_minus_fixed": 0.17306946712111274
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5688414188933008,
+                  "SSIM": 0.41673601553437356
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 7.858882595118848e-06,
+                  "SSIM": 0.4485742837857524
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9324558629533576,
+                  "SSIM": 0.8632761182508626
+                }
+              },
+              "cd3_cell_f1": 0.003898635477582846,
+              "panck_cell_f1": 0.6609790909017603,
+              "infiltration_r": 0.03669412454983736
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 4095.75,
+            "train_wall_sec": 57.7,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5016077555600017,
+                "Cal_F1": 0.6421427831977181,
+                "ODS_F": 0.6725819085469625,
+                "AP": 0.6393330795881754,
+                "SSIM": 0.5896973243200581,
+                "PSNR_dB": 27.85084189037889,
+                "mismatch_gap_ods_minus_fixed": 0.17097415298696084
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5767186289511017,
+                  "SSIM": 0.4163741194279957
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0009483370745976273,
+                  "SSIM": 0.4888628838391984
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9271563006543057,
+                  "SSIM": 0.86385496969298
+                }
+              },
+              "cd3_cell_f1": 0.017947370548526617,
+              "panck_cell_f1": 0.6734645790846381,
+              "infiltration_r": 0.05200222598209534
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 4724.67,
+              "train_wall_sec": 106.8,
+              "train_composite_mean": 0.610499,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.612493,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.608505,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6156082789803553,
+                  "Cal_F1": 0.6636331468403863,
+                  "ODS_F": 0.6765340898220251,
+                  "AP": 0.6361874500458583,
+                  "SSIM": 0.5686617669745514,
+                  "PSNR_dB": 28.366133732352353,
+                  "mismatch_gap_ods_minus_fixed": 0.06092581084166967
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.6825539523171905,
+                    "SSIM": 0.4103545440262912
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.1805251263614615,
+                    "SSIM": 0.40634631664536347
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9837457582624142,
+                    "SSIM": 0.8892844402519997
+                  }
+                },
+                "cd3_cell_f1": 0.31823139379879856,
+                "panck_cell_f1": 0.681464924788367,
+                "infiltration_r": 0.15569297420553452
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 4724.67,
+              "train_wall_sec": 77.7,
+              "train_composite_mean": 0.635842,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.642067,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.629617,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6233090260096836,
+                  "Cal_F1": 0.6740358992270594,
+                  "ODS_F": 0.6817872482202113,
+                  "AP": 0.6388458264881728,
+                  "SSIM": 0.5921847853126517,
+                  "PSNR_dB": 28.334817433244194,
+                  "mismatch_gap_ods_minus_fixed": 0.058478222210527654
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.6844828933696786,
+                    "SSIM": 0.4196060590829063
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.20588342539346188,
+                    "SSIM": 0.46997651563091913
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9795607592659104,
+                    "SSIM": 0.8869717812241296
+                  }
+                },
+                "cd3_cell_f1": 0.33744650795629233,
+                "panck_cell_f1": 0.6976165557552181,
+                "infiltration_r": 0.16122598730652188
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_1e-03": {
+              "lr": 0.001,
+              "peak_vram_mb": 4724.67,
+              "train_wall_sec": 107.1,
+              "train_composite_mean": 0.647992,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.651501,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.644482,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6312001184449098,
+                  "Cal_F1": 0.6694513125595863,
+                  "ODS_F": 0.6812022842505413,
+                  "AP": 0.6424118141469747,
+                  "SSIM": 0.6361098384056534,
+                  "PSNR_dB": 28.28732575562815,
+                  "mismatch_gap_ods_minus_fixed": 0.05000216580563147
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.6611299816133123,
+                    "SSIM": 0.4477253293639269
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.26788814059973887,
+                    "SSIM": 0.5818660454664488
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9645822331216783,
+                    "SSIM": 0.8787381403865844
+                  }
+                },
+                "cd3_cell_f1": 0.33849421496841986,
+                "panck_cell_f1": 0.7076999488275488,
+                "infiltration_r": 0.16528666024341238
+              },
+              "trainable_params_2seed": 15526214
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_1e-03",
+            "lr": 0.001,
+            "peak_vram_mb": 4724.67,
+            "train_wall_sec": 107.1,
+            "train_composite_mean": 0.647992,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.651501,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.644482,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6312001184449098,
+                "Cal_F1": 0.6694513125595863,
+                "ODS_F": 0.6812022842505413,
+                "AP": 0.6424118141469747,
+                "SSIM": 0.6361098384056534,
+                "PSNR_dB": 28.28732575562815,
+                "mismatch_gap_ods_minus_fixed": 0.05000216580563147
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6611299816133123,
+                  "SSIM": 0.4477253293639269
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.26788814059973887,
+                  "SSIM": 0.5818660454664488
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9645822331216783,
+                  "SSIM": 0.8787381403865844
+                }
+              },
+              "cd3_cell_f1": 0.33849421496841986,
+              "panck_cell_f1": 0.7076999488275488,
+              "infiltration_r": 0.16528666024341238
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 4799.63,
+            "train_wall_sec": 249.3,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6409965403318022,
+                "Cal_F1": 0.6877843822576923,
+                "ODS_F": 0.6882109627311284,
+                "AP": 0.6317578420020188,
+                "SSIM": 0.6113929499569268,
+                "PSNR_dB": 27.513643573459248,
+                "mismatch_gap_ods_minus_fixed": 0.04721442239932622
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6344324997430082,
+                  "SSIM": 0.42312096136763433
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.3355327322934835,
+                  "SSIM": 0.6023723238861087
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9530243889589148,
+                  "SSIM": 0.8086855646170376
+                }
+              },
+              "cd3_cell_f1": 0.35251108867102116,
+              "panck_cell_f1": 0.5959745398245312,
+              "infiltration_r": 0.16624165232714944
+            }
+          }
+        },
+        "N149": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5004350469097512,
+                "Cal_F1": 0.6552071877021446,
+                "ODS_F": 0.673504514030864,
+                "AP": 0.6304280251474893,
+                "SSIM": 0.5761954725236629,
+                "PSNR_dB": 27.660890690571353,
+                "mismatch_gap_ods_minus_fixed": 0.17306946712111274
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5688414188933008,
+                  "SSIM": 0.41673601553437356
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 7.858882595118848e-06,
+                  "SSIM": 0.4485742837857524
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9324558629533576,
+                  "SSIM": 0.8632761182508626
+                }
+              },
+              "cd3_cell_f1": 0.0041459369817578775,
+              "panck_cell_f1": 0.661044416315276,
+              "infiltration_r": 0.035860222666048776
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 4073.75,
+            "train_wall_sec": 164.6,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5238423545574339,
+                "Cal_F1": 0.6593728076937533,
+                "ODS_F": 0.6822644164568489,
+                "AP": 0.6528905518939417,
+                "SSIM": 0.6218913410822315,
+                "PSNR_dB": 28.158161627048383,
+                "mismatch_gap_ods_minus_fixed": 0.15842206189941485
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6388863901792491,
+                  "SSIM": 0.4291099343085883
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0008874850740238137,
+                  "SSIM": 0.5619394969221423
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9317531884190289,
+                  "SSIM": 0.8746245920159641
+                }
+              },
+              "cd3_cell_f1": 0.020048115477145148,
+              "panck_cell_f1": 0.7072504896895291,
+              "infiltration_r": 0.0024913029180564875
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 4674.92,
+              "train_wall_sec": 293.9,
+              "train_composite_mean": 0.651074,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.645982,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.656166,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.673911524398334,
+                  "Cal_F1": 0.6980816086016394,
+                  "ODS_F": 0.7050177138199115,
+                  "AP": 0.6774330812678002,
+                  "SSIM": 0.5832411020499844,
+                  "PSNR_dB": 28.565156875719214,
+                  "mismatch_gap_ods_minus_fixed": 0.0311061894215775
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7156342690046092,
+                    "SSIM": 0.41557813802269
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.32057519070546603,
+                    "SSIM": 0.44384289290148127
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9855251134849269,
+                    "SSIM": 0.8903022752257819
+                  }
+                },
+                "cd3_cell_f1": 0.37485029940119763,
+                "panck_cell_f1": 0.7085970976219141,
+                "infiltration_r": 0.16408091286869503
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 4674.92,
+              "train_wall_sec": 266.7,
+              "train_composite_mean": 0.685925,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.679894,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.691956,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.673738759200936,
+                  "Cal_F1": 0.6887130146068344,
+                  "ODS_F": 0.7016357682947548,
+                  "AP": 0.684032217672597,
+                  "SSIM": 0.6254711183080298,
+                  "PSNR_dB": 28.54477789239465,
+                  "mismatch_gap_ods_minus_fixed": 0.027897009093818852
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7078255508374982,
+                    "SSIM": 0.44289998057377167
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.3386171795378228,
+                    "SSIM": 0.5482675928825708
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9747735472274867,
+                    "SSIM": 0.885245781467747
+                  }
+                },
+                "cd3_cell_f1": 0.3732184476304824,
+                "panck_cell_f1": 0.7116611608277302,
+                "infiltration_r": 0.20638872182835172
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_1e-03": {
+              "lr": 0.001,
+              "peak_vram_mb": 4674.92,
+              "train_wall_sec": 296.6,
+              "train_composite_mean": 0.667521,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.662837,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.672205,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6630626539914489,
+                  "Cal_F1": 0.6829264259624646,
+                  "ODS_F": 0.6928147821842775,
+                  "AP": 0.6694313897234325,
+                  "SSIM": 0.6970809061066575,
+                  "PSNR_dB": 28.754340474667924,
+                  "mismatch_gap_ods_minus_fixed": 0.029752128192828537
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7003039097270972,
+                    "SSIM": 0.49890381888729823
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.31770159720330504,
+                    "SSIM": 0.7114552534408413
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9711824550439445,
+                    "SSIM": 0.8808836459918333
+                  }
+                },
+                "cd3_cell_f1": 0.35522934422895597,
+                "panck_cell_f1": 0.6910527145785844,
+                "infiltration_r": 0.20439545249457602
+              },
+              "trainable_params_2seed": 15526214
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_3e-04",
+            "lr": 0.0003,
+            "peak_vram_mb": 4674.92,
+            "train_wall_sec": 266.7,
+            "train_composite_mean": 0.685925,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.679894,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.691956,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.673738759200936,
+                "Cal_F1": 0.6887130146068344,
+                "ODS_F": 0.7016357682947548,
+                "AP": 0.684032217672597,
+                "SSIM": 0.6254711183080298,
+                "PSNR_dB": 28.54477789239465,
+                "mismatch_gap_ods_minus_fixed": 0.027897009093818852
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.7078255508374982,
+                  "SSIM": 0.44289998057377167
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.3386171795378228,
+                  "SSIM": 0.5482675928825708
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9747735472274867,
+                  "SSIM": 0.885245781467747
+                }
+              },
+              "cd3_cell_f1": 0.3732184476304824,
+              "panck_cell_f1": 0.7116611608277302,
+              "infiltration_r": 0.20638872182835172
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 5225.63,
+            "train_wall_sec": 594.9,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6671510355589323,
+                "Cal_F1": 0.6941407448121174,
+                "ODS_F": 0.6958322118517914,
+                "AP": 0.6426458589905689,
+                "SSIM": 0.618084766780934,
+                "PSNR_dB": 27.56694242537469,
+                "mismatch_gap_ods_minus_fixed": 0.028681176292859118
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6676061482393628,
+                  "SSIM": 0.4201040382666461
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.3686113783651723,
+                  "SSIM": 0.6166848433913086
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9652355800722618,
+                  "SSIM": 0.8174654186848475
+                }
+              },
+              "cd3_cell_f1": 0.3610107421875,
+              "panck_cell_f1": 0.6164806895630095,
+              "infiltration_r": 0.13857699311620114
+            }
+          }
+        },
+        "N298": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5004350469097512,
+                "Cal_F1": 0.651901136764862,
+                "ODS_F": 0.673504514030864,
+                "AP": 0.6304280251474893,
+                "SSIM": 0.5761954725236629,
+                "PSNR_dB": 27.660890690571353,
+                "mismatch_gap_ods_minus_fixed": 0.17306946712111274
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5688414188933008,
+                  "SSIM": 0.41673601553437356
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 7.858882595118848e-06,
+                  "SSIM": 0.4485742837857524
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9324558629533576,
+                  "SSIM": 0.8632761182508626
+                }
+              },
+              "cd3_cell_f1": 0.0038987971795935296,
+              "panck_cell_f1": 0.6613057876544005,
+              "infiltration_r": 0.03785117880960888
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 4051.75,
+            "train_wall_sec": 278.3,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5034212278294009,
+                "Cal_F1": 0.6722056054198987,
+                "ODS_F": 0.6929521465504628,
+                "AP": 0.6636521933869443,
+                "SSIM": 0.6591314446310707,
+                "PSNR_dB": 28.219172512261526,
+                "mismatch_gap_ods_minus_fixed": 0.18953091872106195
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5877329129856922,
+                  "SSIM": 0.4550399602537643
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0010243374361862932,
+                  "SSIM": 0.6492275125274104
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9215064330663241,
+                  "SSIM": 0.8731268611120374
+                }
+              },
+              "cd3_cell_f1": 0.01287798516586519,
+              "panck_cell_f1": 0.7179642583566925,
+              "infiltration_r": 0.022586294026906772
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 4665.29,
+              "train_wall_sec": 537.2,
+              "train_composite_mean": 0.709784,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.704347,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.715221,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.7191269329599906,
+                  "Cal_F1": 0.7319350540445059,
+                  "ODS_F": 0.74598598263008,
+                  "AP": 0.7459590404623282,
+                  "SSIM": 0.6131814466385904,
+                  "PSNR_dB": 28.79275464894882,
+                  "mismatch_gap_ods_minus_fixed": 0.02685904967008923
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.727047282784148,
+                    "SSIM": 0.4335268208523068
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.44594559111689186,
+                    "SSIM": 0.5159929588301713
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9843879249789322,
+                    "SSIM": 0.8900245602332931
+                  }
+                },
+                "cd3_cell_f1": 0.42868247182277497,
+                "panck_cell_f1": 0.7538728528422171,
+                "infiltration_r": 0.24170311059291583
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 4665.29,
+              "train_wall_sec": 453.8,
+              "train_composite_mean": 0.745757,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.74181,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.749705,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.7213302854945121,
+                  "Cal_F1": 0.7301103083879754,
+                  "ODS_F": 0.7555832980233507,
+                  "AP": 0.7512304176936432,
+                  "SSIM": 0.6692378791077312,
+                  "PSNR_dB": 28.972432801323805,
+                  "mismatch_gap_ods_minus_fixed": 0.03425301252883859
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.735558278540437,
+                    "SSIM": 0.4802548456544179
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.4504696226187359,
+                    "SSIM": 0.6435605270560567
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9779629553243635,
+                    "SSIM": 0.8838982646127191
+                  }
+                },
+                "cd3_cell_f1": 0.4492348198124074,
+                "panck_cell_f1": 0.7735499479389968,
+                "infiltration_r": 0.2666500770627829
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_1e-03": {
+              "lr": 0.001,
+              "peak_vram_mb": 4665.29,
+              "train_wall_sec": 392.9,
+              "train_composite_mean": 0.701298,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.709895,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.692701,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.6981891949220933,
+                  "Cal_F1": 0.7239164573556401,
+                  "ODS_F": 0.7368920438515213,
+                  "AP": 0.721449964881419,
+                  "SSIM": 0.7492601922628923,
+                  "PSNR_dB": 29.49500725270208,
+                  "mismatch_gap_ods_minus_fixed": 0.038702848929427935
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7191780893232775,
+                    "SSIM": 0.5869939124742191
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.3995408732464428,
+                    "SSIM": 0.7782458087729058
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9758486221965597,
+                    "SSIM": 0.8825408555415519
+                  }
+                },
+                "cd3_cell_f1": 0.40460206695521594,
+                "panck_cell_f1": 0.7505567928730512,
+                "infiltration_r": 0.272861814739632
+              },
+              "trainable_params_2seed": 15526214
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_3e-04",
+            "lr": 0.0003,
+            "peak_vram_mb": 4665.29,
+            "train_wall_sec": 453.8,
+            "train_composite_mean": 0.745757,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.74181,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.749705,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.7213302854945121,
+                "Cal_F1": 0.7301103083879754,
+                "ODS_F": 0.7555832980233507,
+                "AP": 0.7512304176936432,
+                "SSIM": 0.6692378791077312,
+                "PSNR_dB": 28.972432801323805,
+                "mismatch_gap_ods_minus_fixed": 0.03425301252883859
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.735558278540437,
+                  "SSIM": 0.4802548456544179
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.4504696226187359,
+                  "SSIM": 0.6435605270560567
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9779629553243635,
+                  "SSIM": 0.8838982646127191
+                }
+              },
+              "cd3_cell_f1": 0.4492348198124074,
+              "panck_cell_f1": 0.7735499479389968,
+              "infiltration_r": 0.2666500770627829
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 6208.0,
+            "train_wall_sec": 868.3,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6887128781062838,
+                "Cal_F1": 0.7120471794850731,
+                "ODS_F": 0.7138542398990547,
+                "AP": 0.6608604023451371,
+                "SSIM": 0.6282327492441809,
+                "PSNR_dB": 27.638453998260996,
+                "mismatch_gap_ods_minus_fixed": 0.02514136179277084
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.688920396066173,
+                  "SSIM": 0.421928190357909
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.41231389267806046,
+                  "SSIM": 0.6420967680753904
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9649043455746179,
+                  "SSIM": 0.8206732892992431
+                }
+              },
+              "cd3_cell_f1": 0.38504481836766785,
+              "panck_cell_f1": 0.6579252448530881,
+              "infiltration_r": 0.20280464121780953
+            }
+          }
+        },
+        "N596": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5004350469097512,
+                "Cal_F1": 0.652728194629517,
+                "ODS_F": 0.673504514030864,
+                "AP": 0.6304280251474893,
+                "SSIM": 0.5761954725236629,
+                "PSNR_dB": 27.660890690571353,
+                "mismatch_gap_ods_minus_fixed": 0.17306946712111274
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5688414188933008,
+                  "SSIM": 0.41673601553437356
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 7.858882595118848e-06,
+                  "SSIM": 0.4485742837857524
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9324558629533576,
+                  "SSIM": 0.8632761182508626
+                }
+              },
+              "cd3_cell_f1": 0.0038987971795935296,
+              "panck_cell_f1": 0.6614714572079506,
+              "infiltration_r": 0.038065853465386525
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 4071.75,
+            "train_wall_sec": 587.8,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.516007452719581,
+                "Cal_F1": 0.6753385807770202,
+                "ODS_F": 0.6940909425189195,
+                "AP": 0.6681161102990965,
+                "SSIM": 0.7158460501750659,
+                "PSNR_dB": 28.517873900917618,
+                "mismatch_gap_ods_minus_fixed": 0.1780834897993385
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6266245425970641,
+                  "SSIM": 0.525871319806538
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0003249752968161005,
+                  "SSIM": 0.7420521202901433
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9210728402648628,
+                  "SSIM": 0.8796147104285162
+                }
+              },
+              "cd3_cell_f1": 0.002743712325919767,
+              "panck_cell_f1": 0.7378127508113201,
+              "infiltration_r": -0.022127082074362953
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 4710.03,
+              "train_wall_sec": 985.9,
+              "train_composite_mean": 0.739044,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.738739,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.739349,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.737542053021565,
+                  "Cal_F1": 0.7427354114981765,
+                  "ODS_F": 0.7672248188025766,
+                  "AP": 0.7724605637652534,
+                  "SSIM": 0.6462355691205097,
+                  "PSNR_dB": 29.236030219253944,
+                  "mismatch_gap_ods_minus_fixed": 0.029682765781011717
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7487953044465274,
+                    "SSIM": 0.4768476061293579
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.4827831257738135,
+                    "SSIM": 0.57170560821958
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9810477288443539,
+                    "SSIM": 0.8901534930125912
+                  }
+                },
+                "cd3_cell_f1": 0.4678642340102872,
+                "panck_cell_f1": 0.7926842421534337,
+                "infiltration_r": 0.2608570299177216
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 4710.03,
+              "train_wall_sec": 872.2,
+              "train_composite_mean": 0.756672,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.760713,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.752632,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.749611983113699,
+                  "Cal_F1": 0.7505649409299449,
+                  "ODS_F": 0.7820518758926496,
+                  "AP": 0.786672178910052,
+                  "SSIM": 0.7486204632158294,
+                  "PSNR_dB": 30.197575151435156,
+                  "mismatch_gap_ods_minus_fixed": 0.03243989277895069
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.768498764454833,
+                    "SSIM": 0.6156047705767307
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.5022077213098688,
+                    "SSIM": 0.744129674174002
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9781294635763949,
+                    "SSIM": 0.8861269448967556
+                  }
+                },
+                "cd3_cell_f1": 0.5000911045515833,
+                "panck_cell_f1": 0.8107973587284732,
+                "infiltration_r": 0.23384400366166921
+              },
+              "trainable_params_2seed": 15526214
+            },
+            "lr_1e-03": {
+              "lr": 0.001,
+              "peak_vram_mb": 4710.03,
+              "train_wall_sec": 1065.9,
+              "train_composite_mean": 0.729623,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.718547,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.7407,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.7457701922102778,
+                  "Cal_F1": 0.7584317848064188,
+                  "ODS_F": 0.7749875438425708,
+                  "AP": 0.7769823200858648,
+                  "SSIM": 0.7958708475716415,
+                  "PSNR_dB": 30.272801620747657,
+                  "mismatch_gap_ods_minus_fixed": 0.029217351632293036
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7525995235350013,
+                    "SSIM": 0.7138812308346464
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.5089680837792564,
+                    "SSIM": 0.791506290927516
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9757429693165758,
+                    "SSIM": 0.8822250209527618
+                  }
+                },
+                "cd3_cell_f1": 0.491006782348278,
+                "panck_cell_f1": 0.795654005174622,
+                "infiltration_r": 0.24007964950224187
+              },
+              "trainable_params_2seed": 15526214
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_3e-04",
+            "lr": 0.0003,
+            "peak_vram_mb": 4710.03,
+            "train_wall_sec": 872.2,
+            "train_composite_mean": 0.756672,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.760713,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.752632,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.749611983113699,
+                "Cal_F1": 0.7505649409299449,
+                "ODS_F": 0.7820518758926496,
+                "AP": 0.786672178910052,
+                "SSIM": 0.7486204632158294,
+                "PSNR_dB": 30.197575151435156,
+                "mismatch_gap_ods_minus_fixed": 0.03243989277895069
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.768498764454833,
+                  "SSIM": 0.6156047705767307
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.5022077213098688,
+                  "SSIM": 0.744129674174002
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9781294635763949,
+                  "SSIM": 0.8861269448967556
+                }
+              },
+              "cd3_cell_f1": 0.5000911045515833,
+              "panck_cell_f1": 0.8107973587284732,
+              "infiltration_r": 0.23384400366166921
+            },
+            "trainable_params_2seed": 15526214
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 8236.75,
+            "train_wall_sec": 1838.5,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.7040134118746892,
+                "Cal_F1": 0.7232154191718264,
+                "ODS_F": 0.726902086378716,
+                "AP": 0.687398067902382,
+                "SSIM": 0.6342316307538532,
+                "PSNR_dB": 27.783104497348248,
+                "mismatch_gap_ods_minus_fixed": 0.022888674504026724
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.7371502590126373,
+                  "SSIM": 0.4198634616031576
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.4084784708733563,
+                  "SSIM": 0.6456952064107361
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9664115057380741,
+                  "SSIM": 0.8371362242476658
+                }
+              },
+              "cd3_cell_f1": 0.39054237139985143,
+              "panck_cell_f1": 0.7026802377554381,
+              "infiltration_r": 0.20467386119084732
+            }
+          }
+        }
+      }
+    },
+    "resnet34_unet": {
+      "params_per_seed": 24462915,
+      "params_2seed": 48925830,
+      "pretrain_sec": 577.4,
+      "budgets": {
+        "N32": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.4849941098905594,
+                "Cal_F1": 0.675763162099575,
+                "ODS_F": 0.713859589261416,
+                "AP": 0.6540127019704672,
+                "SSIM": 0.8279771818501915,
+                "PSNR_dB": 31.28083751765149,
+                "mismatch_gap_ods_minus_fixed": 0.2288654793708567
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.4927143579883724,
+                  "SSIM": 0.7022971152887119
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8977837195989299
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9622679716833058,
+                  "SSIM": 0.8838507106629329
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.5710553517271147,
+              "infiltration_r": 0.0
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 16305.28,
+            "train_wall_sec": 88.0,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5293778897898731,
+                "Cal_F1": 0.6046380179583427,
+                "ODS_F": 0.624116466988207,
+                "AP": 0.6047408271080581,
+                "SSIM": 0.8352208823858366,
+                "PSNR_dB": 31.298896440212875,
+                "mismatch_gap_ods_minus_fixed": 0.09473857719833385
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.667328744590459,
+                  "SSIM": 0.7195988701112944
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8982062200155735
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9208049247791603,
+                  "SSIM": 0.8878575570306422
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.8038272684468958,
+              "infiltration_r": 0.0
+            },
+            "trainable_params_2seed": 48925830
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 16852.75,
+              "train_wall_sec": 141.2,
+              "train_composite_mean": 0.570934,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.5709,
+                  "best_epoch": 8
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.570969,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.5796737598764864,
+                  "Cal_F1": 0.7253331653683093,
+                  "ODS_F": 0.7417352201169308,
+                  "AP": 0.6640772034761879,
+                  "SSIM": 0.835932955051702,
+                  "PSNR_dB": 31.841155449264534,
+                  "mismatch_gap_ods_minus_fixed": 0.16206146024044446
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.759254361068308,
+                    "SSIM": 0.7146037864213246
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.0,
+                    "SSIM": 0.8978886883906947
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9797669185611511,
+                    "SSIM": 0.8953063903430869
+                  }
+                },
+                "cd3_cell_f1": 0.0,
+                "panck_cell_f1": 0.8187604742834214,
+                "infiltration_r": 0.0
+              },
+              "trainable_params_2seed": 48925830
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 16852.75,
+              "train_wall_sec": 113.5,
+              "train_composite_mean": 0.581155,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.579264,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.583047,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.580305913275852,
+                  "Cal_F1": 0.7286422854447587,
+                  "ODS_F": 0.7511757303776115,
+                  "AP": 0.6677582434121976,
+                  "SSIM": 0.8361813379352213,
+                  "PSNR_dB": 31.964807864086925,
+                  "mismatch_gap_ods_minus_fixed": 0.1708698171017594
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7567747419100037,
+                    "SSIM": 0.7087052520853537
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.0,
+                    "SSIM": 0.8970859663400728
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9841429979175526,
+                    "SSIM": 0.9027527953802373
+                  }
+                },
+                "cd3_cell_f1": 0.0,
+                "panck_cell_f1": 0.8140650226344613,
+                "infiltration_r": 0.0
+              },
+              "trainable_params_2seed": 48925830
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_3e-04",
+            "lr": 0.0003,
+            "peak_vram_mb": 16852.75,
+            "train_wall_sec": 113.5,
+            "train_composite_mean": 0.581155,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.579264,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.583047,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.580305913275852,
+                "Cal_F1": 0.7286422854447587,
+                "ODS_F": 0.7511757303776115,
+                "AP": 0.6677582434121976,
+                "SSIM": 0.8361813379352213,
+                "PSNR_dB": 31.964807864086925,
+                "mismatch_gap_ods_minus_fixed": 0.1708698171017594
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.7567747419100037,
+                  "SSIM": 0.7087052520853537
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8970859663400728
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9841429979175526,
+                  "SSIM": 0.9027527953802373
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.8140650226344613,
+              "infiltration_r": 0.0
+            },
+            "trainable_params_2seed": 48925830
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 4591.44,
+            "train_wall_sec": 209.5,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6391941194447417,
+                "Cal_F1": 0.7030062237011755,
+                "ODS_F": 0.7383036796541251,
+                "AP": 0.7006602891416648,
+                "SSIM": 0.7706288183216391,
+                "PSNR_dB": 28.774547114504205,
+                "mismatch_gap_ods_minus_fixed": 0.09910956020938345
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.5364439275492171,
+                  "SSIM": 0.6926880082289986
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.4228425425016681,
+                  "SSIM": 0.7319815789832453
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9582958882833399,
+                  "SSIM": 0.8872168677526734
+                }
+              },
+              "cd3_cell_f1": 0.41543499424727853,
+              "panck_cell_f1": 0.5359974848918853,
+              "infiltration_r": 0.13007303168963588
+            }
+          }
+        },
+        "N149": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.4849941098905594,
+                "Cal_F1": 0.6824292674128182,
+                "ODS_F": 0.713859589261416,
+                "AP": 0.6540127019704672,
+                "SSIM": 0.8279771818501915,
+                "PSNR_dB": 31.28083751765149,
+                "mismatch_gap_ods_minus_fixed": 0.2288654793708567
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.4927143579883724,
+                  "SSIM": 0.7022971152887119
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8977837195989299
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9622679716833058,
+                  "SSIM": 0.8838507106629329
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.5712890514098823,
+              "infiltration_r": 0.0
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 16505.44,
+            "train_wall_sec": 318.9,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5381839892923037,
+                "Cal_F1": 0.5803885284779784,
+                "ODS_F": 0.5958654699128838,
+                "AP": 0.5959702450976874,
+                "SSIM": 0.8329608680198272,
+                "PSNR_dB": 31.33296981296226,
+                "mismatch_gap_ods_minus_fixed": 0.05768148062058013
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6926642868055213,
+                  "SSIM": 0.7167142819059061
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8982515040098268
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9218876810713897,
+                  "SSIM": 0.8839168181437486
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.7827367623247321,
+              "infiltration_r": 0.0
+            },
+            "trainable_params_2seed": 48925830
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 16840.81,
+              "train_wall_sec": 516.3,
+              "train_composite_mean": 0.565921,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.56574,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.566102,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.5833672066627966,
+                  "Cal_F1": 0.698779966437849,
+                  "ODS_F": 0.718500657435125,
+                  "AP": 0.6449591778475078,
+                  "SSIM": 0.8339126643895588,
+                  "PSNR_dB": 31.87449678622124,
+                  "mismatch_gap_ods_minus_fixed": 0.13513345077232838
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7697573363958559,
+                    "SSIM": 0.7124371422734579
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.0,
+                    "SSIM": 0.8976043642744315
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.980344283592534,
+                    "SSIM": 0.8916964866207873
+                  }
+                },
+                "cd3_cell_f1": 0.0,
+                "panck_cell_f1": 0.8094919359979601,
+                "infiltration_r": 0.0
+              },
+              "trainable_params_2seed": 48925830
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 16840.81,
+              "train_wall_sec": 526.8,
+              "train_composite_mean": 0.686543,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.685177,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.687908,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.7331179524032754,
+                  "Cal_F1": 0.7385146791522693,
+                  "ODS_F": 0.7613695627198341,
+                  "AP": 0.7428043854414318,
+                  "SSIM": 0.8069532454746319,
+                  "PSNR_dB": 31.759709463594266,
+                  "mismatch_gap_ods_minus_fixed": 0.028251610316558706
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7674119150217205,
+                    "SSIM": 0.704869445005793
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.45035599053313186,
+                    "SSIM": 0.8259092208373298
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.981585951654974,
+                    "SSIM": 0.8900810705807731
+                  }
+                },
+                "cd3_cell_f1": 0.4013104013104013,
+                "panck_cell_f1": 0.8086484974672923,
+                "infiltration_r": 0.28925148576665816
+              },
+              "trainable_params_2seed": 48925830
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_3e-04",
+            "lr": 0.0003,
+            "peak_vram_mb": 16840.81,
+            "train_wall_sec": 526.8,
+            "train_composite_mean": 0.686543,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.685177,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.687908,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.7331179524032754,
+                "Cal_F1": 0.7385146791522693,
+                "ODS_F": 0.7613695627198341,
+                "AP": 0.7428043854414318,
+                "SSIM": 0.8069532454746319,
+                "PSNR_dB": 31.759709463594266,
+                "mismatch_gap_ods_minus_fixed": 0.028251610316558706
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.7674119150217205,
+                  "SSIM": 0.704869445005793
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.45035599053313186,
+                  "SSIM": 0.8259092208373298
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.981585951654974,
+                  "SSIM": 0.8900810705807731
+                }
+              },
+              "cd3_cell_f1": 0.4013104013104013,
+              "panck_cell_f1": 0.8086484974672923,
+              "infiltration_r": 0.28925148576665816
+            },
+            "trainable_params_2seed": 48925830
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 5225.63,
+            "train_wall_sec": 583.6,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.6945983363044356,
+                "Cal_F1": 0.7339136301000068,
+                "ODS_F": 0.7547532158646647,
+                "AP": 0.6888697548220618,
+                "SSIM": 0.8055799058611125,
+                "PSNR_dB": 29.983195709484516,
+                "mismatch_gap_ods_minus_fixed": 0.06015487956022919
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.692702682254701,
+                  "SSIM": 0.6730752024618311
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.42799665701487777,
+                  "SSIM": 0.8559975989829934
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9630956696437278,
+                  "SSIM": 0.8876669161385128
+                }
+              },
+              "cd3_cell_f1": 0.43039864428663654,
+              "panck_cell_f1": 0.6418953856336223,
+              "infiltration_r": 0.25521098561089917
+            }
+          }
+        },
+        "N596": {
+          "Frozen": {
+            "trainable_params_2seed": 0,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.4849941098905594,
+                "Cal_F1": 0.675763162099575,
+                "ODS_F": 0.713859589261416,
+                "AP": 0.6540127019704672,
+                "SSIM": 0.8279771818501915,
+                "PSNR_dB": 31.28083751765149,
+                "mismatch_gap_ods_minus_fixed": 0.2288654793708567
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.4927143579883724,
+                  "SSIM": 0.7022971152887119
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8977837195989299
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9622679716833058,
+                  "SSIM": 0.8838507106629329
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.5725306015950266,
+              "infiltration_r": 0.0
+            }
+          },
+          "E2E_Recon": {
+            "lr": 0.0001,
+            "peak_vram_mb": 16503.44,
+            "train_wall_sec": 1080.5,
+            "train_composite_mean": -1.0,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": -1.0,
+                "best_epoch": 0
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.5292762584224789,
+                "Cal_F1": 0.5780417029255207,
+                "ODS_F": 0.5938496956705758,
+                "AP": 0.5960870065483462,
+                "SSIM": 0.8343103757244325,
+                "PSNR_dB": 31.310973677810193,
+                "mismatch_gap_ods_minus_fixed": 0.06457343724809682
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.6857375578505817,
+                  "SSIM": 0.7274316809238429
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.0,
+                  "SSIM": 0.8982518623836852
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9020912174168554,
+                  "SSIM": 0.8772475838657695
+                }
+              },
+              "cd3_cell_f1": 0.0,
+              "panck_cell_f1": 0.7920973417560521,
+              "infiltration_r": 0.0
+            },
+            "trainable_params_2seed": 48925830
+          },
+          "E2E_Count_lr_sweep": {
+            "lr_1e-04": {
+              "lr": 0.0001,
+              "peak_vram_mb": 16846.66,
+              "train_wall_sec": 1469.9,
+              "train_composite_mean": 0.732761,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.733496,
+                  "best_epoch": 8
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.732026,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.7726861768100606,
+                  "Cal_F1": 0.7557125606647374,
+                  "ODS_F": 0.7884454633308328,
+                  "AP": 0.7683124520817209,
+                  "SSIM": 0.8145680707474154,
+                  "PSNR_dB": 31.773351789392226,
+                  "mismatch_gap_ods_minus_fixed": 0.015759286520772225
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.7824072553561446,
+                    "SSIM": 0.7148591218588735
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.548128702637379,
+                    "SSIM": 0.834077565253527
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9875225724366582,
+                    "SSIM": 0.8947675251298459
+                  }
+                },
+                "cd3_cell_f1": 0.4379028043894792,
+                "panck_cell_f1": 0.7814750938419397,
+                "infiltration_r": 0.3360216321467181
+              },
+              "trainable_params_2seed": 48925830
+            },
+            "lr_3e-04": {
+              "lr": 0.0003,
+              "peak_vram_mb": 16846.66,
+              "train_wall_sec": 1567.2,
+              "train_composite_mean": 0.758838,
+              "per_seed": [
+                {
+                  "seed": 202610270,
+                  "best_train_composite": 0.757868,
+                  "best_epoch": 10
+                },
+                {
+                  "seed": 202610271,
+                  "best_train_composite": 0.759809,
+                  "best_epoch": 10
+                }
+              ],
+              "metrics": {
+                "macro_pixel": {
+                  "Fixed_tol_F1": 0.7808716672007777,
+                  "Cal_F1": 0.7837246964680521,
+                  "ODS_F": 0.8114706665627126,
+                  "AP": 0.790116470449529,
+                  "SSIM": 0.817277945104535,
+                  "PSNR_dB": 30.417121839768573,
+                  "mismatch_gap_ods_minus_fixed": 0.030598999361934887
+                },
+                "per_marker_pixel": {
+                  "panCK": {
+                    "Fixed_tol_F1": 0.8092241906925323,
+                    "SSIM": 0.7094902684260712
+                  },
+                  "CD3": {
+                    "Fixed_tol_F1": 0.5487815269833259,
+                    "SSIM": 0.8668785032066729
+                  },
+                  "DAPI": {
+                    "Fixed_tol_F1": 0.9846092839264751,
+                    "SSIM": 0.8754650636808609
+                  }
+                },
+                "cd3_cell_f1": 0.3420087542884183,
+                "panck_cell_f1": 0.79950344385712,
+                "infiltration_r": 0.3774528939435692
+              },
+              "trainable_params_2seed": 48925830
+            }
+          },
+          "E2E_Count_best_by_train_comp": {
+            "selected_lr": "lr_3e-04",
+            "lr": 0.0003,
+            "peak_vram_mb": 16846.66,
+            "train_wall_sec": 1567.2,
+            "train_composite_mean": 0.758838,
+            "per_seed": [
+              {
+                "seed": 202610270,
+                "best_train_composite": 0.757868,
+                "best_epoch": 10
+              },
+              {
+                "seed": 202610271,
+                "best_train_composite": 0.759809,
+                "best_epoch": 10
+              }
+            ],
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.7808716672007777,
+                "Cal_F1": 0.7837246964680521,
+                "ODS_F": 0.8114706665627126,
+                "AP": 0.790116470449529,
+                "SSIM": 0.817277945104535,
+                "PSNR_dB": 30.417121839768573,
+                "mismatch_gap_ods_minus_fixed": 0.030598999361934887
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.8092241906925323,
+                  "SSIM": 0.7094902684260712
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.5487815269833259,
+                  "SSIM": 0.8668785032066729
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9846092839264751,
+                  "SSIM": 0.8754650636808609
+                }
+              },
+              "cd3_cell_f1": 0.3420087542884183,
+              "panck_cell_f1": 0.79950344385712,
+              "infiltration_r": 0.3774528939435692
+            },
+            "trainable_params_2seed": 48925830
+          },
+          "Frozen_S_count": {
+            "registered_params_2seed_3ch": 532518,
+            "trunk_params_2seed_3ch": 384966,
+            "active_params_2seed_3ch": 357318,
+            "peak_vram_mb": 8236.75,
+            "train_wall_sec": 1733.6,
+            "metrics": {
+              "macro_pixel": {
+                "Fixed_tol_F1": 0.7119173468353859,
+                "Cal_F1": 0.7415100002994667,
+                "ODS_F": 0.7588780604311921,
+                "AP": 0.6966408079132543,
+                "SSIM": 0.8076593486629765,
+                "PSNR_dB": 30.24879042300458,
+                "mismatch_gap_ods_minus_fixed": 0.046960713595806225
+              },
+              "per_marker_pixel": {
+                "panCK": {
+                  "Fixed_tol_F1": 0.7249879783979781,
+                  "SSIM": 0.6747841543630664
+                },
+                "CD3": {
+                  "Fixed_tol_F1": 0.4384216194524673,
+                  "SSIM": 0.8589157090543518
+                },
+                "DAPI": {
+                  "Fixed_tol_F1": 0.9723424426557121,
+                  "SSIM": 0.8892781825715117
+                }
+              },
+              "cd3_cell_f1": 0.43628527620073765,
+              "panck_cell_f1": 0.6576749130072903,
+              "infiltration_r": 0.2771915303687026
+            }
+          }
+        }
+      }
+    }
+  }
+}

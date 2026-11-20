@@ -66,10 +66,23 @@ def main() -> int:
     assert int((df_c12["s_count_f1"] > df_c12["s_dice_f1"]).sum()) == 18
     assert int((df_c12["s_count_f1"] > df_c12["s_bce_f1"]).sum()) == 18
 
+    # Verify zero-leakage 15-fold unseen-patient Orion provenance and 40/40 patient wins
+    push_dir = ROOT / "results" / "nm_nature_push"
+    df_prov = pd.read_csv(push_dir / "push3_orion_unseen_fold_provenance.csv")
+    df_up = pd.read_csv(push_dir / "push3_orion_unseen_per_patient.csv")
+    df_scores = pd.read_csv(push_dir / "push3_orion_unseen_patient_scores.csv")
+    assert len(df_prov) == 15
+    assert int(df_prov["train_test_patient_overlap"].max()) == 0
+    assert int(df_prov["val_test_patient_overlap"].max()) == 0
+    assert len(df_scores) == 40
+    pat_mean = (df_up["S_count"] - df_up["upstream"]).groupby(df_up["patient"]).mean()
+    assert len(pat_mean) == 40 and int((pat_mean > 0.0).sum()) == 40
+
     print(
         f"Verified 20 frozen generator instances across 3 cohorts: "
         f"wins={wins_up}/20, mean_delta={mean_gain_up:+.6f}, wilcoxon_p={p_wilcox:.3e}, "
-        f"orion_5fold_wins=30/30, comp12_vs_dice=18/20, comp12_vs_bce=18/20, "
+        f"orion_5fold_wins=30/30, unseen_orion_wins=40/40 (0% overlap across 15 folds), "
+        f"comp12_vs_dice=18/20, comp12_vs_bce=18/20, "
         f"determinism_480_max_diff={float(df_det['abs_diff'].max()):.1f}, "
         f"Orion N=40 oracle C-index={ora_res['c_index']:.4f}"
     )

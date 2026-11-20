@@ -1,17 +1,203 @@
-figure,panels,primary_source_data_csv,auxiliary_source_data_csvs
-Figure 1,a-k,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
-Figure 2,a-k,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
-Figure 3,a-n,fig3_source_data.csv,fig2_source_data.csv
-Figure 4,a-k,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv;supp_fig2_source_data.csv
-Figure 5,a-k,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
-Figure 6,a-k,fig6_source_data.csv,fig6_tile_burden_scatter.csv;ed_fig5_source_data.csv;supp_fig2_source_data.csv
-Extended Data Figure 1,a-k,ed_fig1_source_data.csv,fig2_source_data.csv
-Extended Data Figure 2,a-k,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
-Extended Data Figure 3,a-k,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
-Extended Data Figure 4,a-k,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
-Extended Data Figure 5,a-k,ed_fig5_source_data.csv,fig6_source_data.csv
-Extended Data Figure 6,a-k,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
-Extended Data Figure 7,a-j,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
-Extended Data Figure 8,a-k,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
-Supplementary Figure 1,a-l,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
-Supplementary Figure 2,a-l,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+figure,panel,primary_source_data_csv,auxiliary_source_data_csvs
+Figure 1,a,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,b,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,c,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,d,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,e,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,f,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,g,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,h,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,i,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,j,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 1,k,fig1_source_data.csv,fig1_mechanistic_and_latency.csv;fitted_2seed_cg_latency_scaling.csv
+Figure 2,a,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,b,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,c,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,d,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,e,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,f,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,g,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,h,fig2_source_data.csv,push1_exp5_exact_parity_summary.csv;exp5_e2e_unet_source_data.csv
+Figure 2,i,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,j,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 2,k,fig2_source_data.csv,ed_fig2_source_data.csv;ed_fig8_source_data.csv;exp5_e2e_unet_source_data.csv;hemit_per_seed_stability.csv
+Figure 3,a,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,b,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,c,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,d,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,e,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,f,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,g,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,h,fig3_source_data.csv,fig3_transect_and_roi.csv;hemit_per_backbone_summary.csv
+Figure 3,i,fig3_source_data.csv,hemit_per_backbone_summary.csv;fig2_source_data.csv
+Figure 3,j,fig3_source_data.csv,hemit_per_backbone_summary.csv
+Figure 3,k,fig3_source_data.csv,hemit_per_backbone_summary.csv;fig2_source_data.csv
+Figure 3,l,fig3_source_data.csv,hemit_per_backbone_summary.csv
+Figure 3,m,fig3_source_data.csv,hemit_per_backbone_summary.csv;fig2_source_data.csv
+Figure 3,n,fig3_source_data.csv,hemit_per_backbone_summary.csv;fig2_source_data.csv
+Figure 4,a,fig4_source_data.csv,fig4_cd8a_transect.csv;orion_per_backbone_summary.csv
+Figure 4,b,fig4_source_data.csv,fig4_cd8a_transect.csv;orion_per_backbone_summary.csv
+Figure 4,c,fig4_source_data.csv,fig4_cd8a_transect.csv;orion_per_backbone_summary.csv
+Figure 4,d,fig4_source_data.csv,fig4_cd8a_transect.csv;orion_per_backbone_summary.csv
+Figure 4,e,fig4_source_data.csv,fig4_cd8a_transect.csv;orion_per_backbone_summary.csv
+Figure 4,f,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv;orion_per_backbone_summary.csv
+Figure 4,g,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv;orion_per_backbone_summary.csv
+Figure 4,h,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv;orion_per_backbone_summary.csv
+Figure 4,i,fig4_source_data.csv,fig4_marker_and_cooc.csv;supp_fig2_source_data.csv
+Figure 4,j,fig4_source_data.csv,ed_fig3_source_data.csv;orion_per_patient_fold0.csv;orion_per_backbone_summary.csv
+Figure 4,k,fig4_source_data.csv,fig4_marker_and_cooc.csv;supp_fig2_source_data.csv
+Figure 5,a,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,b,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,c,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,d,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,e,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,f,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,g,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,h,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,i,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,j,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 5,k,fig5_source_data.csv,orion_n40_corrected_survival_bootstrap.csv
+Figure 6,a,fig6_source_data.csv,her2_per_backbone_summary.csv;ed_fig5_source_data.csv
+Figure 6,b,fig6_source_data.csv,fig6_comp12_ladder.csv;ed_fig5_source_data.csv
+Figure 6,c,fig6_source_data.csv,supp_fig2_source_data.csv;her2_per_backbone_summary.csv
+Figure 6,d,fig6_source_data.csv,fig6_dab_transect.csv;her2_per_backbone_summary.csv
+Figure 6,e,fig6_source_data.csv,fig6_dab_transect.csv;her2_per_backbone_summary.csv
+Figure 6,f,fig6_source_data.csv,fig6_dab_transect.csv;her2_per_backbone_summary.csv
+Figure 6,g,fig6_source_data.csv,fig6_dab_transect.csv;her2_per_backbone_summary.csv
+Figure 6,h,fig6_source_data.csv,her2_per_backbone_summary.csv;ed_fig5_source_data.csv
+Figure 6,i,fig6_source_data.csv,her2_per_backbone_summary.csv;ed_fig5_source_data.csv
+Figure 6,j,fig6_source_data.csv,fig6_tile_burden_scatter.csv;her2_per_backbone_summary.csv
+Figure 6,k,fig6_source_data.csv,her2_per_backbone_summary.csv;ed_fig5_source_data.csv
+Extended Data Figure 1,a,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,b,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,c,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,d,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,e,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,f,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,g,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,h,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,i,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,j,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 1,k,ed_fig1_source_data.csv,fig2_source_data.csv
+Extended Data Figure 2,a,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,b,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,c,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,d,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,e,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,f,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,g,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,h,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,i,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,j,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 2,k,ed_fig2_source_data.csv,fig2_source_data.csv;fig3_source_data.csv
+Extended Data Figure 3,a,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,b,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,c,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,d,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,e,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,f,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,g,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,h,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,i,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,j,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 3,k,ed_fig3_source_data.csv,fig4_source_data.csv;orion_per_patient_fold0.csv
+Extended Data Figure 4,a,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,b,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,c,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,d,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,e,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,f,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,g,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,h,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,i,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,j,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 4,k,ed_fig4_source_data.csv,fig5_source_data.csv;orion_n40_corrected_survival_bootstrap.csv
+Extended Data Figure 5,a,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,b,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,c,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,d,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,e,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,f,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,g,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,h,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,i,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,j,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 5,k,ed_fig5_source_data.csv,fig6_source_data.csv
+Extended Data Figure 6,a,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,b,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,c,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,d,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,e,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,f,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,g,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,h,ed_fig6_source_data.csv,fitted_2seed_cg_latency_scaling.csv;push2_timing_streaming_summary.csv
+Extended Data Figure 6,i,ed_fig6_source_data.csv,fitted_2seed_cg_latency_scaling.csv;push2_timing_streaming_summary.csv
+Extended Data Figure 6,j,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 6,k,ed_fig6_source_data.csv,determinism_480_parity.csv;hemit_per_seed_stability.csv;fitted_2seed_cg_latency_scaling.csv
+Extended Data Figure 7,a,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,b,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,c,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,d,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,e,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,f,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,g,ed_fig7_source_data.csv,fig2_source_data.csv;exp5_e2e_unet_source_data.csv
+Extended Data Figure 7,h,ed_fig7_source_data.csv,push1_exp5_exact_parity_summary.csv;fig2_source_data.csv
+Extended Data Figure 7,i,ed_fig7_source_data.csv,push1_exp5_exact_parity_summary.csv;fig2_source_data.csv
+Extended Data Figure 7,j,ed_fig7_source_data.csv,push1_exp5_exact_parity_summary.csv;fig2_source_data.csv
+Extended Data Figure 8,a,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,b,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,c,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,d,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,e,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,f,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,g,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,h,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,i,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,j,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 8,k,ed_fig8_source_data.csv,hemit_per_seed_stability.csv
+Extended Data Figure 9,a,ed_fig9_source_data.csv,push3_orion_unseen_folds.csv;push3_orion_unseen_fold_provenance.csv;push3_orion_unseen_per_patient.csv
+Extended Data Figure 9,b,ed_fig9_source_data.csv,push3_orion_unseen_folds.csv;push3_orion_unseen_fold_provenance.csv;push3_orion_unseen_per_patient.csv
+Extended Data Figure 9,c,ed_fig9_source_data.csv,push3_orion_unseen_folds.csv;push3_orion_unseen_fold_provenance.csv;push3_orion_unseen_per_patient.csv
+Extended Data Figure 9,d,ed_fig9_source_data.csv,push3_orion_unseen_folds.csv;push3_orion_unseen_fold_provenance.csv;push3_orion_unseen_per_patient.csv
+Extended Data Figure 9,e,ed_fig9_source_data.csv,push3_orion_unseen_survival.csv;push3_orion_unseen_patient_scores.csv;push3_orion_unseen_fold_provenance.csv
+Extended Data Figure 9,f,ed_fig9_source_data.csv,push2_spectral_decomposition.csv
+Extended Data Figure 9,g,ed_fig9_source_data.csv,push2_hemit_bio_audit.csv
+Extended Data Figure 9,h,ed_fig9_source_data.csv,push2_hemit_bio_audit.csv
+Extended Data Figure 9,i,ed_fig9_source_data.csv,push2_orion_bio_hybrid.csv
+Extended Data Figure 9,j,ed_fig9_source_data.csv,push2_hemit_tme_ecology.csv
+Extended Data Figure 9,k,ed_fig9_source_data.csv,push2_hemit_tme_ecology.csv
+Extended Data Figure 10,a,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,b,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,c,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,d,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,e,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,f,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,g,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,h,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,i,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,j,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Extended Data Figure 10,k,ed_fig10_source_data.csv,push4_deepliif_summary.csv;push5_her2_full5980_summary.csv;push6_cross_hospital_bcistainer_summary.csv
+Supplementary Figure 1,a,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,b,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,c,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,d,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,e,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,f,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,g,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,h,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,i,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,j,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,k,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 1,l,supp_fig1_source_data.csv,fig1_source_data.csv;ed_fig1_source_data.csv;fig5_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,a,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,b,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,c,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,d,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,e,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,f,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,g,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,h,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,i,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,j,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,k,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv
+Supplementary Figure 2,l,supp_fig2_source_data.csv,fig1_source_data.csv;fig4_source_data.csv;fig6_source_data.csv

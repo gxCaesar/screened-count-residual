@@ -1,0 +1,4 @@
+resolution,hw,n_distinct_real_tiles,nonzero_rhs_frac,min_rhs_norm_L_psi,min_sol_norm_r,cg_rel_residual_max,preclip_dc_drift_max,gpu_ms_2seed_bs1_with_h2d,gpu_ms_2seed_batched,batch_size_timed,gpu_tiles_per_sec_bs1,gpu_tiles_per_sec_batched,gpu_peak_vram_mb
+256x256,256,100,1.0,0.335558,0.273631,2.903902207911722e-16,8.673617379884035e-19,63.962,10.93,8,15.63,91.49,111.34
+512x512,512,100,1.0,0.474641,0.387352,2.8461690486362843e-16,4.336808689942018e-19,63.354,25.208,8,15.78,39.67,321.34
+1024x1024,1024,25,1.0,23.293448,19.317379,2.800740855270955e-16,2.168404344971009e-19,123.303,91.551,2,8.11,10.92,1181.34

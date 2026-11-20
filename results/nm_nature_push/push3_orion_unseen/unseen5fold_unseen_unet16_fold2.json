@@ -1,0 +1,1423 @@
+{
+  "schema": "push3-orion-strictly-unseen-5fold-v1",
+  "cohort": "Orion-CRC-Strictly-Unseen-Patients",
+  "architecture": "unseen_unet16",
+  "upstream_info": {
+    "params": 7763536,
+    "best_epoch": 22,
+    "best_val_l1": 0.016457,
+    "train_sec": 224.0
+  },
+  "zero_patient_overlap_verified": true,
+  "fold": 2,
+  "n_inner_train_tiles": 1964,
+  "n_inner_val_tiles": 360,
+  "n_head_fit_tiles": 982,
+  "n_eval_tiles": 480,
+  "eval_patients": [
+    "C04",
+    "C13",
+    "C25",
+    "C27",
+    "C29",
+    "C32",
+    "C38",
+    "C40"
+  ],
+  "wall_seconds": 4669.6,
+  "cutoffs_u8": [
+    49,
+    51,
+    62,
+    52,
+    57,
+    54,
+    57,
+    57,
+    65,
+    59,
+    58,
+    58,
+    65,
+    53,
+    58,
+    52
+  ],
+  "per_patient_macro_fixed_f1": {
+    "C04": {
+      "upstream": 0.07575284197360219,
+      "S_recon": 0.07500210613294653,
+      "QuantileMatch": 0.25867959422969,
+      "E_count": 0.1733953814098075,
+      "S_count": 0.21588709338885864
+    },
+    "C13": {
+      "upstream": 0.11212821401582761,
+      "S_recon": 0.11455723155274328,
+      "QuantileMatch": 0.2760348790958286,
+      "E_count": 0.17658136178203715,
+      "S_count": 0.23739778743289594
+    },
+    "C25": {
+      "upstream": 0.0626168810298337,
+      "S_recon": 0.06278357543818683,
+      "QuantileMatch": 0.17183093743355501,
+      "E_count": 0.13860400920918697,
+      "S_count": 0.15670799681835323
+    },
+    "C27": {
+      "upstream": 0.09858294119108833,
+      "S_recon": 0.09813575417510831,
+      "QuantileMatch": 0.2494454916831868,
+      "E_count": 0.16779278312852527,
+      "S_count": 0.22521654364016677
+    },
+    "C29": {
+      "upstream": 0.07882211443111417,
+      "S_recon": 0.07845867813828952,
+      "QuantileMatch": 0.24670274657045235,
+      "E_count": 0.17512354374838596,
+      "S_count": 0.21825007238756464
+    },
+    "C32": {
+      "upstream": 0.06472122929247884,
+      "S_recon": 0.06849821614109879,
+      "QuantileMatch": 0.16525900877552924,
+      "E_count": 0.126632486844277,
+      "S_count": 0.15328840671658442
+    },
+    "C38": {
+      "upstream": 0.07854255224722408,
+      "S_recon": 0.07805503792619689,
+      "QuantileMatch": 0.26750591040885985,
+      "E_count": 0.1636428984782139,
+      "S_count": 0.18747909952624858
+    },
+    "C40": {
+      "upstream": 0.08962955222194639,
+      "S_recon": 0.09013913257528436,
+      "QuantileMatch": 0.2982977101669494,
+      "E_count": 0.1966303130058688,
+      "S_count": 0.2560336528835634
+    }
+  },
+  "oof_immunoscore": {
+    "upstream": {
+      "C04": {
+        "continuous": 1.2692307692307694,
+        "discrete": 0.0
+      },
+      "C13": {
+        "continuous": 2.692307692307692,
+        "discrete": 4.0
+      },
+      "C25": {
+        "continuous": 2.0769230769230766,
+        "discrete": 2.0
+      },
+      "C27": {
+        "continuous": 3.1538461538461537,
+        "discrete": 4.0
+      },
+      "C29": {
+        "continuous": 2.8461538461538463,
+        "discrete": 4.0
+      },
+      "C32": {
+        "continuous": 0.3846153846153847,
+        "discrete": 0.0
+      },
+      "C38": {
+        "continuous": 3.1538461538461537,
+        "discrete": 4.0
+      },
+      "C40": {
+        "continuous": 3.3076923076923075,
+        "discrete": 4.0
+      }
+    },
+    "S_recon": {
+      "C04": {
+        "continuous": 1.807692307692308,
+        "discrete": 0.0
+      },
+      "C13": {
+        "continuous": 2.884615384615385,
+        "discrete": 3.0
+      },
+      "C25": {
+        "continuous": 2.5769230769230766,
+        "discrete": 3.0
+      },
+      "C27": {
+        "continuous": 3.0769230769230766,
+        "discrete": 4.0
+      },
+      "C29": {
+        "continuous": 2.730769230769231,
+        "discrete": 2.0
+      },
+      "C32": {
+        "continuous": 1.4615384615384615,
+        "discrete": 1.0
+      },
+      "C38": {
+        "continuous": 3.1538461538461537,
+        "discrete": 4.0
+      },
+      "C40": {
+        "continuous": 2.9615384615384612,
+        "discrete": 2.0
+      }
+    },
+    "QuantileMatch": {
+      "C04": {
+        "continuous": 2.5384615384615383,
+        "discrete": 2.0
+      },
+      "C13": {
+        "continuous": 1.923076923076923,
+        "discrete": 2.0
+      },
+      "C25": {
+        "continuous": 1.3461538461538463,
+        "discrete": 1.0
+      },
+      "C27": {
+        "continuous": 3.4230769230769234,
+        "discrete": 4.0
+      },
+      "C29": {
+        "continuous": 2.8076923076923075,
+        "discrete": 4.0
+      },
+      "C32": {
+        "continuous": 0.6923076923076923,
+        "discrete": 1.0
+      },
+      "C38": {
+        "continuous": 3.5384615384615383,
+        "discrete": 4.0
+      },
+      "C40": {
+        "continuous": 3.230769230769231,
+        "discrete": 4.0
+      }
+    },
+    "E_count": {
+      "C04": {
+        "continuous": 1.9615384615384617,
+        "discrete": 2.0
+      },
+      "C13": {
+        "continuous": 3.346153846153846,
+        "discrete": 4.0
+      },
+      "C25": {
+        "continuous": 2.3461538461538463,
+        "discrete": 3.0
+      },
+      "C27": {
+        "continuous": 2.846153846153846,
+        "discrete": 3.0
+      },
+      "C29": {
+        "continuous": 1.9615384615384615,
+        "discrete": 2.0
+      },
+      "C32": {
+        "continuous": 1.0384615384615383,
+        "discrete": 1.0
+      },
+      "C38": {
+        "continuous": 2.730769230769231,
+        "discrete": 3.0
+      },
+      "C40": {
+        "continuous": 2.5384615384615383,
+        "discrete": 3.0
+      }
+    },
+    "S_count": {
+      "C04": {
+        "continuous": 0.8076923076923077,
+        "discrete": 0.0
+      },
+      "C13": {
+        "continuous": 3.153846153846154,
+        "discrete": 4.0
+      },
+      "C25": {
+        "continuous": 2.0,
+        "discrete": 2.0
+      },
+      "C27": {
+        "continuous": 3.0384615384615383,
+        "discrete": 4.0
+      },
+      "C29": {
+        "continuous": 3.1153846153846154,
+        "discrete": 4.0
+      },
+      "C32": {
+        "continuous": 1.2692307692307692,
+        "discrete": 2.0
+      },
+      "C38": {
+        "continuous": 3.0384615384615383,
+        "discrete": 4.0
+      },
+      "C40": {
+        "continuous": 2.3846153846153846,
+        "discrete": 2.0
+      }
+    }
+  },
+  "arms": {
+    "upstream": {
+      "macro_pixel_16ch": {
+        "ODS_F": 0.32110454785271336,
+        "AP": 0.24227015757603004,
+        "Fixed_tol_F1": 0.08432644232509463,
+        "Cal_F1": 0.29544167102030217,
+        "SSIM": 0.8597903210664681,
+        "PSNR_dB": 39.51657455200133,
+        "mismatch_gap_ods_minus_fixed": 0.23677810552761872,
+        "Exact_r0_F1": 0.06658524052680205
+      },
+      "per_marker_pixel": {
+        "Hoechst": {
+          "ODS_F": 0.9853106092026992,
+          "ODS_threshold": 34,
+          "AP": 0.9973622006234533,
+          "Fixed_tol_F1": 0.9808414249186981,
+          "Cal_F1": 0.9847971532748684,
+          "Fixed_exact_F1": 0.8400068802822448,
+          "mismatch_gap_ods_minus_fixed": 0.004469184284001115,
+          "SSIM": 0.7406943317758579,
+          "PSNR_dB": 24.866826422635906,
+          "train_calibrated_threshold": 40,
+          "Exact_r0_F1": 0.8400068802822448
+        },
+        "CD31": {
+          "ODS_F": 0.04892915708967801,
+          "ODS_threshold": 0,
+          "AP": 0.0037434647706054832,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.04892915708967801,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.04892915708967801,
+          "SSIM": 0.972409867979507,
+          "PSNR_dB": 45.961319614627634,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45": {
+          "ODS_F": 0.605984803833831,
+          "ODS_threshold": 6,
+          "AP": 0.6270940362727369,
+          "Fixed_tol_F1": 0.29167839534725043,
+          "Cal_F1": 0.5402614404752445,
+          "Fixed_exact_F1": 0.19668037618472364,
+          "mismatch_gap_ods_minus_fixed": 0.3143064084865806,
+          "SSIM": 0.6403995391331071,
+          "PSNR_dB": 26.275334543744005,
+          "train_calibrated_threshold": 21,
+          "Exact_r0_F1": 0.19668037618472364
+        },
+        "CD68": {
+          "ODS_F": 0.201520917088293,
+          "ODS_threshold": 0,
+          "AP": 0.04604582143482219,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.201520917088293,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.201520917088293,
+          "SSIM": 0.8915772106781591,
+          "PSNR_dB": 33.93374443339828,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD4": {
+          "ODS_F": 0.4100225213516011,
+          "ODS_threshold": 1,
+          "AP": 0.31929634682408436,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.4100225213516011,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.4100225213516011,
+          "SSIM": 0.8301547061680089,
+          "PSNR_dB": 33.16254922456387,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "FOXP3": {
+          "ODS_F": 0.07309101525442857,
+          "ODS_threshold": 1,
+          "AP": 0.02838385589451358,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.07309101525442857,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.07309101525442857,
+          "SSIM": 0.9789799977908561,
+          "PSNR_dB": 53.76413275474976,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD8a": {
+          "ODS_F": 0.1009163177494189,
+          "ODS_threshold": 0,
+          "AP": 0.040496232318837935,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.02139833252820633,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.1009163177494189,
+          "SSIM": 0.9473604302745181,
+          "PSNR_dB": 42.46702919992364,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45RO": {
+          "ODS_F": 0.31367425820830247,
+          "ODS_threshold": 0,
+          "AP": 0.177556450085608,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.147637885763451,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.31367425820830247,
+          "SSIM": 0.8550399352216276,
+          "PSNR_dB": 41.461834459571,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD20": {
+          "ODS_F": 0.25434513840021084,
+          "ODS_threshold": 2,
+          "AP": 0.10486221579432384,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.17201996465513247,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.25434513840021084,
+          "SSIM": 0.9695099898358779,
+          "PSNR_dB": 54.627096331499736,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "PD-L1": {
+          "ODS_F": 0.06654284558125127,
+          "ODS_threshold": 0,
+          "AP": 0.009654412257210497,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.06654284558125127,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.06654284558125127,
+          "SSIM": 0.9461552883097898,
+          "PSNR_dB": 55.50567812427377,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD3e": {
+          "ODS_F": 0.3408347451115352,
+          "ODS_threshold": 1,
+          "AP": 0.2584386449047099,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.3408347451115352,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.3408347451115352,
+          "SSIM": 0.9019661975267802,
+          "PSNR_dB": 36.61743544545422,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD163": {
+          "ODS_F": 0.08893942351843004,
+          "ODS_threshold": 0,
+          "AP": 0.023422444024934992,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.08893942351843004,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.08893942351843004,
+          "SSIM": 0.9219553599047406,
+          "PSNR_dB": 39.32042225232447,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "E-cadherin": {
+          "ODS_F": 0.6212675788577345,
+          "ODS_threshold": 25,
+          "AP": 0.5193290200164513,
+          "Fixed_tol_F1": 0.011835462704785757,
+          "Cal_F1": 0.6212675788577345,
+          "Fixed_exact_F1": 0.002857651805683447,
+          "mismatch_gap_ods_minus_fixed": 0.6094321161529488,
+          "SSIM": 0.7022219291750069,
+          "PSNR_dB": 33.13612604111301,
+          "train_calibrated_threshold": 25,
+          "Exact_r0_F1": 0.002857651805683447
+        },
+        "Ki67": {
+          "ODS_F": 0.27016724716314605,
+          "ODS_threshold": 0,
+          "AP": 0.15386267386285668,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.27016724716314605,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.27016724716314605,
+          "SSIM": 0.9236472366861546,
+          "PSNR_dB": 43.75646179105706,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "Pan-CK": {
+          "ODS_F": 0.5952938884712831,
+          "ODS_threshold": 22,
+          "AP": 0.5101004311025171,
+          "Fixed_tol_F1": 0.06486779423077993,
+          "Cal_F1": 0.5788042098502642,
+          "Fixed_exact_F1": 0.025818940156180914,
+          "mismatch_gap_ods_minus_fixed": 0.5304260942405031,
+          "SSIM": 0.6739610250205649,
+          "PSNR_dB": 30.719438474780986,
+          "train_calibrated_threshold": 28,
+          "Exact_r0_F1": 0.025818940156180914
+        },
+        "SMA": {
+          "ODS_F": 0.16083229876157035,
+          "ODS_threshold": 0,
+          "AP": 0.05667427102881461,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.16083229876157035,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.16083229876157035,
+          "SSIM": 0.8606120915829334,
+          "PSNR_dB": 36.6897637183039,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        }
+      },
+      "single_cell_15class": {
+        "macro_deployable_cell_f1": 0.211445477529396,
+        "macro_cell_auprc": 0.3391823240693272,
+        "macro_cell_auroc": NaN,
+        "cooccurrence_mae": 0.23347909037771247
+      },
+      "max_dc_drift": 0.0
+    },
+    "S_recon": {
+      "macro_pixel_16ch": {
+        "ODS_F": 0.3288222598489674,
+        "AP": 0.24485480649651317,
+        "Fixed_tol_F1": 0.08454920414236737,
+        "Cal_F1": 0.3098140930282499,
+        "SSIM": 0.8679167659161167,
+        "PSNR_dB": 40.03075826888839,
+        "mismatch_gap_ods_minus_fixed": 0.24427305570660005,
+        "Exact_r0_F1": 0.06634177810506278
+      },
+      "per_marker_pixel": {
+        "Hoechst": {
+          "ODS_F": 0.9853144273744971,
+          "ODS_threshold": 36,
+          "AP": 0.9970471400317147,
+          "Fixed_tol_F1": 0.9817895309666412,
+          "Cal_F1": 0.9848738998004265,
+          "Fixed_exact_F1": 0.842149115092764,
+          "mismatch_gap_ods_minus_fixed": 0.0035248964078559153,
+          "SSIM": 0.7479002434091626,
+          "PSNR_dB": 24.89165882632116,
+          "train_calibrated_threshold": 41,
+          "Exact_r0_F1": 0.842149115092764
+        },
+        "CD31": {
+          "ODS_F": 0.061092982989603126,
+          "ODS_threshold": 0,
+          "AP": 0.0047056364753589475,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.061092982989603126,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.061092982989603126,
+          "SSIM": 0.9744853103988996,
+          "PSNR_dB": 47.15522864718569,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45": {
+          "ODS_F": 0.6004226311146299,
+          "ODS_threshold": 6,
+          "AP": 0.6195037913512801,
+          "Fixed_tol_F1": 0.26960204075688854,
+          "Cal_F1": 0.5308442882524028,
+          "Fixed_exact_F1": 0.1806776539786169,
+          "mismatch_gap_ods_minus_fixed": 0.33082059035774136,
+          "SSIM": 0.6474423221521037,
+          "PSNR_dB": 25.72012971528236,
+          "train_calibrated_threshold": 24,
+          "Exact_r0_F1": 0.1806776539786169
+        },
+        "CD68": {
+          "ODS_F": 0.21908211951345782,
+          "ODS_threshold": 0,
+          "AP": 0.05186680717697087,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.21908211951345782,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.21908211951345782,
+          "SSIM": 0.893472311227919,
+          "PSNR_dB": 34.10125608807378,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD4": {
+          "ODS_F": 0.4087827963027967,
+          "ODS_threshold": 1,
+          "AP": 0.3290791692943097,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.4087827963027967,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.4087827963027967,
+          "SSIM": 0.8359208350108648,
+          "PSNR_dB": 33.359601268041125,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "FOXP3": {
+          "ODS_F": 0.0768550392930287,
+          "ODS_threshold": 1,
+          "AP": 0.02587779362593267,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.0768550392930287,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.0768550392930287,
+          "SSIM": 0.9835821146149374,
+          "PSNR_dB": 55.20322843991325,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD8a": {
+          "ODS_F": 0.103626465791876,
+          "ODS_threshold": 0,
+          "AP": 0.03482932718850438,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.05745291692859498,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.103626465791876,
+          "SSIM": 0.9555100133128941,
+          "PSNR_dB": 42.534804355407005,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45RO": {
+          "ODS_F": 0.3562227541984296,
+          "ODS_threshold": 0,
+          "AP": 0.2035215880885906,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.18435739026617556,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.3562227541984296,
+          "SSIM": 0.8578213950103157,
+          "PSNR_dB": 42.057683180924215,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD20": {
+          "ODS_F": 0.2403021224736426,
+          "ODS_threshold": 2,
+          "AP": 0.10448448972700222,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.2403021224736426,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.2403021224736426,
+          "SSIM": 0.9766431322184144,
+          "PSNR_dB": 56.45679414537429,
+          "train_calibrated_threshold": 2,
+          "Exact_r0_F1": 0.0
+        },
+        "PD-L1": {
+          "ODS_F": 0.06782747746181975,
+          "ODS_threshold": 0,
+          "AP": 0.009820441851082594,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.06782747746181975,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.06782747746181975,
+          "SSIM": 0.9495247994919099,
+          "PSNR_dB": 56.30035769327318,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD3e": {
+          "ODS_F": 0.3632306810866912,
+          "ODS_threshold": 0,
+          "AP": 0.27243230314697786,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.3629149993284972,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.3632306810866912,
+          "SSIM": 0.9051035118106606,
+          "PSNR_dB": 36.96127899207166,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD163": {
+          "ODS_F": 0.09007719143667006,
+          "ODS_threshold": 0,
+          "AP": 0.023140254016265648,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.09007719143667006,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.09007719143667006,
+          "SSIM": 0.9257432489330829,
+          "PSNR_dB": 39.74719858748329,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "E-cadherin": {
+          "ODS_F": 0.6154546618137773,
+          "ODS_threshold": 28,
+          "AP": 0.49778393788605513,
+          "Fixed_tol_F1": 0.016807286583742753,
+          "Cal_F1": 0.6154546618137773,
+          "Fixed_exact_F1": 0.004021267620057858,
+          "mismatch_gap_ods_minus_fixed": 0.5986473752300345,
+          "SSIM": 0.7335265427996173,
+          "PSNR_dB": 32.5283431668665,
+          "train_calibrated_threshold": 28,
+          "Exact_r0_F1": 0.004021267620057858
+        },
+        "Ki67": {
+          "ODS_F": 0.32406820985422735,
+          "ODS_threshold": 0,
+          "AP": 0.1873974310136362,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.32406820985422735,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.32406820985422735,
+          "SSIM": 0.9308173963564454,
+          "PSNR_dB": 45.76113037321902,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "Pan-CK": {
+          "ODS_F": 0.5923552137004204,
+          "ODS_threshold": 24,
+          "AP": 0.4983171660304793,
+          "Fixed_tol_F1": 0.08458840797060535,
+          "Cal_F1": 0.5765980095589671,
+          "Fixed_exact_F1": 0.03462041298956557,
+          "mismatch_gap_ods_minus_fixed": 0.507766805729815,
+          "SSIM": 0.7006647732641266,
+          "PSNR_dB": 30.408534771065604,
+          "train_calibrated_threshold": 30,
+          "Exact_r0_F1": 0.03462041298956557
+        },
+        "SMA": {
+          "ODS_F": 0.15644138317791095,
+          "ODS_threshold": 0,
+          "AP": 0.05786962704004974,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.15644138317791095,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.15644138317791095,
+          "SSIM": 0.8685103046465118,
+          "PSNR_dB": 37.30490405171221,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        }
+      },
+      "single_cell_15class": {
+        "macro_deployable_cell_f1": 0.21192847567947257,
+        "macro_cell_auprc": 0.33598902845324374,
+        "macro_cell_auroc": NaN,
+        "cooccurrence_mae": 0.19169642628619654
+      },
+      "max_dc_drift": 0.0
+    },
+    "QuantileMatch": {
+      "macro_pixel_16ch": {
+        "ODS_F": 0.32110454785271336,
+        "AP": 0.23834564152373366,
+        "Fixed_tol_F1": 0.27779354737625117,
+        "Cal_F1": 0.29544167102030217,
+        "SSIM": 0.7525186408122946,
+        "PSNR_dB": 32.56559956719631,
+        "mismatch_gap_ods_minus_fixed": 0.04331100047646222,
+        "Exact_r0_F1": 0.15676566290123783
+      },
+      "per_marker_pixel": {
+        "Hoechst": {
+          "ODS_F": 0.9853106092026992,
+          "ODS_threshold": 36,
+          "AP": 0.9966247510181078,
+          "Fixed_tol_F1": 0.9826959831077338,
+          "Cal_F1": 0.9847971532748684,
+          "Fixed_exact_F1": 0.8425691968210569,
+          "mismatch_gap_ods_minus_fixed": 0.002614626094965433,
+          "SSIM": 0.7492203749101404,
+          "PSNR_dB": 24.779625573407483,
+          "train_calibrated_threshold": 42,
+          "Exact_r0_F1": 0.8425691968210569
+        },
+        "CD31": {
+          "ODS_F": 0.04892915708967801,
+          "ODS_threshold": 0,
+          "AP": 0.0037434647706054832,
+          "Fixed_tol_F1": 0.008835608263276973,
+          "Cal_F1": 0.04892915708967801,
+          "Fixed_exact_F1": 0.0018188888470753522,
+          "mismatch_gap_ods_minus_fixed": 0.04009354882640104,
+          "SSIM": 0.9229583801349404,
+          "PSNR_dB": 35.46331716968533,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0018188888470753522
+        },
+        "CD45": {
+          "ODS_F": 0.605984803833831,
+          "ODS_threshold": 24,
+          "AP": 0.6270672024307844,
+          "Fixed_tol_F1": 0.5150570462915002,
+          "Cal_F1": 0.5402614404752445,
+          "Fixed_exact_F1": 0.3433727324281746,
+          "mismatch_gap_ods_minus_fixed": 0.09092775754233084,
+          "SSIM": 0.6067556373224292,
+          "PSNR_dB": 25.007608140081174,
+          "train_calibrated_threshold": 56,
+          "Exact_r0_F1": 0.3433727324281746
+        },
+        "CD68": {
+          "ODS_F": 0.201520917088293,
+          "ODS_threshold": 0,
+          "AP": 0.04604582143482219,
+          "Fixed_tol_F1": 0.016816392314074023,
+          "Cal_F1": 0.201520917088293,
+          "Fixed_exact_F1": 0.0070756418168141525,
+          "mismatch_gap_ods_minus_fixed": 0.18470452477421898,
+          "SSIM": 0.8031973334966281,
+          "PSNR_dB": 27.28502925792931,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0070756418168141525
+        },
+        "CD4": {
+          "ODS_F": 0.4100225213516011,
+          "ODS_threshold": 28,
+          "AP": 0.3193596381219777,
+          "Fixed_tol_F1": 0.4100225213516011,
+          "Cal_F1": 0.4100225213516011,
+          "Fixed_exact_F1": 0.1994927862557942,
+          "mismatch_gap_ods_minus_fixed": 0.0,
+          "SSIM": 0.5658437065971315,
+          "PSNR_dB": 24.733900326953076,
+          "train_calibrated_threshold": 28,
+          "Exact_r0_F1": 0.1994927862557942
+        },
+        "FOXP3": {
+          "ODS_F": 0.07309101525442857,
+          "ODS_threshold": 0,
+          "AP": 0.008712775887476062,
+          "Fixed_tol_F1": 0.03690445016655085,
+          "Cal_F1": 0.07309101525442857,
+          "Fixed_exact_F1": 0.00661395102736706,
+          "mismatch_gap_ods_minus_fixed": 0.03618656508787772,
+          "SSIM": 0.9862851181322296,
+          "PSNR_dB": 80.5234954973107,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.00661395102736706
+        },
+        "CD8a": {
+          "ODS_F": 0.1009163177494189,
+          "ODS_threshold": 0,
+          "AP": 0.04049623231883793,
+          "Fixed_tol_F1": 0.1009163177494189,
+          "Cal_F1": 0.02139833252820633,
+          "Fixed_exact_F1": 0.022554708541196015,
+          "mismatch_gap_ods_minus_fixed": 0.0,
+          "SSIM": 0.6756537611588361,
+          "PSNR_dB": 23.609321640726566,
+          "train_calibrated_threshold": 74,
+          "Exact_r0_F1": 0.022554708541196015
+        },
+        "CD45RO": {
+          "ODS_F": 0.31367425820830247,
+          "ODS_threshold": 0,
+          "AP": 0.177556450085608,
+          "Fixed_tol_F1": 0.31367425820830247,
+          "Cal_F1": 0.147637885763451,
+          "Fixed_exact_F1": 0.15168533985842683,
+          "mismatch_gap_ods_minus_fixed": 0.0,
+          "SSIM": 0.6896601927250712,
+          "PSNR_dB": 23.698344531993254,
+          "train_calibrated_threshold": 78,
+          "Exact_r0_F1": 0.15168533985842683
+        },
+        "CD20": {
+          "ODS_F": 0.25434513840021084,
+          "ODS_threshold": 33,
+          "AP": 0.10486221579432384,
+          "Fixed_tol_F1": 0.24432805273182895,
+          "Cal_F1": 0.17201996465513247,
+          "Fixed_exact_F1": 0.07681043034626105,
+          "mismatch_gap_ods_minus_fixed": 0.010017085668381887,
+          "SSIM": 0.8999316283477864,
+          "PSNR_dB": 46.29016025849542,
+          "train_calibrated_threshold": 3,
+          "Exact_r0_F1": 0.07681043034626105
+        },
+        "PD-L1": {
+          "ODS_F": 0.06654284558125127,
+          "ODS_threshold": 0,
+          "AP": 0.009654412257210497,
+          "Fixed_tol_F1": 0.005944160875564078,
+          "Cal_F1": 0.06654284558125127,
+          "Fixed_exact_F1": 0.0009847506777317528,
+          "mismatch_gap_ods_minus_fixed": 0.060598684705687196,
+          "SSIM": 0.8464418118508749,
+          "PSNR_dB": 39.55207434801438,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0009847506777317528
+        },
+        "CD3e": {
+          "ODS_F": 0.3408347451115352,
+          "ODS_threshold": 65,
+          "AP": 0.2584386449047099,
+          "Fixed_tol_F1": 0.33666095423728754,
+          "Cal_F1": 0.3408347451115352,
+          "Fixed_exact_F1": 0.11708113771399106,
+          "mismatch_gap_ods_minus_fixed": 0.004173790874247685,
+          "SSIM": 0.7651675882426012,
+          "PSNR_dB": 24.426984584285375,
+          "train_calibrated_threshold": 65,
+          "Exact_r0_F1": 0.11708113771399106
+        },
+        "CD163": {
+          "ODS_F": 0.08893942351843004,
+          "ODS_threshold": 0,
+          "AP": 0.023422444024934992,
+          "Fixed_tol_F1": 0.0019437524512731811,
+          "Cal_F1": 0.08893942351843004,
+          "Fixed_exact_F1": 0.00024150318482324987,
+          "mismatch_gap_ods_minus_fixed": 0.08699567106715686,
+          "SSIM": 0.7981061740275559,
+          "PSNR_dB": 31.095847713787286,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.00024150318482324987
+        },
+        "E-cadherin": {
+          "ODS_F": 0.6212675788577345,
+          "ODS_threshold": 26,
+          "AP": 0.4935979922436395,
+          "Fixed_tol_F1": 0.543350272982241,
+          "Cal_F1": 0.6212675788577345,
+          "Fixed_exact_F1": 0.2575327288828332,
+          "mismatch_gap_ods_minus_fixed": 0.0779173058754935,
+          "SSIM": 0.7680780074488861,
+          "PSNR_dB": 39.95186639336991,
+          "train_calibrated_threshold": 26,
+          "Exact_r0_F1": 0.2575327288828332
+        },
+        "Ki67": {
+          "ODS_F": 0.27016724716314605,
+          "ODS_threshold": 0,
+          "AP": 0.15386267386285668,
+          "Fixed_tol_F1": 0.27016724716314605,
+          "Cal_F1": 0.27016724716314605,
+          "Fixed_exact_F1": 0.15299061548907236,
+          "mismatch_gap_ods_minus_fixed": 0.0,
+          "SSIM": 0.6744814382863533,
+          "PSNR_dB": 22.358197967556595,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.15299061548907236
+        },
+        "Pan-CK": {
+          "ODS_F": 0.5952938884712831,
+          "ODS_threshold": 26,
+          "AP": 0.4934112741950288,
+          "Fixed_tol_F1": 0.49654744136464873,
+          "Cal_F1": 0.5788042098502642,
+          "Fixed_exact_F1": 0.28417517932032577,
+          "mismatch_gap_ods_minus_fixed": 0.09874644710663433,
+          "SSIM": 0.7250027186029449,
+          "PSNR_dB": 33.66153870346821,
+          "train_calibrated_threshold": 39,
+          "Exact_r0_F1": 0.28417517932032577
+        },
+        "SMA": {
+          "ODS_F": 0.16083229876157035,
+          "ODS_threshold": 0,
+          "AP": 0.05667427102881461,
+          "Fixed_tol_F1": 0.16083229876157035,
+          "Cal_F1": 0.16083229876157035,
+          "Fixed_exact_F1": 0.04325101520886225,
+          "mismatch_gap_ods_minus_fixed": 0.0,
+          "SSIM": 0.5635143817123025,
+          "PSNR_dB": 18.612280968076902,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.04325101520886225
+        }
+      },
+      "single_cell_15class": {
+        "macro_deployable_cell_f1": 0.3574417619854854,
+        "macro_cell_auprc": 0.3366734772028969,
+        "macro_cell_auroc": NaN,
+        "cooccurrence_mae": 0.2570951328603954
+      },
+      "max_dc_drift": 0.0
+    },
+    "E_count": {
+      "macro_pixel_16ch": {
+        "ODS_F": 0.3149111457307433,
+        "AP": 0.22128330710752286,
+        "Fixed_tol_F1": 0.17742276836233012,
+        "Cal_F1": 0.2957771864793959,
+        "SSIM": 0.8558144432939627,
+        "PSNR_dB": 41.758961245681675,
+        "mismatch_gap_ods_minus_fixed": 0.13748837736841316,
+        "Exact_r0_F1": 0.11784108365801091
+      },
+      "per_marker_pixel": {
+        "Hoechst": {
+          "ODS_F": 0.9850521698079372,
+          "ODS_threshold": 45,
+          "AP": 0.9967020105784039,
+          "Fixed_tol_F1": 0.9849690878769924,
+          "Cal_F1": 0.9846222094774819,
+          "Fixed_exact_F1": 0.8273101781669341,
+          "mismatch_gap_ods_minus_fixed": 8.308193094475058e-05,
+          "SSIM": 0.7400679759200595,
+          "PSNR_dB": 24.21512364432222,
+          "train_calibrated_threshold": 52,
+          "Exact_r0_F1": 0.8273101781669341
+        },
+        "CD31": {
+          "ODS_F": 0.04892915708967801,
+          "ODS_threshold": 0,
+          "AP": 0.0037434647706054832,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.04892915708967801,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.04892915708967801,
+          "SSIM": 0.972409867979507,
+          "PSNR_dB": 45.961319614627634,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45": {
+          "ODS_F": 0.5826502949973771,
+          "ODS_threshold": 7,
+          "AP": 0.5653591079751278,
+          "Fixed_tol_F1": 0.44546296812447295,
+          "Cal_F1": 0.5103017194222103,
+          "Fixed_exact_F1": 0.29153517589882005,
+          "mismatch_gap_ods_minus_fixed": 0.13718732687290414,
+          "SSIM": 0.6552619542473479,
+          "PSNR_dB": 25.57696620060918,
+          "train_calibrated_threshold": 51,
+          "Exact_r0_F1": 0.29153517589882005
+        },
+        "CD68": {
+          "ODS_F": 0.21987623407385845,
+          "ODS_threshold": 0,
+          "AP": 0.050406013996891014,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.21987623407385845,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.21987623407385845,
+          "SSIM": 0.8949960228631715,
+          "PSNR_dB": 33.983500906291205,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD4": {
+          "ODS_F": 0.29220584541806305,
+          "ODS_threshold": 0,
+          "AP": 0.21674183731422839,
+          "Fixed_tol_F1": 0.015251903659939756,
+          "Cal_F1": 0.28095471671918515,
+          "Fixed_exact_F1": 0.007906471437142255,
+          "mismatch_gap_ods_minus_fixed": 0.27695394175812327,
+          "SSIM": 0.8119760064097093,
+          "PSNR_dB": 34.088247407634825,
+          "train_calibrated_threshold": 6,
+          "Exact_r0_F1": 0.007906471437142255
+        },
+        "FOXP3": {
+          "ODS_F": 0.07309101525442857,
+          "ODS_threshold": 0,
+          "AP": 0.008852884976521466,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.07309101525442857,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.07309101525442857,
+          "SSIM": 0.9878451141308869,
+          "PSNR_dB": 80.6531005167686,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD8a": {
+          "ODS_F": 0.12451648560024414,
+          "ODS_threshold": 0,
+          "AP": 0.017422750862841084,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.12451648560024414,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.12451648560024414,
+          "SSIM": 0.962512606536492,
+          "PSNR_dB": 44.90355809141674,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45RO": {
+          "ODS_F": 0.27882497105856835,
+          "ODS_threshold": 0,
+          "AP": 0.10674161512438987,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.18775234386547196,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.27882497105856835,
+          "SSIM": 0.8389818163722451,
+          "PSNR_dB": 47.31390818790574,
+          "train_calibrated_threshold": 4,
+          "Exact_r0_F1": 0.0
+        },
+        "CD20": {
+          "ODS_F": 0.25434513840021084,
+          "ODS_threshold": 1,
+          "AP": 0.10068977021509608,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.17201996465513247,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.25434513840021084,
+          "SSIM": 0.9869839344115262,
+          "PSNR_dB": 67.6594421972297,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "PD-L1": {
+          "ODS_F": 0.06654284558125127,
+          "ODS_threshold": 0,
+          "AP": 0.009654412257210497,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.06654284558125127,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.06654284558125127,
+          "SSIM": 0.9461552883097898,
+          "PSNR_dB": 55.50567812427377,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD3e": {
+          "ODS_F": 0.2896744891029631,
+          "ODS_threshold": 14,
+          "AP": 0.20114144500617662,
+          "Fixed_tol_F1": 0.18622519216696412,
+          "Cal_F1": 0.28951000375922986,
+          "Fixed_exact_F1": 0.14509657894064348,
+          "mismatch_gap_ods_minus_fixed": 0.103449296935999,
+          "SSIM": 0.865084454088618,
+          "PSNR_dB": 37.278622815838595,
+          "train_calibrated_threshold": 16,
+          "Exact_r0_F1": 0.14509657894064348
+        },
+        "CD163": {
+          "ODS_F": 0.08893942351843004,
+          "ODS_threshold": 0,
+          "AP": 0.023422444024934992,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.08893942351843004,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.08893942351843004,
+          "SSIM": 0.9219553599047406,
+          "PSNR_dB": 39.32042225232447,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "E-cadherin": {
+          "ODS_F": 0.6167751163233693,
+          "ODS_threshold": 58,
+          "AP": 0.4910840529207526,
+          "Fixed_tol_F1": 0.603950804475584,
+          "Cal_F1": 0.6163231073793042,
+          "Fixed_exact_F1": 0.2825364192138152,
+          "mismatch_gap_ods_minus_fixed": 0.012824311847785319,
+          "SSIM": 0.7237881756763611,
+          "PSNR_dB": 29.96387721796828,
+          "train_calibrated_threshold": 60,
+          "Exact_r0_F1": 0.2825364192138152
+        },
+        "Ki67": {
+          "ODS_F": 0.2880847188928211,
+          "ODS_threshold": 21,
+          "AP": 0.15745387152643495,
+          "Fixed_tol_F1": 0.13488625715718003,
+          "Cal_F1": 0.26395507359769416,
+          "Fixed_exact_F1": 0.055557942486030805,
+          "mismatch_gap_ods_minus_fixed": 0.15319846173564108,
+          "SSIM": 0.7808136567086057,
+          "PSNR_dB": 33.46505657245329,
+          "train_calibrated_threshold": 36,
+          "Exact_r0_F1": 0.055557942486030805
+        },
+        "Pan-CK": {
+          "ODS_F": 0.5871957215749997,
+          "ODS_threshold": 34,
+          "AP": 0.48835574494307876,
+          "Fixed_tol_F1": 0.4680180803361485,
+          "Cal_F1": 0.5632259786790417,
+          "Fixed_exact_F1": 0.2755145723847885,
+          "mismatch_gap_ods_minus_fixed": 0.11917764123885116,
+          "SSIM": 0.7259299757072052,
+          "PSNR_dB": 30.79898428259795,
+          "train_calibrated_threshold": 47,
+          "Exact_r0_F1": 0.2755145723847885
+        },
+        "SMA": {
+          "ODS_F": 0.2418747049976923,
+          "ODS_threshold": 0,
+          "AP": 0.10276148722767216,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.2418747049976923,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.2418747049976923,
+          "SSIM": 0.8782688834371385,
+          "PSNR_dB": 37.45557189864455,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        }
+      },
+      "single_cell_15class": {
+        "macro_deployable_cell_f1": 0.2697019814443943,
+        "macro_cell_auprc": 0.3167055354836042,
+        "macro_cell_auroc": NaN,
+        "cooccurrence_mae": 0.18237950244577955
+      },
+      "max_dc_drift": 0.26883417031007006
+    },
+    "S_count": {
+      "macro_pixel_16ch": {
+        "ODS_F": 0.32113196323686444,
+        "AP": 0.23933109566269847,
+        "Fixed_tol_F1": 0.22415237582059203,
+        "Cal_F1": 0.30577135100758085,
+        "SSIM": 0.8168783750152802,
+        "PSNR_dB": 34.4491644544224,
+        "mismatch_gap_ods_minus_fixed": 0.09697958741627244,
+        "Exact_r0_F1": 0.12492575544679352
+      },
+      "per_marker_pixel": {
+        "Hoechst": {
+          "ODS_F": 0.9854372200841561,
+          "ODS_threshold": 41,
+          "AP": 0.9962546316278656,
+          "Fixed_tol_F1": 0.9850495469993303,
+          "Cal_F1": 0.9848215341765814,
+          "Fixed_exact_F1": 0.8354918241175696,
+          "mismatch_gap_ods_minus_fixed": 0.0003876730848257903,
+          "SSIM": 0.739445128972538,
+          "PSNR_dB": 24.574965912225363,
+          "train_calibrated_threshold": 50,
+          "Exact_r0_F1": 0.8354918241175696
+        },
+        "CD31": {
+          "ODS_F": 0.05470181225920523,
+          "ODS_threshold": 0,
+          "AP": 0.004751007921192041,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.05470181225920523,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.05470181225920523,
+          "SSIM": 0.97454952855875,
+          "PSNR_dB": 44.7673857583852,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD45": {
+          "ODS_F": 0.5976171863089473,
+          "ODS_threshold": 6,
+          "AP": 0.6124146066125383,
+          "Fixed_tol_F1": 0.44939484812564345,
+          "Cal_F1": 0.5449364068217966,
+          "Fixed_exact_F1": 0.22909025197032357,
+          "mismatch_gap_ods_minus_fixed": 0.14822233818330388,
+          "SSIM": 0.6489189790009754,
+          "PSNR_dB": 25.307519370920183,
+          "train_calibrated_threshold": 41,
+          "Exact_r0_F1": 0.22909025197032357
+        },
+        "CD68": {
+          "ODS_F": 0.220822316914564,
+          "ODS_threshold": 0,
+          "AP": 0.06433320836977037,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.220822316914564,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.220822316914564,
+          "SSIM": 0.893009997838081,
+          "PSNR_dB": 33.54936116717247,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD4": {
+          "ODS_F": 0.30365003162877957,
+          "ODS_threshold": 15,
+          "AP": 0.2264438615682821,
+          "Fixed_tol_F1": 0.24858233630909507,
+          "Cal_F1": 0.2979413608523289,
+          "Fixed_exact_F1": 0.10215661721561901,
+          "mismatch_gap_ods_minus_fixed": 0.0550676953196845,
+          "SSIM": 0.7644746291940241,
+          "PSNR_dB": 28.556167755203436,
+          "train_calibrated_threshold": 28,
+          "Exact_r0_F1": 0.10215661721561901
+        },
+        "FOXP3": {
+          "ODS_F": 0.07309101525442857,
+          "ODS_threshold": 1,
+          "AP": 0.02838385589451358,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.07309101525442857,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.07309101525442857,
+          "SSIM": 0.9789799977908561,
+          "PSNR_dB": 53.76413275474976,
+          "train_calibrated_threshold": 1,
+          "Exact_r0_F1": 0.0
+        },
+        "CD8a": {
+          "ODS_F": 0.09531113288033374,
+          "ODS_threshold": 0,
+          "AP": 0.02937992379853335,
+          "Fixed_tol_F1": 0.0026097282279927405,
+          "Cal_F1": 0.09531113288033374,
+          "Fixed_exact_F1": 6.628882039044115e-05,
+          "mismatch_gap_ods_minus_fixed": 0.092701404652341,
+          "SSIM": 0.9504801504491193,
+          "PSNR_dB": 32.76063639543437,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 6.628882039044115e-05
+        },
+        "CD45RO": {
+          "ODS_F": 0.26846846905880545,
+          "ODS_threshold": 4,
+          "AP": 0.17902507817857008,
+          "Fixed_tol_F1": 0.16160342995134425,
+          "Cal_F1": 0.1697037387467502,
+          "Fixed_exact_F1": 0.06522501481178529,
+          "mismatch_gap_ods_minus_fixed": 0.1068650391074612,
+          "SSIM": 0.7719345965249187,
+          "PSNR_dB": 32.98764228810406,
+          "train_calibrated_threshold": 51,
+          "Exact_r0_F1": 0.06522501481178529
+        },
+        "CD20": {
+          "ODS_F": 0.3239544369095423,
+          "ODS_threshold": 11,
+          "AP": 0.14860536959046527,
+          "Fixed_tol_F1": 0.007086922712211453,
+          "Cal_F1": 0.2559213754644274,
+          "Fixed_exact_F1": 0.000959877135726627,
+          "mismatch_gap_ods_minus_fixed": 0.31686751419733084,
+          "SSIM": 0.9719552823435528,
+          "PSNR_dB": 54.864213475652384,
+          "train_calibrated_threshold": 3,
+          "Exact_r0_F1": 0.000959877135726627
+        },
+        "PD-L1": {
+          "ODS_F": 0.06325382985496147,
+          "ODS_threshold": 0,
+          "AP": 0.00924200130985442,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.06325382985496147,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.06325382985496147,
+          "SSIM": 0.949531727141427,
+          "PSNR_dB": 47.47520295714358,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "CD3e": {
+          "ODS_F": 0.3314064166309928,
+          "ODS_threshold": 7,
+          "AP": 0.21707984680873244,
+          "Fixed_tol_F1": 0.2604574384388352,
+          "Cal_F1": 0.3236993518386333,
+          "Fixed_exact_F1": 0.10793499369697795,
+          "mismatch_gap_ods_minus_fixed": 0.07094897819215762,
+          "SSIM": 0.8476193900944234,
+          "PSNR_dB": 30.142217599866935,
+          "train_calibrated_threshold": 17,
+          "Exact_r0_F1": 0.10793499369697795
+        },
+        "CD163": {
+          "ODS_F": 0.09038636898758748,
+          "ODS_threshold": 0,
+          "AP": 0.023304309978136838,
+          "Fixed_tol_F1": 0.0,
+          "Cal_F1": 0.09038636898758748,
+          "Fixed_exact_F1": 0.0,
+          "mismatch_gap_ods_minus_fixed": 0.09038636898758748,
+          "SSIM": 0.9226616598216034,
+          "PSNR_dB": 39.321202792397635,
+          "train_calibrated_threshold": 0,
+          "Exact_r0_F1": 0.0
+        },
+        "E-cadherin": {
+          "ODS_F": 0.6074697741904848,
+          "ODS_threshold": 36,
+          "AP": 0.48419243985947275,
+          "Fixed_tol_F1": 0.519837930569621,
+          "Cal_F1": 0.6074697741904848,
+          "Fixed_exact_F1": 0.1896718806264234,
+          "mismatch_gap_ods_minus_fixed": 0.08763184362086374,
+          "SSIM": 0.7311695324765992,
+          "PSNR_dB": 30.567922534482356,
+          "train_calibrated_threshold": 36,
+          "Exact_r0_F1": 0.1896718806264234
+        },
+        "Ki67": {
+          "ODS_F": 0.3120103035864389,
+          "ODS_threshold": 86,
+          "AP": 0.19604558102587827,
+          "Fixed_tol_F1": 0.2931486695777578,
+          "Cal_F1": 0.31070977074893164,
+          "Fixed_exact_F1": 0.1808400577914116,
+          "mismatch_gap_ods_minus_fixed": 0.018861634008681072,
+          "SSIM": 0.6145338136817625,
+          "PSNR_dB": 21.292640214438205,
+          "train_calibrated_threshold": 96,
+          "Exact_r0_F1": 0.1808400577914116
+        },
+        "Pan-CK": {
+          "ODS_F": 0.5888648260362898,
+          "ODS_threshold": 25,
+          "AP": 0.4999768956681476,
+          "Fixed_tol_F1": 0.45299488903947704,
+          "Cal_F1": 0.5781922851927357,
+          "Fixed_exact_F1": 0.22499635557724096,
+          "mismatch_gap_ods_minus_fixed": 0.1358699369968127,
+          "SSIM": 0.6964776757803318,
+          "PSNR_dB": 29.526780901266747,
+          "train_calibrated_threshold": 36,
+          "Exact_r0_F1": 0.22499635557724096
+        },
+        "SMA": {
+          "ODS_F": 0.22166627120431362,
+          "ODS_threshold": 27,
+          "AP": 0.10986491239122234,
+          "Fixed_tol_F1": 0.20567227317816386,
+          "Cal_F1": 0.22137954193754344,
+          "Fixed_exact_F1": 0.062378925385227685,
+          "mismatch_gap_ods_minus_fixed": 0.01599399802614976,
+          "SSIM": 0.6143119105755195,
+          "PSNR_dB": 21.728639393315724,
+          "train_calibrated_threshold": 28,
+          "Exact_r0_F1": 0.062378925385227685
+        }
+      },
+      "single_cell_15class": {
+        "macro_deployable_cell_f1": 0.28559349752403496,
+        "macro_cell_auprc": 0.3164062369240361,
+        "macro_cell_auroc": NaN,
+        "cooccurrence_mae": 0.19424688210476643
+      },
+      "max_dc_drift": 3.469446951953614e-18
+    }
+  }
+}

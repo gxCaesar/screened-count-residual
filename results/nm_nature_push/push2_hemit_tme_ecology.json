@@ -1,0 +1,295 @@
+{
+  "schema": "push2-hemit-tme-ecology-v1",
+  "n_tumor_tiles": 658,
+  "gt_phenotype_counts": {
+    "Desert": 61,
+    "Excluded": 347,
+    "Inflamed": 250
+  },
+  "tau_phys": {
+    "panCK": 10.0,
+    "CD3": 9.0
+  },
+  "backbones": {
+    "native_dgr": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.5653,
+        "immune_phenotype_macro_f1": 0.5502,
+        "immune_phenotype_kappa": 0.2769,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.211,
+            "spearman_rho": 0.1684
+          },
+          "r25um": {
+            "pearson_r": 0.3889,
+            "spearman_rho": 0.3568
+          },
+          "r50um": {
+            "pearson_r": 0.4174,
+            "spearman_rho": 0.4472
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.5745,
+        "immune_phenotype_macro_f1": 0.5538,
+        "immune_phenotype_kappa": 0.2864,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.2608,
+            "spearman_rho": 0.1884
+          },
+          "r25um": {
+            "pearson_r": 0.3906,
+            "spearman_rho": 0.3545
+          },
+          "r50um": {
+            "pearson_r": 0.4213,
+            "spearman_rho": 0.4483
+          }
+        }
+      }
+    },
+    "native_hemit_fml": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.652,
+        "immune_phenotype_macro_f1": 0.6089,
+        "immune_phenotype_kappa": 0.4062,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.3555,
+            "spearman_rho": 0.4192
+          },
+          "r25um": {
+            "pearson_r": 0.4755,
+            "spearman_rho": 0.4914
+          },
+          "r50um": {
+            "pearson_r": 0.537,
+            "spearman_rho": 0.5769
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.6383,
+        "immune_phenotype_macro_f1": 0.5924,
+        "immune_phenotype_kappa": 0.3852,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.3611,
+            "spearman_rho": 0.4266
+          },
+          "r25um": {
+            "pearson_r": 0.4767,
+            "spearman_rho": 0.4895
+          },
+          "r50um": {
+            "pearson_r": 0.5314,
+            "spearman_rho": 0.5715
+          }
+        }
+      }
+    },
+    "native_hybrid_donor": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.6474,
+        "immune_phenotype_macro_f1": 0.5963,
+        "immune_phenotype_kappa": 0.4133,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.3988,
+            "spearman_rho": 0.4464
+          },
+          "r25um": {
+            "pearson_r": 0.5328,
+            "spearman_rho": 0.5307
+          },
+          "r50um": {
+            "pearson_r": 0.5322,
+            "spearman_rho": 0.582
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.6398,
+        "immune_phenotype_macro_f1": 0.5886,
+        "immune_phenotype_kappa": 0.4003,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.4106,
+            "spearman_rho": 0.4527
+          },
+          "r25um": {
+            "pearson_r": 0.5442,
+            "spearman_rho": 0.5383
+          },
+          "r50um": {
+            "pearson_r": 0.5341,
+            "spearman_rho": 0.5847
+          }
+        }
+      }
+    },
+    "native_unistainnet_uni2h": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.655,
+        "immune_phenotype_macro_f1": 0.6086,
+        "immune_phenotype_kappa": 0.4259,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.3922,
+            "spearman_rho": 0.4023
+          },
+          "r25um": {
+            "pearson_r": 0.5062,
+            "spearman_rho": 0.5128
+          },
+          "r50um": {
+            "pearson_r": 0.5235,
+            "spearman_rho": 0.5661
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.6611,
+        "immune_phenotype_macro_f1": 0.6119,
+        "immune_phenotype_kappa": 0.4352,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.4131,
+            "spearman_rho": 0.4068
+          },
+          "r25um": {
+            "pearson_r": 0.5101,
+            "spearman_rho": 0.5142
+          },
+          "r50um": {
+            "pearson_r": 0.5268,
+            "spearman_rho": 0.5684
+          }
+        }
+      }
+    },
+    "sanofi_miphei_convnext": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.0927,
+        "immune_phenotype_macro_f1": 0.0577,
+        "immune_phenotype_kappa": -0.0015,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.0542,
+            "spearman_rho": 0.0009
+          },
+          "r25um": {
+            "pearson_r": 0.0495,
+            "spearman_rho": 0.1145
+          },
+          "r50um": {
+            "pearson_r": 0.0862,
+            "spearman_rho": 0.1177
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.3921,
+        "immune_phenotype_macro_f1": 0.2177,
+        "immune_phenotype_kappa": 0.0189,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.0923,
+            "spearman_rho": 0.0396
+          },
+          "r25um": {
+            "pearson_r": 0.2592,
+            "spearman_rho": 0.225
+          },
+          "r50um": {
+            "pearson_r": 0.3081,
+            "spearman_rho": 0.3175
+          }
+        }
+      }
+    },
+    "sanofi_miphei_hemit": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.0942,
+        "immune_phenotype_macro_f1": 0.0586,
+        "immune_phenotype_kappa": 0.0009,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.0496,
+            "spearman_rho": -0.0136
+          },
+          "r25um": {
+            "pearson_r": -0.0145,
+            "spearman_rho": -0.0109
+          },
+          "r50um": {
+            "pearson_r": -0.0091,
+            "spearman_rho": -0.0173
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.4362,
+        "immune_phenotype_macro_f1": 0.3397,
+        "immune_phenotype_kappa": 0.0892,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": 0.1199,
+            "spearman_rho": 0.0645
+          },
+          "r25um": {
+            "pearson_r": 0.267,
+            "spearman_rho": 0.2366
+          },
+          "r50um": {
+            "pearson_r": 0.3741,
+            "spearman_rho": 0.378
+          }
+        }
+      }
+    },
+    "sanofi_pix2pix": {
+      "upstream": {
+        "immune_phenotype_accuracy": 0.0927,
+        "immune_phenotype_macro_f1": 0.0566,
+        "immune_phenotype_kappa": 0.0,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": -0.009,
+            "spearman_rho": 0.0069
+          },
+          "r25um": {
+            "pearson_r": 0.0459,
+            "spearman_rho": 0.0551
+          },
+          "r50um": {
+            "pearson_r": 0.0854,
+            "spearman_rho": 0.0894
+          }
+        }
+      },
+      "S_count": {
+        "immune_phenotype_accuracy": 0.2264,
+        "immune_phenotype_macro_f1": 0.2062,
+        "immune_phenotype_kappa": 0.038,
+        "multiscale_cross_k": {
+          "r10um": {
+            "pearson_r": -0.0247,
+            "spearman_rho": -0.0109
+          },
+          "r25um": {
+            "pearson_r": -0.0011,
+            "spearman_rho": -0.01
+          },
+          "r50um": {
+            "pearson_r": 0.0109,
+            "spearman_rho": -0.0215
+          }
+        }
+      }
+    }
+  }
+}

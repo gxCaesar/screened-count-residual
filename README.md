@@ -21,8 +21,14 @@ To reproduce the full expansion campaign from raw cohort datasets and frozen gen
 3. `s2.run_nm_biophysical_audit` (tolerance radius sweep, threshold/histogram curves, spectral/CG audit, and single-cell spatial audit)
 4. `s2.run_nm_mech_suite` (mechanistic suites `2A--2F`: data efficiency, feature ablation, offset/scale sweep, `lambda_dep` Pareto, cross-generator transfer, stain perturbation)
 5. `s2.run_nm_nature_killer_suite` (multi-seed stability `EXP-6`, zero-shot transfer `EXP-7A`, and quantitative calibration integrity `EXP-7B`)
-6. `s2.run_nm_fixes_exp5_2g` (**supersedes** the initial `EXP-5` and `EXP-2G` routines in steps 4--5 with sign-verified two-seed end-to-end U-Net controls and true fitted two-seed 22-step FP64 CG throughput profiling)
-7. `scripts/aggregate_nm_expansion.py` (aggregates comparator and 5-fold Orion tables)
+6. `s2.run_nm_fixes_exp5_2g` (baseline sign-verified two-seed U-Net control and initial fitted CG latency)
+7. `s2.run_push1_exp5_exact_parity` (**canonical** bit-for-bit identical-objective two-architecture, five-budget `N = 32..596`, three-LR crossover suite; supersedes step 6 EXP-5)
+8. `s2.run_push2_timing_spectral_tme` (**canonical** 100-distinct-tile + 1,000-tile streaming H100 latency, spectral DC/cell decomposition, 12-arm biological audit, exploratory `GlobalAffine + S_count`, and HEMIT TME ecology)
+9. `s2.run_push3_orion_unseen5fold` (zero-leakage 5-fold unseen-patient end-to-end Orion-CRC training across 3 fresh fold-isolated architectures, `N = 40`)
+10. `s2.run_push4_deepliif_multiorgan` (multi-organ Lung, Bladder, and Breast DeepLIIF `Ki67` single-cell and clinical Proliferation Index validation across IHC->mIF and pure Hematoxylin->mIF)
+11. `s2.run_push5_her2match_full5980` (full 5,980-tile held-out HER2match audit across 3 architectures)
+12. `s2.run_push6_cross_hospital_bcistainer` (cross-hospital zero-shot Beijing BCIStainer -> Dutch HER2match 5,980-tile benchmark)
+13. `scripts/aggregate_nm_expansion.py` and `scripts/aggregate_nm_nature_push.py` (aggregate all expansion and multi-organ tables)
 
 ## Quick Verification (Runs on CPU in Under 15 Seconds)
 
