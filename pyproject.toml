@@ -1,5 +1,5 @@
 [project]
 name = "screened-count-residuals"
-version = "1.2.0"
+version = "2.0.0"
 description = "Gauge-Fixed Screened Count Residuals for Virtual Immunostaining"
 requires-python = ">=3.10"

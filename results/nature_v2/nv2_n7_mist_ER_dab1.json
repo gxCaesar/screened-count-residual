@@ -1,0 +1,244 @@
+{
+  "schema": "nv2-n7-mist-4ihc-v1",
+  "marker": "ER",
+  "split_mode": "slide_disjoint_repartition_0pct_overlap",
+  "official_slide_overlap_count": 58,
+  "zero_slide_overlap_verified": true,
+  "n_train_tiles": 1600,
+  "n_eval_tiles": 1000,
+  "n_train_slides": 47,
+  "n_eval_slides": 12,
+  "cutoff_u8": 12,
+  "gt_eval_pos_area_pct": 1.0369,
+  "archs": {
+    "her2_unet": {
+      "upstream_meta": {
+        "params": 7763041,
+        "best_epoch": 14,
+        "best_val_l1": 0.006904,
+        "train_sec": 134.2
+      },
+      "wall_seconds": 1379.1,
+      "arms": {
+        "upstream": {
+          "Fixed_tol_F1": 0.0,
+          "Exact_r0_F1": 0.0,
+          "ODS_F": 0.2281,
+          "AP": 0.1403,
+          "SSIM": 0.9036,
+          "PSNR_dB": 45.758,
+          "burden_pearson_r": 0.0,
+          "burden_mae_pct": 1.0369,
+          "clinical_pos_f1": 0.0,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.0
+        },
+        "QuantileMatch": {
+          "Fixed_tol_F1": 0.1722,
+          "Exact_r0_F1": 0.0206,
+          "ODS_F": 0.2281,
+          "AP": 0.1403,
+          "SSIM": 0.1437,
+          "PSNR_dB": 25.111,
+          "burden_pearson_r": -0.1126,
+          "burden_mae_pct": 98.6712,
+          "clinical_pos_f1": 0.4215,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 99.7626
+        },
+        "S_recon": {
+          "Fixed_tol_F1": 0.0,
+          "Exact_r0_F1": 0.0,
+          "ODS_F": 0.3115,
+          "AP": 0.1804,
+          "SSIM": 0.9031,
+          "PSNR_dB": 45.479,
+          "burden_pearson_r": 0.0,
+          "burden_mae_pct": 1.0369,
+          "clinical_pos_f1": 0.0,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.0
+        },
+        "E_count": {
+          "Fixed_tol_F1": 0.3968,
+          "Exact_r0_F1": 0.082,
+          "ODS_F": 0.4105,
+          "AP": 0.2988,
+          "SSIM": 0.8085,
+          "PSNR_dB": 39.947,
+          "burden_pearson_r": 0.3139,
+          "burden_mae_pct": 3.3177,
+          "clinical_pos_f1": 0.4399,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 2.5279
+        },
+        "S_count": {
+          "Fixed_tol_F1": 0.3218,
+          "Exact_r0_F1": 0.0631,
+          "ODS_F": 0.4095,
+          "AP": 0.2968,
+          "SSIM": 0.8188,
+          "PSNR_dB": 39.586,
+          "burden_pearson_r": 0.2409,
+          "burden_mae_pct": 1.4183,
+          "clinical_pos_f1": 0.4468,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.907
+        }
+      }
+    },
+    "her2_resnet34": {
+      "upstream_meta": {
+        "params": 24462785,
+        "best_epoch": 14,
+        "best_val_l1": 0.006491,
+        "train_sec": 850.3
+      },
+      "wall_seconds": 1903.2,
+      "arms": {
+        "upstream": {
+          "Fixed_tol_F1": 0.0,
+          "Exact_r0_F1": 0.0,
+          "ODS_F": 0.2157,
+          "AP": 0.1197,
+          "SSIM": 0.9177,
+          "PSNR_dB": 46.339,
+          "burden_pearson_r": 0.0,
+          "burden_mae_pct": 1.0369,
+          "clinical_pos_f1": 0.0,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.0
+        },
+        "QuantileMatch": {
+          "Fixed_tol_F1": 0.2157,
+          "Exact_r0_F1": 0.0267,
+          "ODS_F": 0.2157,
+          "AP": 0.1197,
+          "SSIM": 0.304,
+          "PSNR_dB": 22.519,
+          "burden_pearson_r": 0.2873,
+          "burden_mae_pct": 73.952,
+          "clinical_pos_f1": 0.4218,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 70.564
+        },
+        "S_recon": {
+          "Fixed_tol_F1": 0.0,
+          "Exact_r0_F1": 0.0,
+          "ODS_F": 0.3426,
+          "AP": 0.199,
+          "SSIM": 0.9178,
+          "PSNR_dB": 46.213,
+          "burden_pearson_r": 0.0,
+          "burden_mae_pct": 1.0369,
+          "clinical_pos_f1": 0.0,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.0
+        },
+        "E_count": {
+          "Fixed_tol_F1": 0.3831,
+          "Exact_r0_F1": 0.068,
+          "ODS_F": 0.385,
+          "AP": 0.2852,
+          "SSIM": 0.7875,
+          "PSNR_dB": 38.882,
+          "burden_pearson_r": 0.3212,
+          "burden_mae_pct": 3.522,
+          "clinical_pos_f1": 0.4923,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 2.9844
+        },
+        "S_count": {
+          "Fixed_tol_F1": 0.3763,
+          "Exact_r0_F1": 0.0605,
+          "ODS_F": 0.4171,
+          "AP": 0.3181,
+          "SSIM": 0.809,
+          "PSNR_dB": 39.535,
+          "burden_pearson_r": 0.3651,
+          "burden_mae_pct": 1.3457,
+          "clinical_pos_f1": 0.4632,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.8021
+        }
+      }
+    },
+    "her2_pix2pix": {
+      "upstream_meta": {
+        "params": 7763041,
+        "best_epoch": 14,
+        "best_val_l1": 0.008305,
+        "train_sec": 188.3
+      },
+      "wall_seconds": 1167.1,
+      "arms": {
+        "upstream": {
+          "Fixed_tol_F1": 0.1913,
+          "Exact_r0_F1": 0.0201,
+          "ODS_F": 0.3167,
+          "AP": 0.2073,
+          "SSIM": 0.8377,
+          "PSNR_dB": 39.882,
+          "burden_pearson_r": 0.1474,
+          "burden_mae_pct": 1.0721,
+          "clinical_pos_f1": 0.1093,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.3064
+        },
+        "QuantileMatch": {
+          "Fixed_tol_F1": 0.2658,
+          "Exact_r0_F1": 0.0483,
+          "ODS_F": 0.3167,
+          "AP": 0.2078,
+          "SSIM": 0.8182,
+          "PSNR_dB": 37.256,
+          "burden_pearson_r": 0.0827,
+          "burden_mae_pct": 2.6738,
+          "clinical_pos_f1": 0.4339,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 3.2282
+        },
+        "S_recon": {
+          "Fixed_tol_F1": 0.0029,
+          "Exact_r0_F1": 0.0003,
+          "ODS_F": 0.335,
+          "AP": 0.2174,
+          "SSIM": 0.8389,
+          "PSNR_dB": 42.351,
+          "burden_pearson_r": -0.0568,
+          "burden_mae_pct": 1.0371,
+          "clinical_pos_f1": 0.0,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.004
+        },
+        "E_count": {
+          "Fixed_tol_F1": 0.2599,
+          "Exact_r0_F1": 0.0429,
+          "ODS_F": 0.3669,
+          "AP": 0.2676,
+          "SSIM": 0.8145,
+          "PSNR_dB": 39.331,
+          "burden_pearson_r": 0.2793,
+          "burden_mae_pct": 1.1134,
+          "clinical_pos_f1": 0.4313,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.6002
+        },
+        "S_count": {
+          "Fixed_tol_F1": 0.2824,
+          "Exact_r0_F1": 0.0324,
+          "ODS_F": 0.3714,
+          "AP": 0.266,
+          "SSIM": 0.8186,
+          "PSNR_dB": 40.056,
+          "burden_pearson_r": 0.244,
+          "burden_mae_pct": 1.0389,
+          "clinical_pos_f1": 0.3538,
+          "neg_tiles_n": 572,
+          "neg_tiles_fp_area_pct": 0.3559
+        }
+      }
+    }
+  },
+  "wall_seconds": 4530.9
+}

@@ -1,0 +1,630 @@
+{
+  "schema": "nv2-n4-wsi-seam-composition-v1",
+  "wsi_seam_audit": {
+    "hemit_contiguous_512_as_256x256_n20": {
+      "seam_metrics": {
+        "non_overlap": {
+          "img_seam_jump_mean": 5.74365,
+          "img_interior_jump_mean": 0.29612,
+          "res_seam_jump_mean": 5.74116,
+          "res_interior_jump_mean": 0.29585,
+          "res_seam_to_interior_ratio": 20.12311,
+          "mae_vs_global_u8": 0.6328,
+          "max_abs_vs_global_u8": 40.975
+        },
+        "hann_overlap50": {
+          "img_seam_jump_mean": 0.60362,
+          "img_interior_jump_mean": 0.59901,
+          "res_seam_jump_mean": 0.60722,
+          "res_interior_jump_mean": 0.60058,
+          "res_seam_to_interior_ratio": 1.01114,
+          "mae_vs_global_u8": 0.25601,
+          "max_abs_vs_global_u8": 10.10965
+        },
+        "global_fov": {
+          "img_seam_jump_mean": 0.60173,
+          "img_interior_jump_mean": 0.6127,
+          "res_seam_jump_mean": 0.60496,
+          "res_interior_jump_mean": 0.61406,
+          "res_seam_to_interior_ratio": 0.98949,
+          "mae_vs_global_u8": 0.0,
+          "max_abs_vs_global_u8": 0.0
+        }
+      },
+      "accuracy_parity": {
+        "non_overlap": {
+          "Fixed_tol_F1": 0.3395,
+          "SSIM": 0.4367
+        },
+        "hann_overlap50": {
+          "Fixed_tol_F1": 0.3522,
+          "SSIM": 0.4413
+        },
+        "global_fov": {
+          "Fixed_tol_F1": 0.3635,
+          "SSIM": 0.4406
+        }
+      }
+    },
+    "hemit_mosaic_2048_as_512x512": {
+      "non_overlap": {
+        "img_seam_jump_mean": 7.62976,
+        "img_interior_jump_mean": 0.27586,
+        "res_seam_jump_mean": 7.24386,
+        "res_interior_jump_mean": 0.27651,
+        "res_seam_to_interior_ratio": 26.19748,
+        "mae_vs_global_u8": 0.68728,
+        "max_abs_vs_global_u8": 54.0
+      },
+      "hann_overlap50": {
+        "img_seam_jump_mean": 1.37005,
+        "img_interior_jump_mean": 0.62901,
+        "res_seam_jump_mean": 1.26887,
+        "res_interior_jump_mean": 0.6323,
+        "res_seam_to_interior_ratio": 2.00675,
+        "mae_vs_global_u8": 0.27922,
+        "max_abs_vs_global_u8": 15.5021
+      },
+      "global_fov": {
+        "img_seam_jump_mean": 1.3112,
+        "img_interior_jump_mean": 0.61135,
+        "res_seam_jump_mean": 1.24829,
+        "res_interior_jump_mean": 0.61318,
+        "res_seam_to_interior_ratio": 2.03577,
+        "mae_vs_global_u8": 0.0,
+        "max_abs_vs_global_u8": 0.0
+      }
+    }
+  },
+  "prevalence_stratification": {
+    "HEMIT_CD3_ConvNeXt": {
+      "0% (Negative)": {
+        "n_tiles": 38,
+        "mean_true_prev_pct": 0.0,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9883,
+            "pred_pos_area_pct": 0.0
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9896,
+            "pred_pos_area_pct": 0.0
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9806,
+            "pred_pos_area_pct": 1.7436
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9998,
+            "pred_pos_area_pct": 0.0
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9761,
+            "pred_pos_area_pct": 0.0565
+          }
+        }
+      },
+      "(0, 5%] (Sparse)": {
+        "n_tiles": 494,
+        "mean_true_prev_pct": 2.476,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.806,
+            "pred_pos_area_pct": 0.0012
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0008,
+            "Exact_r0_F1": 0.0002,
+            "SSIM": 0.8303,
+            "pred_pos_area_pct": 0.008
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.0988,
+            "Exact_r0_F1": 0.0596,
+            "SSIM": 0.6705,
+            "pred_pos_area_pct": 24.5569
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.934,
+            "pred_pos_area_pct": 0.0009
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.2774,
+            "Exact_r0_F1": 0.1812,
+            "SSIM": 0.704,
+            "pred_pos_area_pct": 2.3197
+          }
+        }
+      },
+      "(5, 25%] (Interface)": {
+        "n_tiles": 394,
+        "mean_true_prev_pct": 9.368,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.7541,
+            "pred_pos_area_pct": 0.0006
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0005,
+            "Exact_r0_F1": 0.0001,
+            "SSIM": 0.7737,
+            "pred_pos_area_pct": 0.0072
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.2559,
+            "Exact_r0_F1": 0.1683,
+            "SSIM": 0.6662,
+            "pred_pos_area_pct": 17.0768
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.8239,
+            "pred_pos_area_pct": 0.0005
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.3645,
+            "Exact_r0_F1": 0.2192,
+            "SSIM": 0.6278,
+            "pred_pos_area_pct": 4.2188
+          }
+        }
+      },
+      ">25% (Dense)": {
+        "n_tiles": 19,
+        "mean_true_prev_pct": 32.607,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.5036,
+            "pred_pos_area_pct": 0.0016
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0002,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.5094,
+            "pred_pos_area_pct": 0.0073
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.6042,
+            "Exact_r0_F1": 0.4184,
+            "SSIM": 0.4912,
+            "pred_pos_area_pct": 17.2388
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.5204,
+            "pred_pos_area_pct": 0.0011
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.3579,
+            "Exact_r0_F1": 0.1875,
+            "SSIM": 0.4381,
+            "pred_pos_area_pct": 5.6645
+          }
+        }
+      }
+    },
+    "HEMIT_panCK_ConvNeXt": {
+      "0% (Negative)": {
+        "n_tiles": 89,
+        "mean_true_prev_pct": 0.0,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.5328,
+            "pred_pos_area_pct": 29.004
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.5188,
+            "pred_pos_area_pct": 32.3402
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.6875,
+            "pred_pos_area_pct": 7.3852
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.6142,
+            "pred_pos_area_pct": 4.0591
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.4961,
+            "pred_pos_area_pct": 25.8891
+          }
+        }
+      },
+      "(0, 5%] (Sparse)": {
+        "n_tiles": 193,
+        "mean_true_prev_pct": 1.439,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.083,
+            "Exact_r0_F1": 0.0487,
+            "SSIM": 0.3777,
+            "pred_pos_area_pct": 41.3793
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0771,
+            "Exact_r0_F1": 0.0443,
+            "SSIM": 0.3602,
+            "pred_pos_area_pct": 46.6473
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.1257,
+            "Exact_r0_F1": 0.0839,
+            "SSIM": 0.5604,
+            "pred_pos_area_pct": 10.5932
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.1769,
+            "Exact_r0_F1": 0.1271,
+            "SSIM": 0.5933,
+            "pred_pos_area_pct": 7.5595
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.0893,
+            "Exact_r0_F1": 0.0538,
+            "SSIM": 0.3478,
+            "pred_pos_area_pct": 37.4047
+          }
+        }
+      },
+      "(5, 25%] (Interface)": {
+        "n_tiles": 268,
+        "mean_true_prev_pct": 15.351,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.4843,
+            "Exact_r0_F1": 0.3597,
+            "SSIM": 0.3327,
+            "pred_pos_area_pct": 66.2965
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.4552,
+            "Exact_r0_F1": 0.3344,
+            "SSIM": 0.3165,
+            "pred_pos_area_pct": 73.8048
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.5975,
+            "Exact_r0_F1": 0.4684,
+            "SSIM": 0.5211,
+            "pred_pos_area_pct": 24.967
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.7038,
+            "Exact_r0_F1": 0.5511,
+            "SSIM": 0.5716,
+            "pred_pos_area_pct": 23.3519
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.4982,
+            "Exact_r0_F1": 0.3728,
+            "SSIM": 0.3289,
+            "pred_pos_area_pct": 62.6932
+          }
+        }
+      },
+      ">25% (Dense)": {
+        "n_tiles": 395,
+        "mean_true_prev_pct": 39.313,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.7587,
+            "Exact_r0_F1": 0.6249,
+            "SSIM": 0.426,
+            "pred_pos_area_pct": 83.611
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.732,
+            "Exact_r0_F1": 0.5978,
+            "SSIM": 0.4121,
+            "pred_pos_area_pct": 90.4307
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.7719,
+            "Exact_r0_F1": 0.6346,
+            "SSIM": 0.5974,
+            "pred_pos_area_pct": 39.8277
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.8313,
+            "Exact_r0_F1": 0.6785,
+            "SSIM": 0.587,
+            "pred_pos_area_pct": 42.3216
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.7637,
+            "Exact_r0_F1": 0.631,
+            "SSIM": 0.4322,
+            "pred_pos_area_pct": 80.8341
+          }
+        }
+      }
+    },
+    "Orion_CD8a_ConvNeXt": {
+      "0% (Negative)": {
+        "n_tiles": 295,
+        "mean_true_prev_pct": 0.0,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9498,
+            "pred_pos_area_pct": 0.0001
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9705,
+            "pred_pos_area_pct": 0.0004
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9929,
+            "pred_pos_area_pct": 0.0383
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.976,
+            "pred_pos_area_pct": 0.0004
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9604,
+            "pred_pos_area_pct": 0.053
+          }
+        }
+      },
+      "(0, 5%] (Sparse)": {
+        "n_tiles": 384,
+        "mean_true_prev_pct": 0.462,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.1507,
+            "Exact_r0_F1": 0.0773,
+            "SSIM": 0.8524,
+            "pred_pos_area_pct": 0.0533
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.1755,
+            "Exact_r0_F1": 0.1033,
+            "SSIM": 0.8982,
+            "pred_pos_area_pct": 0.0812
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.319,
+            "Exact_r0_F1": 0.1644,
+            "SSIM": 0.9518,
+            "pred_pos_area_pct": 0.5377
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.167,
+            "Exact_r0_F1": 0.1009,
+            "SSIM": 0.9058,
+            "pred_pos_area_pct": 0.0788
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.3157,
+            "Exact_r0_F1": 0.1599,
+            "SSIM": 0.8862,
+            "pred_pos_area_pct": 0.5003
+          }
+        }
+      },
+      "(5, 25%] (Interface)": {
+        "n_tiles": 5,
+        "mean_true_prev_pct": 7.401,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.3987,
+            "Exact_r0_F1": 0.2025,
+            "SSIM": 0.4506,
+            "pred_pos_area_pct": 1.4563
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.4526,
+            "Exact_r0_F1": 0.2625,
+            "SSIM": 0.5505,
+            "pred_pos_area_pct": 2.2644
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.633,
+            "Exact_r0_F1": 0.3921,
+            "SSIM": 0.6031,
+            "pred_pos_area_pct": 10.0537
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.4093,
+            "Exact_r0_F1": 0.222,
+            "SSIM": 0.5221,
+            "pred_pos_area_pct": 1.7459
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.5875,
+            "Exact_r0_F1": 0.352,
+            "SSIM": 0.5864,
+            "pred_pos_area_pct": 6.6541
+          }
+        }
+      }
+    },
+    "Orion_PanCK_ConvNeXt": {
+      "0% (Negative)": {
+        "n_tiles": 143,
+        "mean_true_prev_pct": 0.0,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9431,
+            "pred_pos_area_pct": 0.0
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9571,
+            "pred_pos_area_pct": 0.0007
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9771,
+            "pred_pos_area_pct": 0.0014
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.9782,
+            "pred_pos_area_pct": 0.0062
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.0,
+            "Exact_r0_F1": 0.0,
+            "SSIM": 0.948,
+            "pred_pos_area_pct": 0.0084
+          }
+        }
+      },
+      "(0, 5%] (Sparse)": {
+        "n_tiles": 286,
+        "mean_true_prev_pct": 1.362,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.3712,
+            "Exact_r0_F1": 0.2044,
+            "SSIM": 0.7463,
+            "pred_pos_area_pct": 1.424
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.4029,
+            "Exact_r0_F1": 0.2205,
+            "SSIM": 0.7724,
+            "pred_pos_area_pct": 1.7229
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.4118,
+            "Exact_r0_F1": 0.2187,
+            "SSIM": 0.7972,
+            "pred_pos_area_pct": 2.1961
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.4399,
+            "Exact_r0_F1": 0.2171,
+            "SSIM": 0.7946,
+            "pred_pos_area_pct": 3.1822
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.4509,
+            "Exact_r0_F1": 0.2205,
+            "SSIM": 0.7572,
+            "pred_pos_area_pct": 3.1472
+          }
+        }
+      },
+      "(5, 25%] (Interface)": {
+        "n_tiles": 153,
+        "mean_true_prev_pct": 13.552,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.7594,
+            "Exact_r0_F1": 0.5401,
+            "SSIM": 0.6277,
+            "pred_pos_area_pct": 12.0666
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.7722,
+            "Exact_r0_F1": 0.5492,
+            "SSIM": 0.6558,
+            "pred_pos_area_pct": 13.1123
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.788,
+            "Exact_r0_F1": 0.5573,
+            "SSIM": 0.6527,
+            "pred_pos_area_pct": 16.1168
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.8034,
+            "Exact_r0_F1": 0.5549,
+            "SSIM": 0.6472,
+            "pred_pos_area_pct": 19.8945
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.8123,
+            "Exact_r0_F1": 0.5579,
+            "SSIM": 0.6366,
+            "pred_pos_area_pct": 18.418
+          }
+        }
+      },
+      ">25% (Dense)": {
+        "n_tiles": 102,
+        "mean_true_prev_pct": 39.326,
+        "arms": {
+          "Frozen": {
+            "Fixed_tol_F1": 0.937,
+            "Exact_r0_F1": 0.764,
+            "SSIM": 0.5361,
+            "pred_pos_area_pct": 40.7377
+          },
+          "S_recon": {
+            "Fixed_tol_F1": 0.9386,
+            "Exact_r0_F1": 0.7657,
+            "SSIM": 0.5533,
+            "pred_pos_area_pct": 41.4146
+          },
+          "QuantileMatch": {
+            "Fixed_tol_F1": 0.9441,
+            "Exact_r0_F1": 0.7709,
+            "SSIM": 0.5454,
+            "pred_pos_area_pct": 46.3924
+          },
+          "E_count": {
+            "Fixed_tol_F1": 0.9459,
+            "Exact_r0_F1": 0.7685,
+            "SSIM": 0.5463,
+            "pred_pos_area_pct": 50.587
+          },
+          "S_count": {
+            "Fixed_tol_F1": 0.9477,
+            "Exact_r0_F1": 0.7697,
+            "SSIM": 0.5379,
+            "pred_pos_area_pct": 47.5478
+          }
+        }
+      }
+    }
+  },
+  "wall_seconds": 3036.9
+}

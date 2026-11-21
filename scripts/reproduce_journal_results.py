@@ -78,13 +78,35 @@ def main() -> int:
     pat_mean = (df_up["S_count"] - df_up["upstream"]).groupby(df_up["patient"]).mean()
     assert len(pat_mean) == 40 and int((pat_mean > 0.0).sum()) == 40
 
+    # Verify v2.0.0 unified full-tile Orion survival, 18-arm comparator frontier, and 6-cohort summary
+    nv2_dir = ROOT / "results" / "nature_v2"
+    df_surv_u = pd.read_csv(nv2_dir / "nv2_n1_orion_survival_unified.csv")
+    df_c18 = pd.read_csv(nv2_dir / "nv2_n3_comp18_all20.csv")
+    nv2_master = json.loads((nv2_dir / "NV2_MASTER_SUMMARY.json").read_text())
+    assert len(df_c18) == 20
+    assert int((df_c18["s_count_f1"] > df_c18["isotonic_f1"]).sum()) == 20
+    assert int((df_c18["s_count_f1"] > df_c18["s_dice_f1"]).sum()) == 18
+    assert int((df_c18["s_count_f1"] > df_c18["s_bce_f1"]).sum()) == 18
+    assert int(df_surv_u["mv_p_n40"].notna().sum()) == 56
+    p2p_lock = df_surv_u[
+        (df_surv_u["protocol"] == "physical_locked")
+        & (df_surv_u["backbone_slug"] == "pix2pix_orion")
+        & (df_surv_u["arm"] == "S_count")
+    ]
+    assert len(p2p_lock) == 1 and not bool(p2p_lock.iloc[0]["contrast_estimable"])
+    vr_sc = df_surv_u[(df_surv_u["protocol"] == "virtual_refitted") & (df_surv_u["arm"] == "S_count")]
+    assert len(vr_sc) == 6 and abs(float(vr_sc["c_index"].mean()) - 0.5982) < 5e-4
+    assert int(nv2_master["n_mapped_panels"]) == 268
+
     print(
-        f"Verified 20 frozen generator instances across 3 cohorts: "
+        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.0.0): "
         f"wins={wins_up}/20, mean_delta={mean_gain_up:+.6f}, wilcoxon_p={p_wilcox:.3e}, "
         f"orion_5fold_wins=30/30, unseen_orion_wins=40/40 (0% overlap across 15 folds), "
-        f"comp12_vs_dice=18/20, comp12_vs_bce=18/20, "
+        f"comp18_vs_dice=18/20, comp18_vs_bce=18/20, comp18_vs_isotonic=20/20, "
         f"determinism_480_max_diff={float(df_det['abs_diff'].max()):.1f}, "
-        f"Orion N=40 oracle C-index={ora_res['c_index']:.4f}"
+        f"Orion N=40 recurrence oracle C-index={ora_res['c_index']:.4f}, "
+        f"unified_virt_refit_S_count_mean_C={float(vr_sc['c_index'].mean()):.4f}, "
+        f"mapped_panels={int(nv2_master['n_mapped_panels'])}"
     )
     return 0
 

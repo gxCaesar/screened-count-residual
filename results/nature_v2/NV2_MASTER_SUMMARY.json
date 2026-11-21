@@ -1,0 +1,380 @@
+{
+  "schema": "nature-v2-master-summary-v1",
+  "cohorts": [
+    {
+      "cohort": "HEMIT",
+      "n_models": 11,
+      "up_f1": 0.6001,
+      "sr_f1": 0.5744,
+      "sc_f1": 0.6978,
+      "delta_sr_vs_up": -0.0258,
+      "delta_f1": 0.0977,
+      "cohort_short": "HEMIT",
+      "delta_sc_vs_up": 0.0977
+    },
+    {
+      "cohort": "Orion",
+      "n_models": 6,
+      "up_f1": 0.2867,
+      "sr_f1": 0.2785,
+      "sc_f1": 0.3643,
+      "delta_sr_vs_up": -0.0081,
+      "delta_f1": 0.0777,
+      "cohort_short": "Orion",
+      "delta_sc_vs_up": 0.0777
+    },
+    {
+      "cohort": "HER2",
+      "n_models": 3,
+      "up_f1": 0.0717,
+      "sr_f1": 0.0783,
+      "sc_f1": 0.1278,
+      "delta_sr_vs_up": 0.0066,
+      "delta_f1": 0.0561,
+      "cohort_short": "HER2",
+      "delta_sc_vs_up": 0.0561
+    },
+    {
+      "cohort": "DeepLIIF",
+      "n_models": 6,
+      "up_f1": 0.8875,
+      "sr_f1": 0.9134,
+      "sc_f1": 0.9342,
+      "delta_sr_vs_up": 0.0259,
+      "delta_f1": 0.0467,
+      "cohort_short": "DeepLIIF",
+      "delta_sc_vs_up": 0.0467
+    },
+    {
+      "cohort": "MIST",
+      "n_models": 12,
+      "up_f1": 0.0553,
+      "sr_f1": 0.0007,
+      "sc_f1": 0.3736,
+      "delta_sr_vs_up": -0.0545,
+      "delta_f1": 0.3183,
+      "cohort_short": "MIST",
+      "delta_sc_vs_up": 0.3183
+    },
+    {
+      "cohort": "BrainBF",
+      "n_models": 15,
+      "up_f1": 0.3994,
+      "sr_f1": 0.328,
+      "sc_f1": 0.5829,
+      "delta_sr_vs_up": -0.0714,
+      "delta_f1": 0.1835,
+      "cohort_short": "BrainBF",
+      "delta_sc_vs_up": 0.1835
+    }
+  ],
+  "N3_comp18": {
+    "n_models_completed_n3": 20,
+    "arms": {
+      "Isotonic": {
+        "n_models": 20,
+        "mean_f1": 0.3886,
+        "s_count_matched_mean_f1": 0.5123,
+        "mean_ssim": 0.6583,
+        "s_count_matched_mean_ssim": 0.7148,
+        "s_count_wins_f1": "20/20",
+        "s_count_wins_ssim": "15/20",
+        "wilcoxon_p_f1": 1.9073486328125e-06
+      },
+      "PlattTemp": {
+        "n_models": 20,
+        "mean_f1": 0.5174,
+        "s_count_matched_mean_f1": 0.5123,
+        "mean_ssim": 0.1758,
+        "s_count_matched_mean_ssim": 0.7148,
+        "s_count_wins_f1": "11/20",
+        "s_count_wins_ssim": "20/20",
+        "wilcoxon_p_f1": 0.8408222198486328
+      },
+      "DenseCRF": {
+        "n_models": 20,
+        "mean_f1": 0.5205,
+        "s_count_matched_mean_f1": 0.5123,
+        "mean_ssim": 0.3293,
+        "s_count_matched_mean_ssim": 0.7148,
+        "s_count_wins_f1": "10/20",
+        "s_count_wins_ssim": "19/20",
+        "wilcoxon_p_f1": 0.5705966949462891
+      },
+      "MacenkoQM": {
+        "n_models": 20,
+        "mean_f1": 0.5124,
+        "s_count_matched_mean_f1": 0.5123,
+        "mean_ssim": 0.6501,
+        "s_count_matched_mean_ssim": 0.7148,
+        "s_count_wins_f1": "11/20",
+        "s_count_wins_ssim": "9/20",
+        "wilcoxon_p_f1": 0.956329345703125
+      },
+      "TopHat": {
+        "n_models": 20,
+        "mean_f1": 0.483,
+        "s_count_matched_mean_f1": 0.5123,
+        "mean_ssim": 0.6913,
+        "s_count_matched_mean_ssim": 0.7148,
+        "s_count_wins_f1": "9/20",
+        "s_count_wins_ssim": "16/20",
+        "wilcoxon_p_f1": 0.34881019592285156
+      },
+      "BilateralSharp": {
+        "n_models": 20,
+        "mean_f1": 0.4433,
+        "s_count_matched_mean_f1": 0.5123,
+        "mean_ssim": 0.7155,
+        "s_count_matched_mean_ssim": 0.7148,
+        "s_count_wins_f1": "14/20",
+        "s_count_wins_ssim": "16/20",
+        "wilcoxon_p_f1": 0.0014324188232421875
+      }
+    }
+  },
+  "pillars": {
+    "N1": {
+      "schema": "nv2-n1-orion-clinical-umap-locked-v2",
+      "protocol": "Unified full-tile (fit_stride=1) 5-fold patient-disjoint CV, tie-checked Harrell C & estimability guard",
+      "n_backbones": 6,
+      "oracle_wsi": 0.748677,
+      "oracle_tile": 0.708113,
+      "single_cell_landscape": {
+        "embedding_method": "UMAP",
+        "n_total_fold0_nuclei": 85729,
+        "n_embedded_nuclei": 12000,
+        "class_names": [
+          "Tumor",
+          "Cytotoxic T",
+          "Helper/Treg T",
+          "B cell",
+          "Macrophage",
+          "Endothelia",
+          "Stroma",
+          "Other"
+        ],
+        "macro_f1_8class_frozen": 0.1912,
+        "macro_f1_8class_scount": 0.2023,
+        "per_class_f1_frozen": {
+          "Tumor": 0.6952,
+          "Cytotoxic T": 0.1907,
+          "Helper/Treg T": 0.1018,
+          "B cell": 0.01,
+          "Macrophage": 0.1563,
+          "Endothelia": 0.1024,
+          "Stroma": 0.1811,
+          "Other": 0.0917
+        },
+        "per_class_f1_scount": {
+          "Tumor": 0.6703,
+          "Cytotoxic T": 0.1959,
+          "Helper/Treg T": 0.2033,
+          "B cell": 0.018,
+          "Macrophage": 0.1301,
+          "Endothelia": 0.1279,
+          "Stroma": 0.1687,
+          "Other": 0.1046
+        },
+        "proportion_pearson_frozen": 0.442,
+        "proportion_pearson_scount": 0.5257,
+        "specimen_hi": {
+          "patient": "C23",
+          "tile_idx": 1650,
+          "pfs_days": 337.0,
+          "recurrence": 0,
+          "oracle_is": 4.0
+        },
+        "specimen_lo": {
+          "patient": "C02",
+          "tile_idx": 175,
+          "pfs_days": 448.0,
+          "recurrence": 1,
+          "oracle_is": 0.0
+        }
+      }
+    },
+    "N2": {
+      "n_psd_rows": 36,
+      "cohorts": [
+        "hemit_cd3_xai",
+        "orion_cd8a_xai"
+      ]
+    },
+    "N4": {
+      "wsi_seam_audit": {
+        "hemit_contiguous_512_as_256x256_n20": {
+          "seam_metrics": {
+            "non_overlap": {
+              "img_seam_jump_mean": 5.74365,
+              "img_interior_jump_mean": 0.29612,
+              "res_seam_jump_mean": 5.74116,
+              "res_interior_jump_mean": 0.29585,
+              "res_seam_to_interior_ratio": 20.12311,
+              "mae_vs_global_u8": 0.6328,
+              "max_abs_vs_global_u8": 40.975
+            },
+            "hann_overlap50": {
+              "img_seam_jump_mean": 0.60362,
+              "img_interior_jump_mean": 0.59901,
+              "res_seam_jump_mean": 0.60722,
+              "res_interior_jump_mean": 0.60058,
+              "res_seam_to_interior_ratio": 1.01114,
+              "mae_vs_global_u8": 0.25601,
+              "max_abs_vs_global_u8": 10.10965
+            },
+            "global_fov": {
+              "img_seam_jump_mean": 0.60173,
+              "img_interior_jump_mean": 0.6127,
+              "res_seam_jump_mean": 0.60496,
+              "res_interior_jump_mean": 0.61406,
+              "res_seam_to_interior_ratio": 0.98949,
+              "mae_vs_global_u8": 0.0,
+              "max_abs_vs_global_u8": 0.0
+            }
+          },
+          "accuracy_parity": {
+            "non_overlap": {
+              "Fixed_tol_F1": 0.3395,
+              "SSIM": 0.4367
+            },
+            "hann_overlap50": {
+              "Fixed_tol_F1": 0.3522,
+              "SSIM": 0.4413
+            },
+            "global_fov": {
+              "Fixed_tol_F1": 0.3635,
+              "SSIM": 0.4406
+            }
+          }
+        },
+        "hemit_mosaic_2048_as_512x512": {
+          "non_overlap": {
+            "img_seam_jump_mean": 7.62976,
+            "img_interior_jump_mean": 0.27586,
+            "res_seam_jump_mean": 7.24386,
+            "res_interior_jump_mean": 0.27651,
+            "res_seam_to_interior_ratio": 26.19748,
+            "mae_vs_global_u8": 0.68728,
+            "max_abs_vs_global_u8": 54.0
+          },
+          "hann_overlap50": {
+            "img_seam_jump_mean": 1.37005,
+            "img_interior_jump_mean": 0.62901,
+            "res_seam_jump_mean": 1.26887,
+            "res_interior_jump_mean": 0.6323,
+            "res_seam_to_interior_ratio": 2.00675,
+            "mae_vs_global_u8": 0.27922,
+            "max_abs_vs_global_u8": 15.5021
+          },
+          "global_fov": {
+            "img_seam_jump_mean": 1.3112,
+            "img_interior_jump_mean": 0.61135,
+            "res_seam_jump_mean": 1.24829,
+            "res_interior_jump_mean": 0.61318,
+            "res_seam_to_interior_ratio": 2.03577,
+            "mae_vs_global_u8": 0.0,
+            "max_abs_vs_global_u8": 0.0
+          }
+        }
+      },
+      "n_prev_models": 4
+    },
+    "N5": {
+      "n_test_tiles": 5980,
+      "arms": {
+        "upstream": {
+          "arm": "upstream",
+          "Fixed_tol_F1": 0.0001,
+          "Exact_r0_F1": 0.0,
+          "ODS_F": 0.0315,
+          "SSIM": 0.5369,
+          "wsi009_F1": 0.0002,
+          "neg_slides_fp_pct": 0.0009
+        },
+        "QuantileMatch": {
+          "arm": "QuantileMatch",
+          "Fixed_tol_F1": 0.0105,
+          "Exact_r0_F1": 0.0031,
+          "ODS_F": 0.0118,
+          "SSIM": 0.7758,
+          "wsi009_F1": 0.1013,
+          "neg_slides_fp_pct": 4.2349
+        },
+        "S_recon": {
+          "arm": "S_recon",
+          "Fixed_tol_F1": 0.0496,
+          "Exact_r0_F1": 0.0092,
+          "ODS_F": 0.1347,
+          "SSIM": 0.5844,
+          "wsi009_F1": 0.0601,
+          "neg_slides_fp_pct": 0.0407
+        },
+        "E_count": {
+          "arm": "E_count",
+          "Fixed_tol_F1": 0.0499,
+          "Exact_r0_F1": 0.0321,
+          "ODS_F": 0.0896,
+          "SSIM": 0.8579,
+          "wsi009_F1": 0.0662,
+          "neg_slides_fp_pct": 0.3969
+        },
+        "S_count": {
+          "arm": "S_count",
+          "Fixed_tol_F1": 0.1446,
+          "Exact_r0_F1": 0.0795,
+          "ODS_F": 0.1465,
+          "SSIM": 0.5717,
+          "wsi009_F1": 0.4585,
+          "neg_slides_fp_pct": 1.805
+        }
+      }
+    },
+    "N6": {
+      "n_rows": 60,
+      "backbones": [
+        "ConvNeXt",
+        "W-MSE Swin",
+        "Pix2Pix",
+        "DGR"
+      ],
+      "budgets": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ]
+    },
+    "N7": {
+      "markers_completed": [
+        "ER",
+        "PR",
+        "HER2",
+        "Ki67"
+      ],
+      "n_rows": 60
+    },
+    "N8": {
+      "part_a_markers": [
+        "DAPI",
+        "IBA1",
+        "CD206",
+        "LYVE1",
+        "Neutrophil"
+      ],
+      "part_b_markers": [
+        "IBA1",
+        "CD206",
+        "LYVE1",
+        "Neutrophil"
+      ]
+    }
+  },
+  "specimen_tile_mapping": {
+    "hemit_tile_335": "HEMIT locked-test tile_idx=335 (H-optimus-0 MIPHEI-ViT; Fig. 3a-g,i; extracted by s2/run_nm_biophysical_audit.py -> microscopy_multizoom_hemit.npz)",
+    "hemit_tile_859": "HEMIT locked-test tile_idx=859 (ConvNeXt-Large; Fig. 1a,i, Fig. 2o, Fig. 3h, ED Fig. 8g; extracted by s2/run_nv2_n2_mechanistic_xai.py -> n2_hemit_spatial_flux_crop.npz)",
+    "orion_tile_1620": "Orion-CRC Fold-0 tile_idx=1620 (ConvNeXt-Large; ED Fig. 3i, ED Fig. 8h; extracted by s2/run_nv2_n2_mechanistic_xai.py -> n2_orion_spatial_flux_crop.npz)"
+  },
+  "n_mapped_panels": 268
+}
