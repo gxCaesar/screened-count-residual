@@ -48,8 +48,8 @@ from . import query_relation_count_objective as counts
 from . import query_relation_reconstruction as core
 from . import screened_universal_head as suh
 
-ABLATION_TRAINED_ARMS = ("S_recon_comp", "S_count_1off", "E_count")
-ALL_ABLATION_ARMS = ("upstream", "S_recon_comp", "S_count_1off", "E_count", "Unsharp", "CLAHE")
+ABLATION_TRAINED_ARMS = ("S_recon_comp", "S_count_1off", "E_count", "E_count_zm")
+ALL_ABLATION_ARMS = ("upstream", "S_recon_comp", "S_count_1off", "E_count", "E_count_zm", "Unsharp", "CLAHE")
 
 
 # ---------------------------------------------------------------------------
@@ -148,6 +148,32 @@ def fast_ablation_forward(
                 "solver_dtype": "none_unconstrained",
                 "residual_mean_max_tensor": residual.detach().mean(dim=(-2, -1)).abs().max(),
                 "arm": "E_count",
+            }
+        return residual, diagnostics
+
+    if mode == "E_count_zm":
+        if inference:
+            p64 = potential.to(torch.float64)
+            residual = p64 - p64.mean(dim=(-2, -1), keepdim=True)
+            residual = residual - residual.mean(dim=(-2, -1), keepdim=True)
+            mean_abs = residual.detach().mean(dim=(-2, -1)).abs()
+            diagnostics = {
+                "relative_residual_max": 0.0,
+                "absolute_residual_max": 0.0,
+                "solver_dtype": "zero_mean_unscreened_float64",
+                "residual_mean_max": float(mean_abs.max().item()),
+                "residual_mean_avg": float(mean_abs.mean().item()),
+                "arm": "E_count_zm",
+            }
+        else:
+            p32 = potential.to(torch.float32)
+            residual = p32 - p32.mean(dim=(-2, -1), keepdim=True)
+            diagnostics = {
+                "relative_residual_max": 0.0,
+                "absolute_residual_max": 0.0,
+                "solver_dtype": "zero_mean_unscreened_float32",
+                "residual_mean_max_tensor": residual.detach().mean(dim=(-2, -1)).abs().max(),
+                "arm": "E_count_zm",
             }
         return residual, diagnostics
 
@@ -330,7 +356,7 @@ def fit_ablation_marker(
     dev = torch.device(device)
     n = common_train.shape[0]
     model = suh.build_coordinate_screened_model(seed, dev)
-    use_count_loss = mode in ("S_count_1off", "E_count")
+    use_count_loss = mode in ("S_count_1off", "E_count", "E_count_zm")
 
     # Always initialize training-split count tables so ALL three arms share identical
     # 2-epoch training-split composite checkpoint selection (0.65 F_dep + 0.35 F_ods).
@@ -787,7 +813,7 @@ def run_hemit_plan2(args: argparse.Namespace) -> None:
 
         arm_tr: dict[str, np.ndarray] = {"upstream": up_train}
         arm_ev: dict[str, np.ndarray] = {"upstream": up_eval}
-        for arm in ("S_recon_comp", "S_count_1off", "E_count", "Unsharp", "CLAHE"):
+        for arm in ("S_recon_comp", "S_count_1off", "E_count", "E_count_zm", "Unsharp", "CLAHE"):
             arm_tr[arm] = np.empty_like(up_train)
             arm_ev[arm] = np.empty_like(up_eval)
 
@@ -973,7 +999,7 @@ def run_orion_plan2(args: argparse.Namespace) -> None:
         up_ev = up_all[f0_eval_idx]
         arm_tr: dict[str, np.ndarray] = {"upstream": up_tr}
         arm_ev: dict[str, np.ndarray] = {"upstream": up_ev}
-        for arm in ("S_recon_comp", "S_count_1off", "E_count", "Unsharp", "CLAHE"):
+        for arm in ("S_recon_comp", "S_count_1off", "E_count", "E_count_zm", "Unsharp", "CLAHE"):
             arm_tr[arm] = np.empty_like(up_tr)
             arm_ev[arm] = np.empty_like(up_ev)
 

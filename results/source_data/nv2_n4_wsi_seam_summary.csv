@@ -1,0 +1,7 @@
+audit,mode,img_seam_jump_mean,img_interior_jump_mean,res_seam_jump_mean,res_interior_jump_mean,res_seam_to_interior_ratio,mae_vs_global_u8,max_abs_vs_global_u8
+hemit_contiguous_512_as_256x256_n20,non_overlap,5.74365,0.29612,5.74116,0.29585,20.12311,0.6328,40.975
+hemit_contiguous_512_as_256x256_n20,hann_overlap50,0.60362,0.59901,0.60722,0.60058,1.01114,0.25601,10.10965
+hemit_contiguous_512_as_256x256_n20,global_fov,0.60173,0.6127,0.60496,0.61406,0.98949,0.0,0.0
+hemit_mosaic_2048_as_512x512,non_overlap,7.62976,0.27586,7.24386,0.27651,26.19748,0.68728,54.0
+hemit_mosaic_2048_as_512x512,hann_overlap50,1.37005,0.62901,1.26887,0.6323,2.00675,0.27922,15.5021
+hemit_mosaic_2048_as_512x512,global_fov,1.3112,0.61135,1.24829,0.61318,2.03577,0.0,0.0

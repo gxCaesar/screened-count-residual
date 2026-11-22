@@ -90,6 +90,11 @@ class TestScreenedUniversalOperators(unittest.TestCase):
         surv = ccs.evaluate_pfs_survival(pfs_days=days, recurrence_events=ev, protective_score=score, dichotomy_cutoff=2.0, n_bootstrap=200)
         self.assertGreater(float(surv["c_index"]), 0.85)
 
+    def test_plan2_ablation_runner_preallocates_zero_mean_arm(self) -> None:
+        from pathlib import Path
+        src = (Path(__file__).resolve().parents[1] / "s2" / "run_plan2_ablations.py").read_text()
+        self.assertGreaterEqual(src.count('"E_count", "E_count_zm", "Unsharp"'), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,4 @@
+model,n_total_nuclei,n_patients,arm,macro_f1,prop_pearson_r,f1_tumor,f1_cytotoxic_t,f1_helper_treg_t,f1_b_cell,f1_macrophage,f1_endothelia,f1_stroma,f1_other
+miphei_convnext,335597,40,Frozen,0.19715,0.45382,0.6867,0.31051,0.10883,0.03723,0.14038,0.07243,0.15558,0.06557
+miphei_convnext,335597,40,E_count_zm,0.23996,0.53803,0.66781,0.31372,0.18288,0.0282,0.17136,0.1446,0.24112,0.17001
+miphei_convnext,335597,40,S_count,0.23452,0.58487,0.72032,0.32706,0.16168,0.02554,0.1729,0.11607,0.21886,0.1337
