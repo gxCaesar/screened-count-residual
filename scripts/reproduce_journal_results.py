@@ -128,12 +128,13 @@ def main() -> int:
     assert len(df_c19) == 20
     w20_zm, n20_zm, p20_zm = _exact_wilcoxon_nonzero(df_c19["s_count_matched_f1"], df_c19["e_count_zm_f1"])
     assert (w20_zm, n20_zm) == (9, 20) and abs(p20_zm - 0.32998) < 1e-4
-    sr14 = df_c19[df_c19["s_count_matched_source"] == "v21_same_run"]
-    w14_zm, n14_zm, p14_zm = _exact_wilcoxon_nonzero(sr14["s_count_matched_f1"], sr14["e_count_zm_f1"])
-    assert (w14_zm, n14_zm) == (6, 14) and abs(p14_zm - 0.35754) < 1e-4
-    sr10 = df_c19[df_c19["e_count_v21_f1"].notna()]
+    sr10 = df_c19[df_c19["s_count_matched_source"] == "v21_same_run"]
+    assert len(sr10) == 10
     w10_ec, n10_ec, p10_ec = _exact_wilcoxon_nonzero(sr10["e_count_zm_f1"], sr10["e_count_v21_f1"])
     assert (w10_ec, n10_ec) == (7, 10) and abs(p10_ec - 0.375) < 1e-4
+    sr14 = df_c19[df_c19["s_count_matched_source"].isin(("v21_same_run", "v21_separate_sc_run"))]
+    w14_zm, n14_zm, p14_zm = _exact_wilcoxon_nonzero(sr14["s_count_matched_f1"], sr14["e_count_zm_f1"])
+    assert (w14_zm, n14_zm) == (6, 14) and abs(p14_zm - 0.35754) < 1e-4
 
     # Recompute v2.1.0 P1 MIST 45 marker-slide AND collapsed 43 distinct-slide exact Wilcoxon tests directly from CSV
     df_m45 = pd.read_csv(sd_dir / "v21_p1_mist_perslide_44.csv")
@@ -166,12 +167,20 @@ def main() -> int:
     zm_r = np.array([atlas_obj["per_patient"][p]["E_count_zm"]["prop_r"] for p in pats])
     sc_cd8 = np.array([atlas_obj["per_patient"][p]["S_count"]["cd8_f1"] for p in pats])
     zm_cd8 = np.array([atlas_obj["per_patient"][p]["E_count_zm"]["cd8_f1"] for p in pats])
+    sc_mf1 = np.array([atlas_obj["per_patient"][p]["S_count"]["macro_f1"] for p in pats])
+    zm_mf1 = np.array([atlas_obj["per_patient"][p]["E_count_zm"]["macro_f1"] for p in pats])
+    sc_htr = np.array([atlas_obj["per_patient"][p]["S_count"]["helper_treg_f1"] for p in pats])
+    zm_htr = np.array([atlas_obj["per_patient"][p]["E_count_zm"]["helper_treg_f1"] for p in pats])
     w40_fr, _, p40_fr = _exact_wilcoxon_nonzero(sc_r, fr_r)
     w40_zmr, _, p40_zmr = _exact_wilcoxon_nonzero(sc_r, zm_r)
     w40_cd8, _, p40_cd8 = _exact_wilcoxon_nonzero(sc_cd8, zm_cd8)
+    w40_mf1, _, p40_mf1 = _exact_wilcoxon_nonzero(sc_mf1, zm_mf1)
+    w40_htr, _, p40_htr = _exact_wilcoxon_nonzero(sc_htr, zm_htr)
     assert w40_fr == 40 and abs(p40_fr - 1.819e-12) < 1e-14
-    assert w40_zmr == 29 and abs(p40_zmr - 1.524e-3) < 1e-5
-    assert w40_cd8 == 31 and abs(p40_cd8 - 9.450e-5) < 1e-7
+    assert w40_zmr == 29 and abs(p40_zmr - 1.518e-3) < 1e-5
+    assert w40_cd8 == 31 and abs(p40_cd8 - 9.447e-5) < 1e-7
+    assert w40_mf1 == 12 and abs(p40_mf1 - 1.202e-2) < 1e-4
+    assert w40_htr == 11 and abs(p40_htr - 3.520e-3) < 1e-5
 
     df_xd = pd.read_csv(sd_dir / "v21_p2_xdom_budget_curves.csv")
     assert len(df_xd) == 58
