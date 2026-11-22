@@ -191,7 +191,7 @@ def main() -> int:
         f"orion_5fold_wins=30/30, unseen_orion_wins=40/40 (0% overlap across 15 folds), "
         f"orion40_atlas_nuclei=335597 (CD8a vs E_zm {w40_cd8}/40 p={p40_cd8:.2e}; prop_r {w40_zmr}/40 p={p40_zmr:.2e}), "
         f"mist_45obs_43slides (pos34 vs Frz {w34_frz}/34 p={p34_frz:.2e}; SSIM vs E_zm {w45_ss}/45 p={p45_ss:.2e}; 43-slide {w43_ss}/43 p={p43_ss:.2e}), "
-        f"comp19_recomputed (all20 {w20_zm}/20 p={p20_zm:.3f}; same_run14 {w14_zm}/14 p={p14_zm:.3f}; same_run10 {w10_ec}/10 p={p10_ec:.3f}), "
+        f"comp19_recomputed (all20 {w20_zm}/20 p={p20_zm:.3f}; v21_paired14 {w14_zm}/14 p={p14_zm:.3f}; single_receipt10 {w10_ec}/10 p={p10_ec:.3f}), "
         f"determinism_480_max_diff={float(df_det['abs_diff'].max()):.1f}, "
         f"Orion N=40 recurrence oracle C-index={ora_res['c_index']:.4f}, "
         f"unified_virt_refit_S_count_mean_C={float(vr_sc['c_index'].mean()):.4f}, "
