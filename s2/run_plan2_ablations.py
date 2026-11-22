@@ -48,8 +48,8 @@ from . import query_relation_count_objective as counts
 from . import query_relation_reconstruction as core
 from . import screened_universal_head as suh
 
-ABLATION_TRAINED_ARMS = ("S_recon_comp", "S_count_1off", "E_count", "E_count_zm")
-ALL_ABLATION_ARMS = ("upstream", "S_recon_comp", "S_count_1off", "E_count", "E_count_zm", "Unsharp", "CLAHE")
+ABLATION_TRAINED_ARMS = ("S_recon_comp", "S_count_1off", "E_count", "E_count_zm", "L_count")
+ALL_ABLATION_ARMS = ("upstream", "S_recon_comp", "S_count_1off", "E_count", "E_count_zm", "L_count", "Unsharp", "CLAHE")
 
 
 # ---------------------------------------------------------------------------
@@ -174,6 +174,33 @@ def fast_ablation_forward(
                 "solver_dtype": "zero_mean_unscreened_float32",
                 "residual_mean_max_tensor": residual.detach().mean(dim=(-2, -1)).abs().max(),
                 "arm": "E_count_zm",
+            }
+        return residual, diagnostics
+
+    if mode == "L_count":
+        # Gain-matched pure local Laplacian flux control: r_c = 0.5 * L psi_c
+        # Identical dual-offset (1, 16) graph divergence (-div(0.5 * B psi_c)), exact 1^T r_c == 0
+        # without any post-hoc mean subtraction, identical spectral upper bound [0, 0.5] to
+        # lambda/(1+lambda) in [0, 0.5], and ZERO CG screened-Poisson solve (I+L)^{-1}.
+        if inference:
+            residual = 0.5 * suh._fast_laplacian_1_16(potential.to(torch.float64))
+            mean_abs = residual.detach().mean(dim=(-2, -1)).abs()
+            diagnostics = {
+                "relative_residual_max": 0.0,
+                "absolute_residual_max": 0.0,
+                "solver_dtype": "local_laplacian_flux_float64",
+                "residual_mean_max": float(mean_abs.max().item()),
+                "residual_mean_avg": float(mean_abs.mean().item()),
+                "arm": "L_count",
+            }
+        else:
+            residual = 0.5 * suh._fast_laplacian_1_16(potential).to(torch.float32)
+            diagnostics = {
+                "relative_residual_max": 0.0,
+                "absolute_residual_max": 0.0,
+                "solver_dtype": "local_laplacian_flux_float32",
+                "residual_mean_max_tensor": residual.detach().mean(dim=(-2, -1)).abs().max(),
+                "arm": "L_count",
             }
         return residual, diagnostics
 
@@ -356,7 +383,7 @@ def fit_ablation_marker(
     dev = torch.device(device)
     n = common_train.shape[0]
     model = suh.build_coordinate_screened_model(seed, dev)
-    use_count_loss = mode in ("S_count_1off", "E_count", "E_count_zm")
+    use_count_loss = mode in ("S_count_1off", "E_count", "E_count_zm", "L_count")
 
     # Always initialize training-split count tables so ALL three arms share identical
     # 2-epoch training-split composite checkpoint selection (0.65 F_dep + 0.35 F_ods).

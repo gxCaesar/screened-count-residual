@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use Screened Count Residual in your research, please cite this software and the accompanying article."
 title: "Screened Count Residual: Spatial Threshold Calibration for Virtual Immunostaining"
-version: 2.1.0
-date-released: 2026-11-22
+version: 2.2.0
+date-released: 2026-11-23
 license: MIT
 repository-code: "https://github.com/gxCaesar/screened-count-residual"
 authors:

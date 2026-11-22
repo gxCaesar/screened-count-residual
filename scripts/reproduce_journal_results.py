@@ -86,10 +86,10 @@ def main() -> int:
     pat_mean = (df_up["S_count"] - df_up["upstream"]).groupby(df_up["patient"]).mean()
     assert len(pat_mean) == 40 and int((pat_mean > 0.0).sum()) == 40
 
-    # Verify 100% file resolution across all 270 mapped Source Data panels inside results/source_data/
+    # Verify 100% file resolution across all 271 mapped Source Data panels inside results/source_data/
     sd_dir = ROOT / "results" / "source_data"
     df_pmap = pd.read_csv(sd_dir / "PANEL_TO_SOURCE_DATA.csv")
-    assert len(df_pmap) == 270
+    assert len(df_pmap) == 271
     referenced_csvs: set[str] = set()
     for _, row in df_pmap.iterrows():
         referenced_csvs.add(str(row["primary_source_data_csv"]).strip())
@@ -185,13 +185,69 @@ def main() -> int:
     df_xd = pd.read_csv(sd_dir / "v21_p2_xdom_budget_curves.csv")
     assert len(df_xd) == 58
 
+    # Recompute v2.2.0 Q1 (20/20 single-run 6-arm incl. L_count), Q2 (5-arch Orion-40), Q3 (MIST aligned + 21-slide gate)
+    v22_dir = ROOT / "results" / "nature_v22"
+    df_c20 = pd.read_csv(sd_dir / "v22_comp20_all20.csv")
+    assert len(df_c20) == 20 and int(df_c20["v22_l_count_f1"].notna().sum()) == 20
+    w20_lc, n20_lc, p20_lc = _exact_wilcoxon_nonzero(df_c20["v22_s_count_f1"], df_c20["v22_l_count_f1"])
+    assert (w20_lc, n20_lc) == (10, 20) and abs(p20_lc - 0.78413) < 1e-4
+    w20_sm_lc, _, p20_sm_lc = _exact_wilcoxon_nonzero(df_c20["v22_e_count_zm_smhi"], df_c20["v22_l_count_smhi"])
+    w20_sm_sc, _, p20_sm_sc = _exact_wilcoxon_nonzero(df_c20["v22_e_count_zm_smhi"], df_c20["v22_s_count_smhi"])
+    assert w20_sm_lc == 16 and abs(p20_sm_lc - 0.00486) < 1e-4
+    assert w20_sm_sc == 14 and abs(p20_sm_sc - 0.02664) < 1e-4
+
+    df_q2 = pd.read_csv(sd_dir / "v22_q2_orion40_5arch_atlas.csv")
+    assert int(df_q2["model"].nunique()) == 5 and len(df_q2) == 20
+    df_q2_pp = pd.read_csv(sd_dir / "v22_q2_orion40_5arch_per_patient.csv")
+    assert len(df_q2_pp) == 200 and int(df_q2_pp["model"].nunique()) == 5
+    exp_q2_sl = {
+        "miphei_convnext": (30, 0.001367),
+        "miphei_hemit_arch": (33, 5.723e-8),
+        "unseen_unet16": (26, 0.01468),
+        "unseen_resnet34_unet16": (19, 0.84716),
+        "unseen_pix2pix16": (26, 0.002166),
+    }
+    for arch_k, (ew, ep) in exp_q2_sl.items():
+        sa = df_q2_pp[df_q2_pp["model"] == arch_k]
+        assert len(sa) == 40
+        w_a, n_a, p_a = _exact_wilcoxon_nonzero(sa["S_count_macro_f1"], sa["L_count_macro_f1"])
+        assert (w_a, n_a) == (ew, 40) and abs(p_a - ep) < max(5e-4, 1e-2 * ep), f"{arch_k}: {(w_a, p_a)}"
+    sa_r34 = df_q2_pp[df_q2_pp["model"] == "unseen_resnet34_unet16"]
+    w_r34_t, _, p_r34_t = _exact_wilcoxon_nonzero(sa_r34["S_count_tumor_f1"], sa_r34["Frozen_tumor_f1"])
+    assert w_r34_t == 2 and abs(p_r34_t - 1.386e-9) < 1e-10
+
+    df_m22_sl = pd.read_csv(sd_dir / "v22_q3_mist_perslide_aligned.csv")
+    sv_al = df_m22_sl[df_m22_sl["view"] == "hematoxylin_aligned"]
+    s43_al = sv_al.groupby(["raw_slide", "arm"], as_index=False)[["Fixed_tol_F1", "gt_pos_pct"]].mean()
+    p43_al = s43_al.pivot(index="raw_slide", columns="arm", values="Fixed_tol_F1")
+    pos31 = s43_al[s43_al["arm"] == "S_count"].set_index("raw_slide")["gt_pos_pct"] > 0.05
+    w31_lc, n31_lc, p31_lc = _exact_wilcoxon_nonzero(p43_al.loc[pos31, "S_count"], p43_al.loc[pos31, "L_count"])
+    w31_zm, n31_zm, p31_zm = _exact_wilcoxon_nonzero(p43_al.loc[pos31, "S_count"], p43_al.loc[pos31, "E_count_zm"])
+    assert (w31_lc, n31_lc) == (24, 31) and abs(p31_lc - 0.004436) < 1e-4
+    assert (w31_zm, n31_zm) == (21, 31) and abs(p31_zm - 0.022097) < 1e-4
+
+    df_mg22 = pd.read_csv(sd_dir / "v22_q3_mist_slide_gate.csv")
+    assert len(df_mg22) == 95
+    mg_meas_30 = df_mg22[(df_mg22["calib_pos_pct"] >= 0.5) & (df_mg22["internal_val_neg_fp_sc"].notna()) & (df_mg22["internal_val_neg_fp_sc"] <= 2.0) & (df_mg22["internal_val_f1_sc"] >= 0.30)]
+    mg_meas_40 = df_mg22[(df_mg22["calib_pos_pct"] >= 0.5) & (df_mg22["internal_val_neg_fp_sc"].notna()) & (df_mg22["internal_val_neg_fp_sc"] <= 2.0) & (df_mg22["internal_val_f1_sc"] >= 0.40)]
+    assert len(mg_meas_30) == 1 and str(mg_meas_30.iloc[0]["marker"]) == "ER" and len(mg_meas_40) == 0
+
+    df_x22 = pd.read_csv(sd_dir / "v22_q3_xdom_21slides_gate.csv")
+    for g_k, exp_40, exp_30 in (("BCIStainer", 0, 2), ("PyramidPix2Pix", 1, 3)):
+        sub_g = df_x22[(df_x22["generator"] == g_k) & (df_x22["arm"] == "S_count") & (df_x22["k_slides"].isin([1, 2]))]
+        base_ok = (sub_g["calib_pos_pct"] >= 0.5) & (sub_g["calib_internal_neg_fp_sc"].notna()) & (sub_g["calib_internal_neg_fp_sc"] <= 2.0)
+        acc_40 = sub_g[base_ok & (sub_g["calib_internal_val_f1_sc"] >= 0.40)]
+        acc_30 = sub_g[base_ok & (sub_g["calib_internal_val_f1_sc"] >= 0.30)]
+        assert len(acc_40) == exp_40 and len(acc_30) == exp_30 and float(acc_30["test_Fixed_tol_F1"].mean()) > 0.14
+
     print(
-        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.1.0): "
+        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.2.0): "
         f"wins={wins_up}/20, mean_delta={mean_gain_up:+.6f}, wilcoxon_p={p_wilcox:.3e}, "
+        f"v22_single_run_20x6 (S_vs_L {w20_lc}/20 p={p20_lc:.3f}; SMHI<E_zm L={w20_sm_lc}/20 p={p20_sm_lc:.4f}, S={w20_sm_sc}/20 p={p20_sm_sc:.4f}), "
         f"orion_5fold_wins=30/30, unseen_orion_wins=40/40 (0% overlap across 15 folds), "
-        f"orion40_atlas_nuclei=335597 (CD8a vs E_zm {w40_cd8}/40 p={p40_cd8:.2e}; prop_r {w40_zmr}/40 p={p40_zmr:.2e}), "
-        f"mist_45obs_43slides (pos34 vs Frz {w34_frz}/34 p={p34_frz:.2e}; SSIM vs E_zm {w45_ss}/45 p={p45_ss:.2e}; 43-slide {w43_ss}/43 p={p43_ss:.2e}), "
-        f"comp19_recomputed (all20 {w20_zm}/20 p={p20_zm:.3f}; v21_paired14 {w14_zm}/14 p={p14_zm:.3f}; single_receipt10 {w10_ec}/10 p={p10_ec:.3f}), "
+        f"orion40_5arch_atlas_nuclei=335597 (ConvNeXt vs L 30/40, W-Swin vs L 33/40, CD8a vs E_zm {w40_cd8}/40 p={p40_cd8:.2e}), "
+        f"mist_aligned_43slides (S_vs_L {w31_lc}/31 p={p31_lc:.4f}; S_vs_E_zm {w31_zm}/31 p={p31_zm:.4f}), "
+        f"xdom_21slide_gate (BCI 2/21 & P2P 3/21 accepted at ivF1>=0.30, F1>0.142), "
         f"determinism_480_max_diff={float(df_det['abs_diff'].max()):.1f}, "
         f"Orion N=40 recurrence oracle C-index={ora_res['c_index']:.4f}, "
         f"unified_virt_refit_S_count_mean_C={float(vr_sc['c_index'].mean()):.4f}, "

@@ -3,7 +3,7 @@
 Physical Consecutive-Section Registration Diagnostic, Object/Nuclear Localization Audit,
 and Per-Slide Independent Statistical Inference across 44+ Held-Out Slides.
 
-Directly addresses the Handling Editor's #1 and #2 review questions:
+Benchmarks three complementary diagnostics on MIST breast IHC:
   1. P0: Compares upstream, QuantileMatch, S_recon, E_count, E_count_zm (r_c = psi_c - mean(psi_c)),
      and S_count across all 4 diagnostic breast IHC markers (ER, PR, HER2, Ki67) x 3 architectures.
   2. P1: Explains the sharp gap between 5-px tolerant F1 and exact r=0 F1 (e.g. MIST Ki67 U-Net

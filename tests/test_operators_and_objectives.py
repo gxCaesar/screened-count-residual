@@ -95,6 +95,13 @@ class TestScreenedUniversalOperators(unittest.TestCase):
         src = (Path(__file__).resolve().parents[1] / "s2" / "run_plan2_ablations.py").read_text()
         self.assertGreaterEqual(src.count('"E_count", "E_count_zm", "Unsharp"'), 2)
 
+    def test_l_count_pure_algebraic_zero_mean_without_posthoc_subtraction(self) -> None:
+        torch.manual_seed(19)
+        psi = torch.randn(3, 1, 64, 64, dtype=torch.float64) + 7.25
+        r_lc = 0.5 * suh._fast_laplacian_1_16(psi)
+        dc_max = float(r_lc.mean(dim=(-2, -1)).abs().max().item())
+        self.assertLess(dc_max, 1e-15)
+
 
 if __name__ == "__main__":
     unittest.main()
