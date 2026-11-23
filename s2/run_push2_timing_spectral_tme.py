@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""PUSH-2: True 100-Tile/1000-Tile Streaming Timing (B4) + Spectral Decomposition &
-12-Arm Biological/Failure Audit (B3/M4) + Exploratory Affine+S_count Pareto + HEMIT Spatial TME Ecology.
+"""Streaming Latency (100/1,000 Tiles), Spectral Decomposition,
+12-Arm Biological/Failure Audit, Exploratory Affine+S_count Pareto, and HEMIT Spatial TME Ecology.
 
-Part A (Killing B4):
+Part A (Streaming Latency and Solver Diagnostics):
   - Fits real 2-seed S_count head on HEMIT CD3 (nonzero weights).
   - Benchmarks on 100 DISTINCT real HEMIT tiles at 256^2, 512^2, 1024^2 (2x2 distinct mosaic)
     AND a continuous 1,000-tile streaming pass on H100 GPU.

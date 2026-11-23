@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PUSH-1: 100% Bit-for-Bit Identical-Objective EXP-5v3 (Killing Cold-Review B2).
+"""Exact-Parity Objective Comparison: End-to-End Fine-Tuning vs. Frozen Screened Count Residual.
 
 Compares end-to-end fine-tuning vs. freezing the upstream generator and attaching
 Screened Count Residual heads under the EXACT SAME:

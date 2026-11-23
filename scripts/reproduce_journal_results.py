@@ -201,20 +201,26 @@ def main() -> int:
     df_q2_pp = pd.read_csv(sd_dir / "v22_q2_orion40_5arch_per_patient.csv")
     assert len(df_q2_pp) == 200 and int(df_q2_pp["model"].nunique()) == 5
     exp_q2_sl = {
-        "miphei_convnext": (30, 0.001367),
-        "miphei_hemit_arch": (33, 5.723e-8),
-        "unseen_unet16": (26, 0.01468),
-        "unseen_resnet34_unet16": (19, 0.84716),
-        "unseen_pix2pix16": (26, 0.002166),
+        "miphei_convnext": (30, 10, 0, 0.001367483206),
+        "miphei_hemit_arch": (33, 7, 0, 5.723268259e-8),
+        "unseen_unet16": (26, 14, 0, 0.0146776428),
+        "unseen_resnet34_unet16": (19, 21, 0, 0.8471556244),
+        "unseen_pix2pix16": (26, 14, 0, 0.002166251263),
     }
-    for arch_k, (ew, ep) in exp_q2_sl.items():
+    for arch_k, (ew, el, et, ep) in exp_q2_sl.items():
         sa = df_q2_pp[df_q2_pp["model"] == arch_k]
         assert len(sa) == 40
-        w_a, n_a, p_a = _exact_wilcoxon_nonzero(sa["S_count_macro_f1"], sa["L_count_macro_f1"])
-        assert (w_a, n_a) == (ew, 40) and abs(p_a - ep) < max(5e-4, 1e-2 * ep), f"{arch_k}: {(w_a, p_a)}"
+        d_a = sa["S_count_macro_f1"].to_numpy(dtype=np.float64) - sa["L_count_macro_f1"].to_numpy(dtype=np.float64)
+        w_a, l_a, t_a = int((d_a > 0).sum()), int((d_a < 0).sum()), int((d_a == 0).sum())
+        w_nz, n_nz, p_a = _exact_wilcoxon_nonzero(sa["S_count_macro_f1"], sa["L_count_macro_f1"])
+        assert (w_a, l_a, t_a) == (ew, el, et) and (w_nz, n_nz) == (ew, ew + el), f"{arch_k}: {(w_a, l_a, t_a)}"
+        assert abs(p_a - ep) <= 1e-3 * ep, f"{arch_k}: p={p_a} vs {ep}"
     sa_r34 = df_q2_pp[df_q2_pp["model"] == "unseen_resnet34_unet16"]
-    w_r34_t, _, p_r34_t = _exact_wilcoxon_nonzero(sa_r34["S_count_tumor_f1"], sa_r34["Frozen_tumor_f1"])
-    assert w_r34_t == 2 and abs(p_r34_t - 1.386e-9) < 1e-10
+    d_r34_t = sa_r34["S_count_tumor_f1"].to_numpy(dtype=np.float64) - sa_r34["Frozen_tumor_f1"].to_numpy(dtype=np.float64)
+    w_r34_t, l_r34_t, t_r34_t = int((d_r34_t > 0).sum()), int((d_r34_t < 0).sum()), int((d_r34_t == 0).sum())
+    _, n_r34_t, p_r34_t = _exact_wilcoxon_nonzero(sa_r34["S_count_tumor_f1"], sa_r34["Frozen_tumor_f1"])
+    assert (w_r34_t, l_r34_t, t_r34_t, n_r34_t) == (2, 38, 0, 40), f"r34_tumor: {(w_r34_t, l_r34_t, t_r34_t)}"
+    assert abs(p_r34_t - 1.386069926e-9) <= 1e-3 * 1.386069926e-9, f"r34_tumor p={p_r34_t}"
 
     df_m22_sl = pd.read_csv(sd_dir / "v22_q3_mist_perslide_aligned.csv")
     sv_al = df_m22_sl[df_m22_sl["view"] == "hematoxylin_aligned"]
@@ -254,7 +260,7 @@ def main() -> int:
     assert len(pr_qm_pre) == 3 and abs(float(pr_qm_pre["burden_pearson_r"].mean()) - (-0.011857)) < 1e-4
 
     print(
-        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.2.1): "
+        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.2.2): "
         f"wins={wins_up}/20, mean_delta={mean_gain_up:+.6f}, wilcoxon_p={p_wilcox:.3e}, "
         f"v22_single_run_20x6 (S_vs_L {w20_lc}/20 p={p20_lc:.3f}; SMHI<E_zm L={w20_sm_lc}/20 p={p20_sm_lc:.4f}, S={w20_sm_sc}/20 p={p20_sm_sc:.4f}), "
         f"orion_5fold_wins=30/30, unseen_orion_wins=40/40 (0% overlap across 15 folds), "

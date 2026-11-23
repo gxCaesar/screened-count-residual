@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PUSH-3: 100% Strictly Unseen-Patient 5-Fold End-to-End Orion-CRC (N = 40 Patients, Killing B1).
+"""Strictly Unseen-Patient 5-Fold End-to-End Orion-CRC Benchmark (N = 40 Patients, 0% Slide Overlap).
 
 Eliminates upstream pretraining slide overlap completely:
   - For each outer fold f in {0..4}, trains 3 diverse 16-channel virtual-staining generators
