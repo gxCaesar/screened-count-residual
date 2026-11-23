@@ -227,21 +227,34 @@ def main() -> int:
     assert (w31_zm, n31_zm) == (21, 31) and abs(p31_zm - 0.022097) < 1e-4
 
     df_mg22 = pd.read_csv(sd_dir / "v22_q3_mist_slide_gate.csv")
-    assert len(df_mg22) == 95
-    mg_meas_30 = df_mg22[(df_mg22["calib_pos_pct"] >= 0.5) & (df_mg22["internal_val_neg_fp_sc"].notna()) & (df_mg22["internal_val_neg_fp_sc"] <= 2.0) & (df_mg22["internal_val_f1_sc"] >= 0.30)]
-    mg_meas_40 = df_mg22[(df_mg22["calib_pos_pct"] >= 0.5) & (df_mg22["internal_val_neg_fp_sc"].notna()) & (df_mg22["internal_val_neg_fp_sc"] <= 2.0) & (df_mg22["internal_val_f1_sc"] >= 0.40)]
-    assert len(mg_meas_30) == 1 and str(mg_meas_30.iloc[0]["marker"]) == "ER" and len(mg_meas_40) == 0
+    assert len(df_mg22) == 95 and "calib_n_pos_tiles" in df_mg22.columns
+    mg_base = (df_mg22["calib_pos_pct"] >= 0.5) & (df_mg22["calib_n_pos_tiles"] >= 5) & (df_mg22["internal_val_neg_fp_sc"].notna()) & (df_mg22["internal_val_neg_fp_sc"] <= 2.0)
+    mg_meas_25 = df_mg22[mg_base & (df_mg22["internal_val_f1_sc"] >= 0.25)]
+    mg_meas_30 = df_mg22[mg_base & (df_mg22["internal_val_f1_sc"] >= 0.30)]
+    mg_meas_40 = df_mg22[mg_base & (df_mg22["internal_val_f1_sc"] >= 0.40)]
+    assert len(mg_meas_25) == 1 and len(mg_meas_30) == 1 and str(mg_meas_30.iloc[0]["marker"]) == "ER" and len(mg_meas_40) == 0
 
     df_x22 = pd.read_csv(sd_dir / "v22_q3_xdom_21slides_gate.csv")
-    for g_k, exp_40, exp_30 in (("BCIStainer", 0, 2), ("PyramidPix2Pix", 1, 3)):
+    assert "calib_n_pos_tiles" in df_x22.columns
+    exp_dutch = {
+        "BCIStainer": {0.25: 3, 0.30: 2, 0.35: 2, 0.40: 0},
+        "PyramidPix2Pix": {0.25: 3, 0.30: 3, 0.35: 2, 0.40: 1},
+    }
+    for g_k, thr_map in exp_dutch.items():
         sub_g = df_x22[(df_x22["generator"] == g_k) & (df_x22["arm"] == "S_count") & (df_x22["k_slides"].isin([1, 2]))]
-        base_ok = (sub_g["calib_pos_pct"] >= 0.5) & (sub_g["calib_internal_neg_fp_sc"].notna()) & (sub_g["calib_internal_neg_fp_sc"] <= 2.0)
-        acc_40 = sub_g[base_ok & (sub_g["calib_internal_val_f1_sc"] >= 0.40)]
-        acc_30 = sub_g[base_ok & (sub_g["calib_internal_val_f1_sc"] >= 0.30)]
-        assert len(acc_40) == exp_40 and len(acc_30) == exp_30 and float(acc_30["test_Fixed_tol_F1"].mean()) > 0.14
+        base_ok = (sub_g["calib_pos_pct"] >= 0.5) & (sub_g["calib_n_pos_tiles"] >= 5) & (sub_g["calib_internal_neg_fp_sc"].notna()) & (sub_g["calib_internal_neg_fp_sc"] <= 2.0)
+        for thr, exp_cnt in thr_map.items():
+            acc_t = sub_g[base_ok & (sub_g["calib_internal_val_f1_sc"] >= thr)]
+            assert len(acc_t) == exp_cnt, f"{g_k} thr={thr}: got {len(acc_t)} != {exp_cnt}"
+            if thr == 0.30:
+                assert float(acc_t["test_Fixed_tol_F1"].mean()) > 0.14
+
+    df_pre_mist = pd.read_csv(sd_dir / "v21_p1_mist_prealign_ods_burden.csv")
+    pr_qm_pre = df_pre_mist[(df_pre_mist["marker"] == "PR") & (df_pre_mist["arm"] == "QuantileMatch")]
+    assert len(pr_qm_pre) == 3 and abs(float(pr_qm_pre["burden_pearson_r"].mean()) - (-0.011857)) < 1e-4
 
     print(
-        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.2.0): "
+        f"Verified 20 frozen generator instances across 3 primary + 3 external cohorts (v2.2.1): "
         f"wins={wins_up}/20, mean_delta={mean_gain_up:+.6f}, wilcoxon_p={p_wilcox:.3e}, "
         f"v22_single_run_20x6 (S_vs_L {w20_lc}/20 p={p20_lc:.3f}; SMHI<E_zm L={w20_sm_lc}/20 p={p20_sm_lc:.4f}, S={w20_sm_sc}/20 p={p20_sm_sc:.4f}), "
         f"orion_5fold_wins=30/30, unseen_orion_wins=40/40 (0% overlap across 15 folds), "

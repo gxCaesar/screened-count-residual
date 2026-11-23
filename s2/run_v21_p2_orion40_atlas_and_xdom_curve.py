@@ -10,7 +10,7 @@ Two self-contained modes:
        lineage-proportion Pearson r, and exports a 20,000-nucleus 40-patient UMAP NPZ.
   2. ``--task xdom_budget``:
        Cross-hospital target-site calibration sample-efficiency & slide-budget curves for BOTH
-       frozen Beijing generators (BCIStainer 29.91M and official PyramidPix2Pix 17.44M) onto ALL
+       frozen Beijing generators (BCIStainer 14.96M single EMA generator and official PyramidPix2Pix 17.44M) onto ALL
        5,980 locked-test Dutch HER2match tiles (5 held-out slides, 3,368 negative-slide tiles):
          - Tile budgets: N in {4, 16, 64, 256, 1200} (3 repeats for N <= 64)
          - Slide budgets: 1 positive Dutch slide vs 2 slides vs all 6 Dutch training slides

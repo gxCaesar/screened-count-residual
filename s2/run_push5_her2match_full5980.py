@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """PUSH-5: Full 5,980-Tile HER2match Multi-Backbone & Negative-Slide Specificity Audit (cluster-host).
 
-Resolves Reviewer M3's 500-tile subsampling critique by evaluating ALL 5,980 locked-test
-tiles across ALL 5 held-out breast carcinoma slides:
+Evaluates ALL 5,980 locked-test tiles across ALL 5 held-out breast carcinoma slides:
   - wsi001 (HER2 0,  1,505 tiles)
   - wsi016 (HER2 0,    436 tiles)
   - wsi008 (HER2 1+, 1,427 tiles)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """EXP-5 / EXP-6 / EXP-7: Nature-Level Killer-Objection Validation Suite (runs on lab RTX PRO 6000 96GB).
 
-Addresses every top-tier Nature / Nature Methods referee question without touching any S6 artifact:
+Multi-cohort stress-test and comparator suite preserving all frozen S6 artifacts:
   - EXP-5 (End-to-End Full-Generator Fine-Tuning Comparator):
       Pre-trains a standard 7.76M-param U-Net virtual-staining generator on HEMIT (H&E -> 3-ch mIF)
       with L1 + SSIM loss (`UNet-Frozen`), then compares:
